@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace CrudEmployees
 {
-    public partial class Form1 : Form
+    public partial class Tables : Form
     {
         Conexion c = null;
         DataSet ds = null;
-        public Form1()
+        public Tables()
         {
             InitializeComponent();
             //Datos del Form y tamaños
@@ -24,34 +24,50 @@ namespace CrudEmployees
             employeesTable.Height = this.Height / 3;
             employeesTable.Location = new Point(this.Width/56,this.Height*2/5);
 
-            //Datos del Panel de datos
-            panel1.Visible = false;
-            panel1.Width = this.Width - this.Width / 27;
-            panel1.Height = this.Height / 5;
-            panel1.Location = new Point(this.Width / 54, this.Height / 5);
-            firstName.Width = panel1.Width / 7;
-            lastName.Width = panel1.Width / 7;
-            gender.Width = panel1.Width / 7;
-            birthDate.Width = panel1.Width / 7;
-            hireDate.Width = panel1.Width / 7;
-            addRecord.Width = panel1.Width / 7;
-            addRecord.Height = panel1.Height / 3;
-            hideFields.Height = panel1.Height / 3;
-            hideFields.Width = panel1.Width / 7;
-            label1.Location = new Point(panel1.Width / 49, 0);
-            firstName.Location = new Point(panel1.Width / 49, label1.Height*16/3);
-            label2.Location = new Point(panel1.Width *9/ 49, 0 );
-            lastName.Location = new Point(panel1.Width *9/ 49, label2.Height * 16 / 3);
-            label3.Location = new Point(panel1.Width *17/ 49, 0);
-            gender.Location = new Point(panel1.Width*17 / 49, label3.Height * 16 / 3);
-            label4.Location = new Point(panel1.Width *25/ 49, 0);
-            birthDate.Location = new Point(panel1.Width *25/ 49, label4.Height * 16 / 3);
-            label5.Location = new Point(panel1.Width *33/ 49, 0);
-            hireDate.Location = new Point(panel1.Width *33/ 49, label5.Height * 16 / 3);
-            addRecord.Location = new Point(panel1.Width * 41 / 49, 0);
-            hideFields.Location = new Point(panel1.Width * 41 / 49, label5.Height * 16 / 3);
+            //Datos del registro de empleados
+            employeesPanel.Visible = false;
+            employeesPanel.Width = this.Width - this.Width / 27;
+            employeesPanel.Height = this.Height / 5;
+            employeesPanel.Location = new Point(this.Width / 54, this.Height / 5);
+            fnEText.Width = employeesPanel.Width / 7;
+            lnEText.Width = employeesPanel.Width / 7;
+            genECombo.Width = employeesPanel.Width / 7;
+            bdEPicker.Width = employeesPanel.Width / 7;
+            hdEPicker.Width = employeesPanel.Width / 7;
+            addRecord.Width = employeesPanel.Width / 7;
+            addRecord.Height = employeesPanel.Height / 3;
+            hideFields.Height = employeesPanel.Height / 3;
+            hideFields.Width = employeesPanel.Width / 7;
+            fnELabel.Location = new Point(employeesPanel.Width / 49, 0);
+            fnEText.Location = new Point(employeesPanel.Width / 49, fnELabel.Height*16/3);
+            lnELabel.Location = new Point(employeesPanel.Width *9/ 49, 0 );
+            lnEText.Location = new Point(employeesPanel.Width *9/ 49, lnELabel.Height * 16 / 3);
+            genELabel.Location = new Point(employeesPanel.Width *17/ 49, 0);
+            genECombo.Location = new Point(employeesPanel.Width*17 / 49, genELabel.Height * 16 / 3);
+            bdELabel.Location = new Point(employeesPanel.Width *25/ 49, 0);
+            bdEPicker.Location = new Point(employeesPanel.Width *25/ 49, bdELabel.Height * 16 / 3);
+            hdELabel.Location = new Point(employeesPanel.Width *33/ 49, 0);
+            hdEPicker.Location = new Point(employeesPanel.Width *33/ 49, hdELabel.Height * 16 / 3);
+            addRecord.Location = new Point(employeesPanel.Width * 41 / 49, 0);
+            hideFields.Location = new Point(employeesPanel.Width * 41 / 49, hdELabel.Height * 16 / 3);
 
-            //Datos del segundo panel
+            //Datos del panel de Búsqueda
+            searchPanel.Visible = false;
+            searchPanel.Width = this.Width - this.Width / 27;
+            searchPanel.Height = this.Height / 5;
+            searchPanel.Location = new Point(this.Width / 54, this.Height / 5);
+            enSText.Width = searchPanel.Width / 5;
+            fnSText.Width = searchPanel.Width / 5;
+            lnSText.Width = searchPanel.Width / 5;
+            search.Width = searchPanel.Width / 5;
+            searchInfo.Location = new Point(0, 0);
+            enSearch.Location = new Point(0, searchInfo.Height * 17 / 15);
+            enSText.Location = new Point(0, enSearch.Location.Y + enSearch.Height * 17 / 15);
+
+            
+
+
+            //Datos del panel de control
             panel2.Width = this.Width - this.Width / 27;
             panel2.Height = this.Height / 5;
             panel2.Location = new Point(this.Width / 54, this.Height*4 / 5);
@@ -61,10 +77,12 @@ namespace CrudEmployees
             deleteRecord.Width = panel2.Width / 7;
             editRecord.Height = panel2.Height / 3;
             editRecord.Width = panel2.Width / 7;
-            showFields.Location = new Point(this.Width / 2 - showFields.Width / 2, 0);
-            deleteRecord.Location = new Point(this.Width / 2 - showFields.Width -deleteRecord.Width, 0);
-            editRecord.Location = new Point(this.Width / 2 + showFields.Width , 0);
-
+            showSearch.Height = panel2.Height / 3;
+            showSearch.Width = panel2.Width / 7;
+            showSearch.Location = new Point(0,0);
+            showFields.Location = new Point(showSearch.Width + showSearch.Width / 2 , 0);
+            editRecord.Location = new Point(showFields.Location.X + showFields.Width*3/2, 0);
+            deleteRecord.Location = new Point(panel2.Width-deleteRecord.Width, 0);
 
             c = new Conexion(); 
             ds = new DataSet();
@@ -88,17 +106,17 @@ namespace CrudEmployees
 
         private void showFields_Click(object sender, EventArgs e)
         {
-            panel1.Visible = true;
+            employeesPanel.Visible = true;
         }
 
         private void hideFields_Click(object sender, EventArgs e)
         {
-            panel1.Visible = false;
-            firstName.Text = "";
-            lastName.Text = "";
-            gender.SelectedIndex = -1;
-            birthDate.Value = DateTime.Now;
-            hireDate.Value = DateTime.Now;
+            employeesPanel.Visible = false;
+            fnEText.Text = "";
+            lnEText.Text = "";
+            genECombo.SelectedIndex = -1;
+            bdEPicker.Value = DateTime.Now;
+            hdEPicker.Value = DateTime.Now;
         }
 
         private void AddRecord_Click(object sender, EventArgs e)
@@ -108,11 +126,11 @@ namespace CrudEmployees
                 Object[] row = new object[5];
 
 
-                row[0] = firstName.Text;
-                row[1] = lastName.Text;
-                row[2] = gender.SelectedItem.ToString();
-                row[3] = birthDate.Value;
-                row[4] = hireDate.Value;
+                row[0] = fnEText.Text;
+                row[1] = lnEText.Text;
+                row[2] = genECombo.SelectedItem.ToString();
+                row[3] = bdEPicker.Value;
+                row[4] = hdEPicker.Value;
                 for (int i = 0; i < row.Length; i++)
                 {
                     Console.WriteLine(row[i].GetType());
@@ -123,11 +141,11 @@ namespace CrudEmployees
                 employeesTable.DataSource = ds.Tables["employees"].DefaultView;
                 employeesTable.Refresh();
                 ds.Dispose();
-                firstName.Text = "";
-                lastName.Text = "";
-                gender.SelectedIndex = -1;
-                birthDate.Value = DateTime.Now;
-                hireDate.Value = DateTime.Now;
+                fnEText.Text = "";
+                lnEText.Text = "";
+                genECombo.SelectedIndex = -1;
+                bdEPicker.Value = DateTime.Now;
+                hdEPicker.Value = DateTime.Now;
             }
             else
             {
@@ -138,11 +156,11 @@ namespace CrudEmployees
                     DataGridViewRow selectedRow = employeesTable.Rows[selectedrowindex];
                     row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
 
-                    row[1] = firstName.Text;
-                    row[2] = lastName.Text;
-                    row[3] = gender.SelectedItem.ToString();
-                    row[4] = birthDate.Value;
-                    row[5] = hireDate.Value;
+                    row[1] = fnEText.Text;
+                    row[2] = lnEText.Text;
+                    row[3] = genECombo.SelectedItem.ToString();
+                    row[4] = bdEPicker.Value;
+                    row[5] = hdEPicker.Value;
                     for (int i = 0; i < row.Length; i++)
                     {
                         Console.WriteLine(row[i].GetType());
@@ -153,17 +171,17 @@ namespace CrudEmployees
                     employeesTable.DataSource = ds.Tables["employees"].DefaultView;
                     employeesTable.Refresh();
                     ds.Dispose();
-                    firstName.Text = "";
-                    lastName.Text = "";
-                    gender.SelectedIndex = -1;
-                    birthDate.Value = DateTime.Now;
-                    hireDate.Value = DateTime.Now;
+                    fnEText.Text = "";
+                    lnEText.Text = "";
+                    genECombo.SelectedIndex = -1;
+                    bdEPicker.Value = DateTime.Now;
+                    hdEPicker.Value = DateTime.Now;
                 }
                     
             }
 
             addRecord.Text = "Add";
-            panel1.Visible = false;
+            employeesPanel.Visible = false;
             
         }
 
@@ -198,32 +216,32 @@ namespace CrudEmployees
                         
 
                         case 1:
-                            firstName.Text = Convert.ToString(selectedRow.Cells[i].Value);
+                            fnEText.Text = Convert.ToString(selectedRow.Cells[i].Value);
                             break;
 
                         case 2:
-                            lastName.Text = Convert.ToString(selectedRow.Cells[i].Value);
+                            lnEText.Text = Convert.ToString(selectedRow.Cells[i].Value);
                             break;
 
                         case 3:
                             string selectedgender = Convert.ToString(selectedRow.Cells[i].Value);
                             if (selectedgender.Equals("M"))
                             {
-                                gender.SelectedIndex = 0;
+                                genECombo.SelectedIndex = 0;
                             }
                             else
                             {
-                                gender.SelectedIndex = 1;
+                                genECombo.SelectedIndex = 1;
                             }
 
                             break;
 
                         case 4:
-                            birthDate.Value = Convert.ToDateTime(selectedRow.Cells[i].Value);
+                            bdEPicker.Value = Convert.ToDateTime(selectedRow.Cells[i].Value);
                             break;
 
                         case 5:
-                            hireDate.Value = Convert.ToDateTime(selectedRow.Cells[i].Value);
+                            hdEPicker.Value = Convert.ToDateTime(selectedRow.Cells[i].Value);
                             break;
 
 
@@ -234,7 +252,14 @@ namespace CrudEmployees
 
             }
             addRecord.Text = "Edit";
-            panel1.Visible = true;
+            employeesPanel.Visible = true;
+            
+        }
+
+        private void ShowSearch_Click(object sender, EventArgs e)
+        {
+            employeesPanel.Visible = false;
+            searchPanel.Visible = true;
             
         }
     }
