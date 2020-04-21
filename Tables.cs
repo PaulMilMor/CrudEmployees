@@ -15,6 +15,8 @@ namespace CrudEmployees
     {
         Conexion c = null;
         DataSet ds = null;
+        Panel[] panels;
+        Button[] addButtons;
         public Tables()
         {
             InitializeComponent();
@@ -64,7 +66,7 @@ namespace CrudEmployees
             enSearch.Location = new Point(0, searchInfo.Height * 17 / 15);
             enSText.Location = new Point(0, enSearch.Location.Y + enSearch.Height * 17 / 15);
             */
-            
+
 
 
             //Datos del panel de control
@@ -83,6 +85,8 @@ namespace CrudEmployees
             showFields.Location = new Point(showSearch.Width + showSearch.Width / 2 , 0);
             editRecord.Location = new Point(showFields.Location.X + showFields.Width*3/2, 0);
             deleteRecord.Location = new Point(panel2.Width-deleteRecord.Width, 0);*/
+            panels = new Panel[]{employeesPanel, departmentsPanel, managerPanel, deptempPanel, titlesPanel, salariesPanel };
+            addButtons = new Button[] {addEmployee,addDepartment,addManager,addDeptEmp,addTitle,addSalary };
 
             c = new Conexion();
             this.setData("employees");
@@ -117,36 +121,44 @@ namespace CrudEmployees
                     ds = c.getData(table);
                     deptmanagerTable.DataSource = ds.Tables[table].DefaultView;
                     deptmanagerTable.Columns[0].HeaderText = "Employee Number";
-                    deptmanagerTable.Columns[1].HeaderText = "Department Number";
-                    deptmanagerTable.Columns[2].HeaderText = "From Date";
-                    deptmanagerTable.Columns[3].HeaderText = "To Date";
+                    deptmanagerTable.Columns[1].HeaderText = "First Name";
+                    deptmanagerTable.Columns[2].HeaderText = "Last Name";
+                    deptmanagerTable.Columns[3].HeaderText = "Department Number";
+                    deptmanagerTable.Columns[4].HeaderText = "From Date";
+                    deptmanagerTable.Columns[5].HeaderText = "To Date";
                     break;
                 case "dept_emp":
                     ds = new DataSet();
                     ds = c.getData(table);
                     deptempTable.DataSource = ds.Tables[table].DefaultView;
                     deptempTable.Columns[0].HeaderText = "Employee Number";
-                    deptempTable.Columns[1].HeaderText = "Department Number";
-                    deptempTable.Columns[2].HeaderText = "From Date";
-                    deptempTable.Columns[3].HeaderText = "To Date";
+                    deptempTable.Columns[1].HeaderText = "First Name";
+                    deptempTable.Columns[2].HeaderText = "Last Name";
+                    deptempTable.Columns[3].HeaderText = "Department Number";
+                    deptempTable.Columns[4].HeaderText = "From Date";
+                    deptempTable.Columns[5].HeaderText = "To Date";
                     break;
                 case "titles":
                     ds = new DataSet();
                     ds = c.getData(table);
                     titlesTable.DataSource = ds.Tables[table].DefaultView;
                     titlesTable.Columns[0].HeaderText = "Employee Number";
-                    titlesTable.Columns[1].HeaderText = "Title";
-                    titlesTable.Columns[2].HeaderText = "From Date";
-                    titlesTable.Columns[3].HeaderText = "To Date";
+                    titlesTable.Columns[1].HeaderText = "First Name";
+                    titlesTable.Columns[2].HeaderText = "Last Name";
+                    titlesTable.Columns[3].HeaderText = "Title";
+                    titlesTable.Columns[4].HeaderText = "From Date";
+                    titlesTable.Columns[5].HeaderText = "To Date";
                     break;
                 case "salaries":
                     ds = new DataSet();
                     ds = c.getData(table);
                     salariesTable.DataSource = ds.Tables[table].DefaultView;
                     salariesTable.Columns[0].HeaderText = "Employee Number";
-                    salariesTable.Columns[1].HeaderText = "Salary";
-                    salariesTable.Columns[2].HeaderText = "From Date";
-                    salariesTable.Columns[3].HeaderText = "To Date";
+                    salariesTable.Columns[1].HeaderText = "First Name";
+                    salariesTable.Columns[2].HeaderText = "Last Name";
+                    salariesTable.Columns[3].HeaderText = "Salary";
+                    salariesTable.Columns[4].HeaderText = "From Date";
+                    salariesTable.Columns[5].HeaderText = "To Date";
                     break;
             }
         }
@@ -157,13 +169,16 @@ namespace CrudEmployees
 
         private void showFields_Click(object sender, EventArgs e)
         {
-            employeesPanel.Visible = true;
-            
+            //employeesPanel.Visible = true;
+            int index = tabControl1.SelectedIndex;
+            panels[index].Visible = true;
+            addButtons[index].Text = "Add";
         }
 
         private void hideFields_Click(object sender, EventArgs e)
         {
-            employeesPanel.Visible = false;
+            int index = tabControl1.SelectedIndex;
+            panels[index].Visible = false;
             fnEText.Text = "";
             lnEText.Text = "";
             genECombo.SelectedIndex = -1;
@@ -303,13 +318,15 @@ namespace CrudEmployees
                 string a = Convert.ToString(selectedRow.Cells[0].Value);
 
             }
-            addEmployee.Text = "Edit";
-            employeesPanel.Visible = true;
+            int index = tabControl1.SelectedIndex;
+           addButtons[index].Text = "Edit";
+            panels[index].Visible = true;
             
         }
 
         private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             string tableName = tabControl1.SelectedTab.Name;
             this.setData(tableName);
         }
