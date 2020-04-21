@@ -20,12 +20,12 @@ namespace CrudEmployees
             InitializeComponent();
             //Datos del Form y tamaños
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            employeesTable.Width = this.Width - this.Width/28;
+            /*employeesTable.Width = this.Width - this.Width/28;
             employeesTable.Height = this.Height / 3;
-            employeesTable.Location = new Point(this.Width/56,this.Height*2/5);
+            employeesTable.Location = new Point(this.Width/56,this.Height*2/5);*/
 
             //Datos del registro de empleados
-            employeesPanel.Visible = false;
+            /*employeesPanel.Visible = false;
             employeesPanel.Width = this.Width - this.Width / 27;
             employeesPanel.Height = this.Height / 5;
             employeesPanel.Location = new Point(this.Width / 54, this.Height / 5);
@@ -49,10 +49,10 @@ namespace CrudEmployees
             hdELabel.Location = new Point(employeesPanel.Width *33/ 49, 0);
             hdEPicker.Location = new Point(employeesPanel.Width *33/ 49, hdELabel.Height * 16 / 3);
             addRecord.Location = new Point(employeesPanel.Width * 41 / 49, 0);
-            hideFields.Location = new Point(employeesPanel.Width * 41 / 49, hdELabel.Height * 16 / 3);
+            hideFields.Location = new Point(employeesPanel.Width * 41 / 49, hdELabel.Height * 16 / 3);*/
 
             //Datos del panel de Búsqueda
-            searchPanel.Visible = false;
+            /*searchPanel.Visible = false;
             searchPanel.Width = this.Width - this.Width / 27;
             searchPanel.Height = this.Height / 5;
             searchPanel.Location = new Point(this.Width / 54, this.Height / 5);
@@ -63,12 +63,12 @@ namespace CrudEmployees
             searchInfo.Location = new Point(0, 0);
             enSearch.Location = new Point(0, searchInfo.Height * 17 / 15);
             enSText.Location = new Point(0, enSearch.Location.Y + enSearch.Height * 17 / 15);
-
+            */
             
 
 
             //Datos del panel de control
-            panel2.Width = this.Width - this.Width / 27;
+            /*panel2.Width = this.Width - this.Width / 27;
             panel2.Height = this.Height / 5;
             panel2.Location = new Point(this.Width / 54, this.Height*4 / 5);
             showFields.Height = panel2.Height / 3;
@@ -82,23 +82,74 @@ namespace CrudEmployees
             showSearch.Location = new Point(0,0);
             showFields.Location = new Point(showSearch.Width + showSearch.Width / 2 , 0);
             editRecord.Location = new Point(showFields.Location.X + showFields.Width*3/2, 0);
-            deleteRecord.Location = new Point(panel2.Width-deleteRecord.Width, 0);
+            deleteRecord.Location = new Point(panel2.Width-deleteRecord.Width, 0);*/
 
-            c = new Conexion(); 
-            ds = new DataSet();
-            ds = c.getData("employees");
-            
-            employeesTable.DataSource = ds.Tables["employees"].DefaultView;
-            employeesTable.Columns[0].HeaderText = "Number";
-            employeesTable.Columns[1].HeaderText = "First Name";
-            employeesTable.Columns[2].HeaderText = "Last Name";
-            employeesTable.Columns[3].HeaderText = "Gender";
-            employeesTable.Columns[4].HeaderText = "Birth Date";
-            employeesTable.Columns[5].HeaderText = "Hire Date";
+            c = new Conexion();
+            this.setData("employees");
 
             ds.Dispose();
         }
+        private void setData(string table)
+        {
+            switch (table)
+            {
+                case "employees":
+                    ds = new DataSet();
+                    ds = c.getData(table);
 
+                    employeesTable.DataSource = ds.Tables[table].DefaultView;
+                    employeesTable.Columns[0].HeaderText = "Employee Number";
+                    employeesTable.Columns[1].HeaderText = "First Name";
+                    employeesTable.Columns[2].HeaderText = "Last Name";
+                    employeesTable.Columns[3].HeaderText = "Gender";
+                    employeesTable.Columns[4].HeaderText = "Birth Date";
+                    employeesTable.Columns[5].HeaderText = "Hire Date";
+                    break;
+                case "departments":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    departmentsTable.DataSource = ds.Tables[table].DefaultView;
+                    departmentsTable.Columns[0].HeaderText = "Department Number";
+                    departmentsTable.Columns[1].HeaderText = "Department Name";
+                    break;
+                case "dept_manager":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    deptmanagerTable.DataSource = ds.Tables[table].DefaultView;
+                    deptmanagerTable.Columns[0].HeaderText = "Employee Number";
+                    deptmanagerTable.Columns[1].HeaderText = "Department Number";
+                    deptmanagerTable.Columns[2].HeaderText = "From Date";
+                    deptmanagerTable.Columns[3].HeaderText = "To Date";
+                    break;
+                case "dept_emp":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    deptempTable.DataSource = ds.Tables[table].DefaultView;
+                    deptempTable.Columns[0].HeaderText = "Employee Number";
+                    deptempTable.Columns[1].HeaderText = "Department Number";
+                    deptempTable.Columns[2].HeaderText = "From Date";
+                    deptempTable.Columns[3].HeaderText = "To Date";
+                    break;
+                case "titles":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    titlesTable.DataSource = ds.Tables[table].DefaultView;
+                    titlesTable.Columns[0].HeaderText = "Employee Number";
+                    titlesTable.Columns[1].HeaderText = "Title";
+                    titlesTable.Columns[2].HeaderText = "From Date";
+                    titlesTable.Columns[3].HeaderText = "To Date";
+                    break;
+                case "salaries":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    salariesTable.DataSource = ds.Tables[table].DefaultView;
+                    salariesTable.Columns[0].HeaderText = "Employee Number";
+                    salariesTable.Columns[1].HeaderText = "Salary";
+                    salariesTable.Columns[2].HeaderText = "From Date";
+                    salariesTable.Columns[3].HeaderText = "To Date";
+                    break;
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -107,6 +158,7 @@ namespace CrudEmployees
         private void showFields_Click(object sender, EventArgs e)
         {
             employeesPanel.Visible = true;
+            
         }
 
         private void hideFields_Click(object sender, EventArgs e)
@@ -121,7 +173,7 @@ namespace CrudEmployees
 
         private void AddRecord_Click(object sender, EventArgs e)
         {
-            if (addRecord.Text.Equals("Add"))
+            if (addEmployee.Text.Equals("Add"))
             {
                 Object[] row = new object[5];
 
@@ -180,7 +232,7 @@ namespace CrudEmployees
                     
             }
 
-            addRecord.Text = "Add";
+            addEmployee.Text = "Add";
             employeesPanel.Visible = false;
             
         }
@@ -251,16 +303,15 @@ namespace CrudEmployees
                 string a = Convert.ToString(selectedRow.Cells[0].Value);
 
             }
-            addRecord.Text = "Edit";
+            addEmployee.Text = "Edit";
             employeesPanel.Visible = true;
             
         }
 
-        private void ShowSearch_Click(object sender, EventArgs e)
+        private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            employeesPanel.Visible = false;
-            searchPanel.Visible = true;
-            
+            string tableName = tabControl1.SelectedTab.Name;
+            this.setData(tableName);
         }
     }
 }

@@ -90,6 +90,21 @@ namespace CrudEmployees
                     query = "SELECT * FROM employees ORDER BY hire_date DESC LIMIT 100";
                     Console.WriteLine("It is 1");
                     break;
+                case "departments":
+                    query = "SELECT * FROM departments ORDER BY dept_no";
+                    break;
+                case "dept_manager":
+                    query = "SELECT * FROM dept_manager ORDER BY dept_no";
+                    break;
+                case "dept_emp":
+                    query = "SELECT * FROM dept_emp ORDER BY from_date DESC LIMIT 100";
+                    break;
+                case "titles":
+                    query = "SELECT * FROM titles ORDER BY from_date DESC LIMIT 100";
+                    break;
+                case "salaries":
+                    query = "SELECT * FROM salaries ORDER BY from_date DESC LIMIT 100";
+                    break;
 
             }
             DataSet ds = new DataSet();
@@ -97,7 +112,9 @@ namespace CrudEmployees
             if (this.OpenConnection() == true)
             {
                 MySqlDataAdapter sda = new MySqlDataAdapter(query, connection);
-                sda.Fill(ds, "employees");
+                sda.Fill(ds, table);
+                
+                
                 
                 sda.Dispose();
                 this.CloseConnection();
