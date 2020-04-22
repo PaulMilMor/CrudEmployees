@@ -154,6 +154,76 @@ namespace CrudEmployees
                         this.CloseConnection();
                     }
                     break;
+                case "departments":
+                    query = "UPDATE departments SET dept_name = @dn WHERE dept_no = @dno";
+                    if(this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@dno", row[0]);
+                        cmd.Parameters.AddWithValue("@dn", row[1]);
+                        cmd.Connection = connection;
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
+                case "dept_manager":
+                    query = "UPDATE dept_manager SET from_date = @fd, to_date = @td WHERE emp_no = @en AND dept_no =@dno";
+                    if (this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@en", row[0]);
+                        cmd.Parameters.AddWithValue("@dno", row[1]);
+                        cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[2];
+                        cmd.Parameters.Add("@td", MySqlDbType.Date).Value = row[3];
+                        cmd.Connection = connection;
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
+                case "dept_emp":
+                    query = "UPDATE dept_emp SET from_date = @fd, to_date = @td WHERE emp_no = @en AND dept_no = @dno";
+                    if (this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@en", row[0]);
+                        cmd.Parameters.AddWithValue("@dno", row[1]);
+                        cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[2];
+                        cmd.Parameters.Add("@td", MySqlDbType.Date).Value = row[3];
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
+                case "titles":
+                    query = "UPDATE titles SET to_date = @td WHERE emp_no = @en AND title = @ti AND from_date=@fd";
+                    if (this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@en", row[0]);
+                        cmd.Parameters.AddWithValue("@ti", row[1]);
+                        cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[2];
+                        cmd.Parameters.Add("@td",MySqlDbType.Date).Value = row[3];
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
+                case "salaries":
+                    query = "UPDATE salaries SET salary = @sal, to_date = @td WHERE emp_no = @en AND from_date = @fd";
+                    if(this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@en", row[0]);
+                        cmd.Parameters.AddWithValue("@sal", row[1]);
+                        cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[2];
+                        cmd.Parameters.Add("@ld", MySqlDbType.Date).Value = row[3];
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
             }
             
         }
