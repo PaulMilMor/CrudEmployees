@@ -507,65 +507,75 @@ namespace CrudEmployees
 
         private void DeleteRecord_Click(object sender, EventArgs e)
         {
-            int index = tabControl1.SelectedIndex;
-            Object[] row;
-            if (tables[index].SelectedCells.Count > 0)
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this record? It might delete some records in other tables", "Delete", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                int selectedrowindex = tables[index].SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = tables[index].Rows[selectedrowindex];
-                switch (index)
+                //do something
+                int index = tabControl1.SelectedIndex;
+                Object[] row;
+                if (tables[index].SelectedCells.Count > 0)
                 {
-                    case 0:
-                        row = new object[1];
-                        row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
-                        c.Delete("employees", row);
-                        break;
-                    case 1:
-                        row = new object[1];
-                        row[0] = Convert.ToString(selectedRow.Cells[0].Value);
-                        c.Delete("departments", row);
-                        break;
-                    case 2:
-                        row = new object[2];
-                        row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
-                        row[1] = Convert.ToString(selectedRow.Cells[3].Value);
-                        c.Delete("dept_manager", row);
-                        break;
-                    case 3:
-                        row = new object[2];
-                        row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
-                        row[1] = Convert.ToString(selectedRow.Cells[3].Value);
-                        c.Delete("dept_emp", row);
-                        break;
-                    case 4:
-                        row = new object[3];
-                        row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
-                        row[1] = Convert.ToString(selectedRow.Cells[3].Value);
-                        row[2] = Convert.ToDateTime(selectedRow.Cells[4].Value);
-                        c.Delete("titles", row);
-                        break;
-                    case 5:
-                        row = new object[2];
-                        row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
-                        row[1] = Convert.ToDateTime(selectedRow.Cells[4].Value);
-                        break;
+                    int selectedrowindex = tables[index].SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = tables[index].Rows[selectedrowindex];
+                    switch (index)
+                    {
+                        case 0:
+                            row = new object[1];
+                            row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                            c.Delete("employees", row);
+                            break;
+                        case 1:
+                            row = new object[1];
+                            row[0] = Convert.ToString(selectedRow.Cells[0].Value);
+                            c.Delete("departments", row);
+                            break;
+                        case 2:
+                            row = new object[2];
+                            row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                            row[1] = Convert.ToString(selectedRow.Cells[3].Value);
+                            c.Delete("dept_manager", row);
+                            break;
+                        case 3:
+                            row = new object[2];
+                            row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                            row[1] = Convert.ToString(selectedRow.Cells[3].Value);
+                            c.Delete("dept_emp", row);
+                            break;
+                        case 4:
+                            row = new object[3];
+                            row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                            row[1] = Convert.ToString(selectedRow.Cells[3].Value);
+                            row[2] = Convert.ToDateTime(selectedRow.Cells[4].Value);
+                            c.Delete("titles", row);
+                            break;
+                        case 5:
+                            row = new object[2];
+                            row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                            row[1] = Convert.ToDateTime(selectedRow.Cells[4].Value);
+                            break;
+
+                    }
+
+
+
+
+                    string tableName = tabControl1.SelectedTab.Name;
+                    this.setData(tableName);
+                    tables[index].Refresh();
+                    //c.Delete("employees", empno);
+                    //ds = new DataSet();
+                    //ds = c.getData("employees");
+                    //employeesTable.DataSource = ds.Tables["employees"].DefaultView;
+                    //employeesTable.Refresh();
+                    //ds.Dispose();
 
                 }
-
-
-
-
-                string tableName = tabControl1.SelectedTab.Name;
-                this.setData(tableName);
-                tables[index].Refresh();
-                //c.Delete("employees", empno);
-                //ds = new DataSet();
-                //ds = c.getData("employees");
-                //employeesTable.DataSource = ds.Tables["employees"].DefaultView;
-                //employeesTable.Refresh();
-                //ds.Dispose();
-
             }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+            
         }
 
         private void EditRecord_Click(object sender, EventArgs e)
