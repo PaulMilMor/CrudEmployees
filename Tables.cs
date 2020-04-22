@@ -89,7 +89,8 @@ namespace CrudEmployees
             panels = new Panel[]{employeesPanel, departmentsPanel, managerPanel, deptempPanel, titlesPanel, salariesPanel };
             addButtons = new Button[] {addEmployee,addDepartment,addManager,addDeptEmp,addTitle,addSalary };
             tables = new DataGridView[] { employeesTable, departmentsTable, deptmanagerTable, deptempTable, titlesTable, salariesTable };
-
+            searchBar.GotFocus += search_GotFocus;
+            searchBar.LostFocus += search_LostFocus;
             c = new Conexion();
             this.setData("employees");
 
@@ -110,6 +111,7 @@ namespace CrudEmployees
                     employeesTable.Columns[3].HeaderText = "Gender";
                     employeesTable.Columns[4].HeaderText = "Birth Date";
                     employeesTable.Columns[5].HeaderText = "Hire Date";
+                    showingEmployees.Text = "Showing last 100 hired employees";
                     break;
                 case "departments":
                     ds = new DataSet();
@@ -117,6 +119,7 @@ namespace CrudEmployees
                     departmentsTable.DataSource = ds.Tables[table].DefaultView;
                     departmentsTable.Columns[0].HeaderText = "Department Number";
                     departmentsTable.Columns[1].HeaderText = "Department Name";
+                    showingDepartments.Text = "Showing all departments";
                     break;
                 case "dept_manager":
                     ds = new DataSet();
@@ -128,6 +131,7 @@ namespace CrudEmployees
                     deptmanagerTable.Columns[3].HeaderText = "Department Number";
                     deptmanagerTable.Columns[4].HeaderText = "From Date";
                     deptmanagerTable.Columns[5].HeaderText = "To Date";
+                    showingManagers.Text = "Showing all managers";
                     break;
                 case "dept_emp":
                     ds = new DataSet();
@@ -139,6 +143,7 @@ namespace CrudEmployees
                     deptempTable.Columns[3].HeaderText = "Department Number";
                     deptempTable.Columns[4].HeaderText = "From Date";
                     deptempTable.Columns[5].HeaderText = "To Date";
+                    showingDeptemp.Text = "Showing last 100 department changes";
                     break;
                 case "titles":
                     ds = new DataSet();
@@ -150,6 +155,7 @@ namespace CrudEmployees
                     titlesTable.Columns[3].HeaderText = "Title";
                     titlesTable.Columns[4].HeaderText = "From Date";
                     titlesTable.Columns[5].HeaderText = "To Date";
+                    showingTitles.Text = "Showing last 100 title changes";
                     break;
                 case "salaries":
                     ds = new DataSet();
@@ -161,6 +167,7 @@ namespace CrudEmployees
                     salariesTable.Columns[3].HeaderText = "Salary";
                     salariesTable.Columns[4].HeaderText = "From Date";
                     salariesTable.Columns[5].HeaderText = "To Date";
+                    showingSalaries.Text = "Showing last 100 salary changes";
                     break;
             }
         }
@@ -673,7 +680,209 @@ namespace CrudEmployees
             string tableName = tabControl1.SelectedTab.Name;
             this.setData(tableName);
             this.hideFields_Click(this, new EventArgs());
+            if(tableName == "departments")
+            {
+                cancelSearch.Enabled = false;
+                search.Enabled = false;
+            }
+            else
+            {
+                cancelSearch.Enabled = true;
+                search.Enabled = true;
+            }
             
         }
+
+        private void search_GotFocus(object sender, EventArgs e)
+        {
+            if(searchBar.Text == "Search by employee number")
+            {
+                searchBar.Text = "";
+                
+            }
+            searchBar.ForeColor = Color.Black;
+        }
+
+        public void search_LostFocus(object sender, EventArgs e)
+        {
+            if(searchBar.Text == "")
+            {
+                searchBar.Text = "Search by employee number";
+            }
+            searchBar.ForeColor = Color.DarkGray;
+        }
+
+        private void SearchBar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                
+                //search.Enabled = true;
+            }
+            
+        }
+
+        private void Search_Click(object sender, EventArgs e)
+        {
+            string table = tabControl1.SelectedTab.Name;
+            int searched;
+            search.Enabled = false;
+            cancelSearch.Enabled = true;
+            try
+            {
+                searched = int.Parse(searchBar.Text);
+
+            }
+            catch (FormatException)
+            {
+                searched = 0;
+            }
+             
+            switch (table)
+            {
+                case "employees":
+                    ds = new DataSet();
+                    ds = c.Search(table,searched);
+
+                    employeesTable.DataSource = ds.Tables[table].DefaultView;
+                    employeesTable.Columns[0].HeaderText = "Employee Number";
+                    employeesTable.Columns[1].HeaderText = "First Name";
+                    employeesTable.Columns[2].HeaderText = "Last Name";
+                    employeesTable.Columns[3].HeaderText = "Gender";
+                    employeesTable.Columns[4].HeaderText = "Birth Date";
+                    employeesTable.Columns[5].HeaderText = "Hire Date";
+                    if(searched == 0)
+                    {
+                        showingEmployees.Text = "No records found";
+                    }
+                    else
+                    {
+                        showingEmployees.Text = "Showing info of employee " + searched;
+                    }
+                    
+                    break;
+                /*case "departments":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    departmentsTable.DataSource = ds.Tables[table].DefaultView;
+                    departmentsTable.Columns[0].HeaderText = "Department Number";
+                    departmentsTable.Columns[1].HeaderText = "Department Name";
+                    break;*/
+                case "dept_manager":
+                    ds = new DataSet();
+                    ds = c.Search(table, searched);
+                    deptmanagerTable.DataSource = ds.Tables[table].DefaultView;
+                    deptmanagerTable.Columns[0].HeaderText = "Employee Number";
+                    deptmanagerTable.Columns[1].HeaderText = "First Name";
+                    deptmanagerTable.Columns[2].HeaderText = "Last Name";
+                    deptmanagerTable.Columns[1].HeaderText = "Department Number";
+                    deptmanagerTable.Columns[2].HeaderText = "From Date";
+                    deptmanagerTable.Columns[3].HeaderText = "To Date";
+                    if (searched == 0)
+                    {
+                        showingManagers.Text = "No records found";
+                    }
+                    else
+                    {
+                        showingManagers.Text = "Showing info of employee " + searched;
+                    }
+                    break;
+                case "dept_emp":
+                    ds = new DataSet();
+                    ds = c.Search(table,searched);
+                    deptempTable.DataSource = ds.Tables[table].DefaultView;
+                    deptempTable.Columns[0].HeaderText = "Employee Number";
+                    deptempTable.Columns[1].HeaderText = "First Name";
+                    deptempTable.Columns[2].HeaderText = "Last Name";
+                    deptempTable.Columns[3].HeaderText = "Department Number";
+                    deptempTable.Columns[4].HeaderText = "From Date";
+                    deptempTable.Columns[5].HeaderText = "To Date";
+                    if (searched == 0)
+                    {
+                        showingDeptemp.Text = "No records found";
+                    }
+                    else
+                    {
+                        showingDeptemp.Text = "Showing current department of employee " + searched;
+                    }
+                    break;
+                case "titles":
+                    ds = new DataSet();
+                    ds = c.Search(table,searched);
+                    titlesTable.DataSource = ds.Tables[table].DefaultView;
+                    titlesTable.Columns[0].HeaderText = "Employee Number";
+                    titlesTable.Columns[1].HeaderText = "First Name";
+                    titlesTable.Columns[2].HeaderText = "Last Name";
+                    titlesTable.Columns[3].HeaderText = "Title";
+                    titlesTable.Columns[4].HeaderText = "From Date";
+                    titlesTable.Columns[5].HeaderText = "To Date";
+                    if (searched == 0)
+                    {
+                        showingTitles.Text = "No records found";
+                    }
+                    else
+                    {
+                        showingTitles.Text = "Showing current title of employee " + searched;
+                    }
+                    break;
+                case "salaries":
+                    ds = new DataSet();
+                    ds = c.Search(table,searched);
+                    salariesTable.DataSource = ds.Tables[table].DefaultView;
+                    salariesTable.Columns[0].HeaderText = "Employee Number";
+                    salariesTable.Columns[1].HeaderText = "First Name";
+                    salariesTable.Columns[2].HeaderText = "Last Name";
+                    salariesTable.Columns[3].HeaderText = "Salary";
+                    salariesTable.Columns[4].HeaderText = "From Date";
+                    salariesTable.Columns[5].HeaderText = "To Date";
+                    if (searched == 0)
+                    {
+                        showingSalaries.Text = "No records found";
+                    }
+                    else
+                    {
+                        showingSalaries.Text = "Showing current salary of employee " + searched;
+                    }
+                    break;
+                    
+            }
+        }
+
+        private void SearchBar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Search_Click(this, new EventArgs());
+            }
+           /* int index = tabControl1.SelectedIndex;
+            if (index != 1)
+            {
+                search.Enabled = true;
+            }*/
+        }
+
+        private void CancelSearch_Click(object sender, EventArgs e)
+        {
+            string tableName = tabControl1.SelectedTab.Name;
+            this.setData(tableName);
+            this.hideFields_Click(this, new EventArgs());
+            searchBar.Text = "Search by employee number";
+            //cancelSearch.Enabled = false;
+            //search.Enabled = false;
+            /*if (tableName == "departments")
+            {
+                cancelSearch.Enabled = false;
+                search.Enabled = false;
+            }
+            else
+            {
+                searchBar.Text = "Search by employee number";
+                searchBar.Enabled = true;
+                //cancelSearch.Enabled = true;
+                //search.Enabled = true;
+            }*/
+        }
     }
+        
 }

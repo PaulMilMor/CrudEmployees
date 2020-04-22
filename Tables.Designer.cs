@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.showFields = new System.Windows.Forms.Button();
             this.deleteRecord = new System.Windows.Forms.Button();
             this.editRecord = new System.Windows.Forms.Button();
@@ -41,7 +41,7 @@
             this.search = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.departments = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
+            this.showingDepartments = new System.Windows.Forms.Label();
             this.departmentsTable = new System.Windows.Forms.DataGridView();
             this.departmentsPanel = new System.Windows.Forms.TableLayoutPanel();
             this.hideDeptPanel = new System.Windows.Forms.Button();
@@ -51,7 +51,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dnoDText = new System.Windows.Forms.TextBox();
             this.employees = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.showingEmployees = new System.Windows.Forms.Label();
             this.employeesTable = new System.Windows.Forms.DataGridView();
             this.employeesPanel = new System.Windows.Forms.TableLayoutPanel();
             this.hideEmpPanel = new System.Windows.Forms.Button();
@@ -68,7 +68,7 @@
             this.genELabel = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.dept_manager = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
+            this.showingManagers = new System.Windows.Forms.Label();
             this.deptmanagerTable = new System.Windows.Forms.DataGridView();
             this.managerPanel = new System.Windows.Forms.TableLayoutPanel();
             this.hideManPanel = new System.Windows.Forms.Button();
@@ -82,7 +82,7 @@
             this.enDMText = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.dept_emp = new System.Windows.Forms.TabPage();
-            this.label14 = new System.Windows.Forms.Label();
+            this.showingDeptemp = new System.Windows.Forms.Label();
             this.deptempTable = new System.Windows.Forms.DataGridView();
             this.deptempPanel = new System.Windows.Forms.TableLayoutPanel();
             this.hideDeptempPanel = new System.Windows.Forms.Button();
@@ -96,7 +96,7 @@
             this.dnoDEText = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.titles = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
+            this.showingTitles = new System.Windows.Forms.Label();
             this.titlesTable = new System.Windows.Forms.DataGridView();
             this.titlesPanel = new System.Windows.Forms.TableLayoutPanel();
             this.hideTitlePanel = new System.Windows.Forms.Button();
@@ -110,7 +110,7 @@
             this.tiTText = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.salaries = new System.Windows.Forms.TabPage();
-            this.label20 = new System.Windows.Forms.Label();
+            this.showingSalaries = new System.Windows.Forms.Label();
             this.salariesTable = new System.Windows.Forms.DataGridView();
             this.salariesPanel = new System.Windows.Forms.TableLayoutPanel();
             this.hideSalary = new System.Windows.Forms.Button();
@@ -123,6 +123,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.salSText = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
+            this.cancelSearch = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.departments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.departmentsTable)).BeginInit();
@@ -151,7 +152,7 @@
             this.showFields.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showFields.Location = new System.Drawing.Point(3, 3);
             this.showFields.Name = "showFields";
-            this.showFields.Size = new System.Drawing.Size(110, 48);
+            this.showFields.Size = new System.Drawing.Size(100, 48);
             this.showFields.TabIndex = 6;
             this.showFields.Text = "Add";
             this.showFields.UseVisualStyleBackColor = true;
@@ -161,9 +162,9 @@
             // 
             this.deleteRecord.Dock = System.Windows.Forms.DockStyle.Fill;
             this.deleteRecord.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteRecord.Location = new System.Drawing.Point(1216, 3);
+            this.deleteRecord.Location = new System.Drawing.Point(1238, 3);
             this.deleteRecord.Name = "deleteRecord";
-            this.deleteRecord.Size = new System.Drawing.Size(131, 48);
+            this.deleteRecord.Size = new System.Drawing.Size(109, 48);
             this.deleteRecord.TabIndex = 6;
             this.deleteRecord.Text = "Delete";
             this.deleteRecord.UseVisualStyleBackColor = true;
@@ -173,9 +174,9 @@
             // 
             this.editRecord.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editRecord.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editRecord.Location = new System.Drawing.Point(119, 3);
+            this.editRecord.Location = new System.Drawing.Point(109, 3);
             this.editRecord.Name = "editRecord";
-            this.editRecord.Size = new System.Drawing.Size(124, 48);
+            this.editRecord.Size = new System.Drawing.Size(113, 48);
             this.editRecord.TabIndex = 5;
             this.editRecord.Text = "Edit";
             this.editRecord.UseVisualStyleBackColor = true;
@@ -185,36 +186,43 @@
             // 
             this.searchBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchBar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBar.Location = new System.Drawing.Point(249, 25);
+            this.searchBar.ForeColor = System.Drawing.Color.DarkGray;
+            this.searchBar.Location = new System.Drawing.Point(228, 25);
             this.searchBar.Name = "searchBar";
             this.searchBar.Size = new System.Drawing.Size(584, 26);
             this.searchBar.TabIndex = 16;
+            this.searchBar.Text = "Search by employee number";
+            this.searchBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBar_KeyDown);
+            this.searchBar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchBar_KeyPress);
             // 
             // search
             // 
             this.search.Dock = System.Windows.Forms.DockStyle.Fill;
             this.search.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search.Location = new System.Drawing.Point(839, 3);
+            this.search.Location = new System.Drawing.Point(818, 3);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(139, 48);
+            this.search.Size = new System.Drawing.Size(125, 48);
             this.search.TabIndex = 12;
             this.search.Text = "Search";
             this.search.UseVisualStyleBackColor = true;
+            this.search.Click += new System.EventHandler(this.Search_Click);
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnCount = 7;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.01754F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.98246F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 590F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 232F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 114F));
             this.tableLayoutPanel1.Controls.Add(this.showFields, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.deleteRecord, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.search, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.searchBar, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.editRecord, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.deleteRecord, 6, 0);
+            this.tableLayoutPanel1.Controls.Add(this.cancelSearch, 4, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -225,7 +233,7 @@
             // 
             // departments
             // 
-            this.departments.Controls.Add(this.label2);
+            this.departments.Controls.Add(this.showingDepartments);
             this.departments.Controls.Add(this.departmentsTable);
             this.departments.Controls.Add(this.departmentsPanel);
             this.departments.Location = new System.Drawing.Point(4, 4);
@@ -236,15 +244,15 @@
             this.departments.Text = "Departments";
             this.departments.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // showingDepartments
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(8, 127);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(178, 18);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Showing all departments";
+            this.showingDepartments.AutoSize = true;
+            this.showingDepartments.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showingDepartments.Location = new System.Drawing.Point(8, 127);
+            this.showingDepartments.Name = "showingDepartments";
+            this.showingDepartments.Size = new System.Drawing.Size(178, 18);
+            this.showingDepartments.TabIndex = 19;
+            this.showingDepartments.Text = "Showing all departments";
             // 
             // departmentsTable
             // 
@@ -260,8 +268,8 @@
             this.departmentsTable.Name = "departmentsTable";
             this.departmentsTable.ReadOnly = true;
             this.departmentsTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.departmentsTable.RowsDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.departmentsTable.RowsDefaultCellStyle = dataGridViewCellStyle19;
             this.departmentsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.departmentsTable.Size = new System.Drawing.Size(1336, 440);
             this.departmentsTable.TabIndex = 0;
@@ -274,7 +282,7 @@
             this.departmentsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
             this.departmentsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
             this.departmentsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
-            this.departmentsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.departmentsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
             this.departmentsPanel.Controls.Add(this.hideDeptPanel, 5, 1);
             this.departmentsPanel.Controls.Add(this.addDepartment, 5, 0);
             this.departmentsPanel.Controls.Add(this.dnDText, 3, 1);
@@ -295,9 +303,9 @@
             // 
             this.hideDeptPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hideDeptPanel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hideDeptPanel.Location = new System.Drawing.Point(1228, 58);
+            this.hideDeptPanel.Location = new System.Drawing.Point(1227, 58);
             this.hideDeptPanel.Name = "hideDeptPanel";
-            this.hideDeptPanel.Size = new System.Drawing.Size(105, 49);
+            this.hideDeptPanel.Size = new System.Drawing.Size(106, 49);
             this.hideDeptPanel.TabIndex = 6;
             this.hideDeptPanel.Text = "Cancel";
             this.hideDeptPanel.UseVisualStyleBackColor = true;
@@ -307,9 +315,9 @@
             // 
             this.addDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addDepartment.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addDepartment.Location = new System.Drawing.Point(1228, 3);
+            this.addDepartment.Location = new System.Drawing.Point(1227, 3);
             this.addDepartment.Name = "addDepartment";
-            this.addDepartment.Size = new System.Drawing.Size(105, 49);
+            this.addDepartment.Size = new System.Drawing.Size(106, 49);
             this.addDepartment.TabIndex = 5;
             this.addDepartment.Text = "Add";
             this.addDepartment.UseVisualStyleBackColor = true;
@@ -318,7 +326,7 @@
             // 
             this.dnDText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dnDText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dnDText.Location = new System.Drawing.Point(694, 58);
+            this.dnDText.Location = new System.Drawing.Point(693, 58);
             this.dnDText.Name = "dnDText";
             this.dnDText.Size = new System.Drawing.Size(258, 26);
             this.dnDText.TabIndex = 8;
@@ -328,7 +336,7 @@
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(694, 37);
+            this.label5.Location = new System.Drawing.Point(693, 37);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(258, 18);
             this.label5.TabIndex = 1;
@@ -341,7 +349,7 @@
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(254, 37);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(285, 18);
+            this.label3.Size = new System.Drawing.Size(284, 18);
             this.label3.TabIndex = 0;
             this.label3.Text = "Department Number";
             // 
@@ -351,12 +359,12 @@
             this.dnoDText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dnoDText.Location = new System.Drawing.Point(254, 58);
             this.dnoDText.Name = "dnoDText";
-            this.dnoDText.Size = new System.Drawing.Size(285, 26);
+            this.dnoDText.Size = new System.Drawing.Size(284, 26);
             this.dnoDText.TabIndex = 7;
             // 
             // employees
             // 
-            this.employees.Controls.Add(this.label1);
+            this.employees.Controls.Add(this.showingEmployees);
             this.employees.Controls.Add(this.employeesTable);
             this.employees.Controls.Add(this.employeesPanel);
             this.employees.Location = new System.Drawing.Point(4, 4);
@@ -367,15 +375,15 @@
             this.employees.Text = "Employees";
             this.employees.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // showingEmployees
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 125);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 18);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Showing last 100 hired employees";
+            this.showingEmployees.AutoSize = true;
+            this.showingEmployees.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showingEmployees.Location = new System.Drawing.Point(8, 125);
+            this.showingEmployees.Name = "showingEmployees";
+            this.showingEmployees.Size = new System.Drawing.Size(246, 18);
+            this.showingEmployees.TabIndex = 19;
+            this.showingEmployees.Text = "Showing last 100 hired employees";
             // 
             // employeesTable
             // 
@@ -391,8 +399,8 @@
             this.employeesTable.Name = "employeesTable";
             this.employeesTable.ReadOnly = true;
             this.employeesTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employeesTable.RowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeesTable.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.employeesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.employeesTable.Size = new System.Drawing.Size(1336, 440);
             this.employeesTable.TabIndex = 0;
@@ -405,7 +413,7 @@
             this.employeesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
             this.employeesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
             this.employeesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
-            this.employeesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.employeesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
             this.employeesPanel.Controls.Add(this.hideEmpPanel, 5, 1);
             this.employeesPanel.Controls.Add(this.hdEPicker, 4, 1);
             this.employeesPanel.Controls.Add(this.addEmployee, 5, 0);
@@ -432,9 +440,9 @@
             // 
             this.hideEmpPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hideEmpPanel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hideEmpPanel.Location = new System.Drawing.Point(1228, 58);
+            this.hideEmpPanel.Location = new System.Drawing.Point(1227, 58);
             this.hideEmpPanel.Name = "hideEmpPanel";
-            this.hideEmpPanel.Size = new System.Drawing.Size(105, 49);
+            this.hideEmpPanel.Size = new System.Drawing.Size(106, 49);
             this.hideEmpPanel.TabIndex = 6;
             this.hideEmpPanel.Text = "Cancel";
             this.hideEmpPanel.UseVisualStyleBackColor = true;
@@ -444,7 +452,7 @@
             // 
             this.hdEPicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hdEPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hdEPicker.Location = new System.Drawing.Point(958, 58);
+            this.hdEPicker.Location = new System.Drawing.Point(957, 58);
             this.hdEPicker.Name = "hdEPicker";
             this.hdEPicker.Size = new System.Drawing.Size(264, 26);
             this.hdEPicker.TabIndex = 10;
@@ -453,9 +461,9 @@
             // 
             this.addEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addEmployee.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEmployee.Location = new System.Drawing.Point(1228, 3);
+            this.addEmployee.Location = new System.Drawing.Point(1227, 3);
             this.addEmployee.Name = "addEmployee";
-            this.addEmployee.Size = new System.Drawing.Size(105, 49);
+            this.addEmployee.Size = new System.Drawing.Size(106, 49);
             this.addEmployee.TabIndex = 5;
             this.addEmployee.Text = "Add";
             this.addEmployee.UseVisualStyleBackColor = true;
@@ -470,7 +478,7 @@
             this.genECombo.Items.AddRange(new object[] {
             "M",
             "F"});
-            this.genECombo.Location = new System.Drawing.Point(545, 58);
+            this.genECombo.Location = new System.Drawing.Point(544, 58);
             this.genECombo.Name = "genECombo";
             this.genECombo.Size = new System.Drawing.Size(143, 28);
             this.genECombo.TabIndex = 11;
@@ -479,7 +487,7 @@
             // 
             this.bdEPicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bdEPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bdEPicker.Location = new System.Drawing.Point(694, 58);
+            this.bdEPicker.Location = new System.Drawing.Point(693, 58);
             this.bdEPicker.Name = "bdEPicker";
             this.bdEPicker.Size = new System.Drawing.Size(258, 26);
             this.bdEPicker.TabIndex = 9;
@@ -500,7 +508,7 @@
             this.hdELabel.AutoSize = true;
             this.hdELabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.hdELabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hdELabel.Location = new System.Drawing.Point(958, 37);
+            this.hdELabel.Location = new System.Drawing.Point(957, 37);
             this.hdELabel.Name = "hdELabel";
             this.hdELabel.Size = new System.Drawing.Size(264, 18);
             this.hdELabel.TabIndex = 4;
@@ -522,7 +530,7 @@
             this.lnELabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnELabel.Location = new System.Drawing.Point(254, 37);
             this.lnELabel.Name = "lnELabel";
-            this.lnELabel.Size = new System.Drawing.Size(285, 18);
+            this.lnELabel.Size = new System.Drawing.Size(284, 18);
             this.lnELabel.TabIndex = 1;
             this.lnELabel.Text = "Last Name";
             // 
@@ -532,7 +540,7 @@
             this.lnEText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnEText.Location = new System.Drawing.Point(254, 58);
             this.lnEText.Name = "lnEText";
-            this.lnEText.Size = new System.Drawing.Size(285, 26);
+            this.lnEText.Size = new System.Drawing.Size(284, 26);
             this.lnEText.TabIndex = 8;
             // 
             // bdELabel
@@ -540,7 +548,7 @@
             this.bdELabel.AutoSize = true;
             this.bdELabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bdELabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bdELabel.Location = new System.Drawing.Point(694, 37);
+            this.bdELabel.Location = new System.Drawing.Point(693, 37);
             this.bdELabel.Name = "bdELabel";
             this.bdELabel.Size = new System.Drawing.Size(258, 18);
             this.bdELabel.TabIndex = 3;
@@ -551,7 +559,7 @@
             this.genELabel.AutoSize = true;
             this.genELabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.genELabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genELabel.Location = new System.Drawing.Point(545, 37);
+            this.genELabel.Location = new System.Drawing.Point(544, 37);
             this.genELabel.Name = "genELabel";
             this.genELabel.Size = new System.Drawing.Size(143, 18);
             this.genELabel.TabIndex = 2;
@@ -577,7 +585,7 @@
             // 
             // dept_manager
             // 
-            this.dept_manager.Controls.Add(this.label8);
+            this.dept_manager.Controls.Add(this.showingManagers);
             this.dept_manager.Controls.Add(this.deptmanagerTable);
             this.dept_manager.Controls.Add(this.managerPanel);
             this.dept_manager.Location = new System.Drawing.Point(4, 4);
@@ -588,15 +596,15 @@
             this.dept_manager.Text = "Department Managers";
             this.dept_manager.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // showingManagers
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(8, 127);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(161, 18);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Showing all managers";
+            this.showingManagers.AutoSize = true;
+            this.showingManagers.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showingManagers.Location = new System.Drawing.Point(8, 127);
+            this.showingManagers.Name = "showingManagers";
+            this.showingManagers.Size = new System.Drawing.Size(161, 18);
+            this.showingManagers.TabIndex = 19;
+            this.showingManagers.Text = "Showing all managers";
             // 
             // deptmanagerTable
             // 
@@ -612,8 +620,8 @@
             this.deptmanagerTable.Name = "deptmanagerTable";
             this.deptmanagerTable.ReadOnly = true;
             this.deptmanagerTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deptmanagerTable.RowsDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deptmanagerTable.RowsDefaultCellStyle = dataGridViewCellStyle21;
             this.deptmanagerTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.deptmanagerTable.Size = new System.Drawing.Size(1336, 440);
             this.deptmanagerTable.TabIndex = 0;
@@ -626,7 +634,7 @@
             this.managerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
             this.managerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
             this.managerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
-            this.managerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.managerPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
             this.managerPanel.Controls.Add(this.hideManPanel, 5, 1);
             this.managerPanel.Controls.Add(this.tdDMPicker, 4, 1);
             this.managerPanel.Controls.Add(this.addManager, 5, 0);
@@ -651,9 +659,9 @@
             // 
             this.hideManPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hideManPanel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hideManPanel.Location = new System.Drawing.Point(1228, 58);
+            this.hideManPanel.Location = new System.Drawing.Point(1227, 58);
             this.hideManPanel.Name = "hideManPanel";
-            this.hideManPanel.Size = new System.Drawing.Size(105, 49);
+            this.hideManPanel.Size = new System.Drawing.Size(106, 49);
             this.hideManPanel.TabIndex = 6;
             this.hideManPanel.Text = "Cancel";
             this.hideManPanel.UseVisualStyleBackColor = true;
@@ -663,7 +671,7 @@
             // 
             this.tdDMPicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tdDMPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tdDMPicker.Location = new System.Drawing.Point(958, 58);
+            this.tdDMPicker.Location = new System.Drawing.Point(957, 58);
             this.tdDMPicker.Name = "tdDMPicker";
             this.tdDMPicker.Size = new System.Drawing.Size(264, 26);
             this.tdDMPicker.TabIndex = 10;
@@ -672,9 +680,9 @@
             // 
             this.addManager.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addManager.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addManager.Location = new System.Drawing.Point(1228, 3);
+            this.addManager.Location = new System.Drawing.Point(1227, 3);
             this.addManager.Name = "addManager";
-            this.addManager.Size = new System.Drawing.Size(105, 49);
+            this.addManager.Size = new System.Drawing.Size(106, 49);
             this.addManager.TabIndex = 5;
             this.addManager.Text = "Add";
             this.addManager.UseVisualStyleBackColor = true;
@@ -683,7 +691,7 @@
             // 
             this.fdDMPicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fdDMPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fdDMPicker.Location = new System.Drawing.Point(694, 58);
+            this.fdDMPicker.Location = new System.Drawing.Point(693, 58);
             this.fdDMPicker.Name = "fdDMPicker";
             this.fdDMPicker.Size = new System.Drawing.Size(258, 26);
             this.fdDMPicker.TabIndex = 9;
@@ -704,7 +712,7 @@
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(958, 37);
+            this.label10.Location = new System.Drawing.Point(957, 37);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(264, 18);
             this.label10.TabIndex = 4;
@@ -726,7 +734,7 @@
             this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(254, 37);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(285, 18);
+            this.label11.Size = new System.Drawing.Size(284, 18);
             this.label11.TabIndex = 1;
             this.label11.Text = "Employee Number";
             // 
@@ -736,7 +744,7 @@
             this.enDMText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enDMText.Location = new System.Drawing.Point(254, 58);
             this.enDMText.Name = "enDMText";
-            this.enDMText.Size = new System.Drawing.Size(285, 26);
+            this.enDMText.Size = new System.Drawing.Size(284, 26);
             this.enDMText.TabIndex = 8;
             // 
             // label12
@@ -744,7 +752,7 @@
             this.label12.AutoSize = true;
             this.label12.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(694, 37);
+            this.label12.Location = new System.Drawing.Point(693, 37);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(258, 18);
             this.label12.TabIndex = 3;
@@ -752,7 +760,7 @@
             // 
             // dept_emp
             // 
-            this.dept_emp.Controls.Add(this.label14);
+            this.dept_emp.Controls.Add(this.showingDeptemp);
             this.dept_emp.Controls.Add(this.deptempTable);
             this.dept_emp.Controls.Add(this.deptempPanel);
             this.dept_emp.Location = new System.Drawing.Point(4, 4);
@@ -763,15 +771,15 @@
             this.dept_emp.Text = "Department Employees";
             this.dept_emp.UseVisualStyleBackColor = true;
             // 
-            // label14
+            // showingDeptemp
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(8, 127);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(190, 18);
-            this.label14.TabIndex = 19;
-            this.label14.Text = "Showing last 100 changes";
+            this.showingDeptemp.AutoSize = true;
+            this.showingDeptemp.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showingDeptemp.Location = new System.Drawing.Point(8, 127);
+            this.showingDeptemp.Name = "showingDeptemp";
+            this.showingDeptemp.Size = new System.Drawing.Size(273, 18);
+            this.showingDeptemp.TabIndex = 19;
+            this.showingDeptemp.Text = "Showing last 100 department changes";
             // 
             // deptempTable
             // 
@@ -787,8 +795,8 @@
             this.deptempTable.Name = "deptempTable";
             this.deptempTable.ReadOnly = true;
             this.deptempTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deptempTable.RowsDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deptempTable.RowsDefaultCellStyle = dataGridViewCellStyle22;
             this.deptempTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.deptempTable.Size = new System.Drawing.Size(1336, 440);
             this.deptempTable.TabIndex = 0;
@@ -801,7 +809,7 @@
             this.deptempPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
             this.deptempPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
             this.deptempPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
-            this.deptempPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.deptempPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
             this.deptempPanel.Controls.Add(this.hideDeptempPanel, 5, 1);
             this.deptempPanel.Controls.Add(this.tdDEPicker, 4, 1);
             this.deptempPanel.Controls.Add(this.addDeptEmp, 5, 0);
@@ -826,9 +834,9 @@
             // 
             this.hideDeptempPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hideDeptempPanel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hideDeptempPanel.Location = new System.Drawing.Point(1228, 58);
+            this.hideDeptempPanel.Location = new System.Drawing.Point(1227, 58);
             this.hideDeptempPanel.Name = "hideDeptempPanel";
-            this.hideDeptempPanel.Size = new System.Drawing.Size(105, 49);
+            this.hideDeptempPanel.Size = new System.Drawing.Size(106, 49);
             this.hideDeptempPanel.TabIndex = 6;
             this.hideDeptempPanel.Text = "Cancel";
             this.hideDeptempPanel.UseVisualStyleBackColor = true;
@@ -838,7 +846,7 @@
             // 
             this.tdDEPicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tdDEPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tdDEPicker.Location = new System.Drawing.Point(958, 58);
+            this.tdDEPicker.Location = new System.Drawing.Point(957, 58);
             this.tdDEPicker.Name = "tdDEPicker";
             this.tdDEPicker.Size = new System.Drawing.Size(264, 26);
             this.tdDEPicker.TabIndex = 10;
@@ -847,9 +855,9 @@
             // 
             this.addDeptEmp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addDeptEmp.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addDeptEmp.Location = new System.Drawing.Point(1228, 3);
+            this.addDeptEmp.Location = new System.Drawing.Point(1227, 3);
             this.addDeptEmp.Name = "addDeptEmp";
-            this.addDeptEmp.Size = new System.Drawing.Size(105, 49);
+            this.addDeptEmp.Size = new System.Drawing.Size(106, 49);
             this.addDeptEmp.TabIndex = 5;
             this.addDeptEmp.Text = "Add";
             this.addDeptEmp.UseVisualStyleBackColor = true;
@@ -858,7 +866,7 @@
             // 
             this.fdDEPicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fdDEPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fdDEPicker.Location = new System.Drawing.Point(694, 58);
+            this.fdDEPicker.Location = new System.Drawing.Point(693, 58);
             this.fdDEPicker.Name = "fdDEPicker";
             this.fdDEPicker.Size = new System.Drawing.Size(258, 26);
             this.fdDEPicker.TabIndex = 9;
@@ -879,7 +887,7 @@
             this.label16.AutoSize = true;
             this.label16.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(958, 37);
+            this.label16.Location = new System.Drawing.Point(957, 37);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(264, 18);
             this.label16.TabIndex = 4;
@@ -901,7 +909,7 @@
             this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(254, 37);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(285, 18);
+            this.label17.Size = new System.Drawing.Size(284, 18);
             this.label17.TabIndex = 1;
             this.label17.Text = "Department Number";
             // 
@@ -911,7 +919,7 @@
             this.dnoDEText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dnoDEText.Location = new System.Drawing.Point(254, 58);
             this.dnoDEText.Name = "dnoDEText";
-            this.dnoDEText.Size = new System.Drawing.Size(285, 26);
+            this.dnoDEText.Size = new System.Drawing.Size(284, 26);
             this.dnoDEText.TabIndex = 8;
             // 
             // label18
@@ -919,7 +927,7 @@
             this.label18.AutoSize = true;
             this.label18.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(694, 37);
+            this.label18.Location = new System.Drawing.Point(693, 37);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(258, 18);
             this.label18.TabIndex = 3;
@@ -927,7 +935,7 @@
             // 
             // titles
             // 
-            this.titles.Controls.Add(this.label4);
+            this.titles.Controls.Add(this.showingTitles);
             this.titles.Controls.Add(this.titlesTable);
             this.titles.Controls.Add(this.titlesPanel);
             this.titles.Location = new System.Drawing.Point(4, 4);
@@ -938,15 +946,15 @@
             this.titles.Text = "Titles";
             this.titles.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // showingTitles
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(8, 127);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(218, 18);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Showing last 100 title changes";
+            this.showingTitles.AutoSize = true;
+            this.showingTitles.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showingTitles.Location = new System.Drawing.Point(8, 127);
+            this.showingTitles.Name = "showingTitles";
+            this.showingTitles.Size = new System.Drawing.Size(218, 18);
+            this.showingTitles.TabIndex = 19;
+            this.showingTitles.Text = "Showing last 100 title changes";
             // 
             // titlesTable
             // 
@@ -962,8 +970,8 @@
             this.titlesTable.Name = "titlesTable";
             this.titlesTable.ReadOnly = true;
             this.titlesTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titlesTable.RowsDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titlesTable.RowsDefaultCellStyle = dataGridViewCellStyle23;
             this.titlesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.titlesTable.Size = new System.Drawing.Size(1336, 440);
             this.titlesTable.TabIndex = 0;
@@ -976,7 +984,7 @@
             this.titlesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
             this.titlesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
             this.titlesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
-            this.titlesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.titlesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
             this.titlesPanel.Controls.Add(this.hideTitlePanel, 5, 1);
             this.titlesPanel.Controls.Add(this.tdTPicker, 4, 1);
             this.titlesPanel.Controls.Add(this.addTitle, 5, 0);
@@ -1001,9 +1009,9 @@
             // 
             this.hideTitlePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hideTitlePanel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hideTitlePanel.Location = new System.Drawing.Point(1228, 58);
+            this.hideTitlePanel.Location = new System.Drawing.Point(1227, 58);
             this.hideTitlePanel.Name = "hideTitlePanel";
-            this.hideTitlePanel.Size = new System.Drawing.Size(105, 49);
+            this.hideTitlePanel.Size = new System.Drawing.Size(106, 49);
             this.hideTitlePanel.TabIndex = 6;
             this.hideTitlePanel.Text = "Cancel";
             this.hideTitlePanel.UseVisualStyleBackColor = true;
@@ -1013,7 +1021,7 @@
             // 
             this.tdTPicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tdTPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tdTPicker.Location = new System.Drawing.Point(958, 58);
+            this.tdTPicker.Location = new System.Drawing.Point(957, 58);
             this.tdTPicker.Name = "tdTPicker";
             this.tdTPicker.Size = new System.Drawing.Size(264, 26);
             this.tdTPicker.TabIndex = 10;
@@ -1022,9 +1030,9 @@
             // 
             this.addTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addTitle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addTitle.Location = new System.Drawing.Point(1228, 3);
+            this.addTitle.Location = new System.Drawing.Point(1227, 3);
             this.addTitle.Name = "addTitle";
-            this.addTitle.Size = new System.Drawing.Size(105, 49);
+            this.addTitle.Size = new System.Drawing.Size(106, 49);
             this.addTitle.TabIndex = 5;
             this.addTitle.Text = "Add";
             this.addTitle.UseVisualStyleBackColor = true;
@@ -1033,7 +1041,7 @@
             // 
             this.fdTPicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fdTPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fdTPicker.Location = new System.Drawing.Point(694, 58);
+            this.fdTPicker.Location = new System.Drawing.Point(693, 58);
             this.fdTPicker.Name = "fdTPicker";
             this.fdTPicker.Size = new System.Drawing.Size(258, 26);
             this.fdTPicker.TabIndex = 9;
@@ -1054,7 +1062,7 @@
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(958, 37);
+            this.label7.Location = new System.Drawing.Point(957, 37);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(264, 18);
             this.label7.TabIndex = 4;
@@ -1076,7 +1084,7 @@
             this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(254, 37);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(285, 18);
+            this.label13.Size = new System.Drawing.Size(284, 18);
             this.label13.TabIndex = 1;
             this.label13.Text = "Title";
             // 
@@ -1086,7 +1094,7 @@
             this.tiTText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tiTText.Location = new System.Drawing.Point(254, 58);
             this.tiTText.Name = "tiTText";
-            this.tiTText.Size = new System.Drawing.Size(285, 26);
+            this.tiTText.Size = new System.Drawing.Size(284, 26);
             this.tiTText.TabIndex = 8;
             // 
             // label32
@@ -1094,7 +1102,7 @@
             this.label32.AutoSize = true;
             this.label32.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label32.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(694, 37);
+            this.label32.Location = new System.Drawing.Point(693, 37);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(258, 18);
             this.label32.TabIndex = 3;
@@ -1102,7 +1110,7 @@
             // 
             // salaries
             // 
-            this.salaries.Controls.Add(this.label20);
+            this.salaries.Controls.Add(this.showingSalaries);
             this.salaries.Controls.Add(this.salariesTable);
             this.salaries.Controls.Add(this.salariesPanel);
             this.salaries.Location = new System.Drawing.Point(4, 4);
@@ -1113,15 +1121,15 @@
             this.salaries.Text = "Salaries";
             this.salaries.UseVisualStyleBackColor = true;
             // 
-            // label20
+            // showingSalaries
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(8, 127);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(235, 18);
-            this.label20.TabIndex = 19;
-            this.label20.Text = "Showing last 100 salary changes";
+            this.showingSalaries.AutoSize = true;
+            this.showingSalaries.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showingSalaries.Location = new System.Drawing.Point(8, 127);
+            this.showingSalaries.Name = "showingSalaries";
+            this.showingSalaries.Size = new System.Drawing.Size(235, 18);
+            this.showingSalaries.TabIndex = 19;
+            this.showingSalaries.Text = "Showing last 100 salary changes";
             // 
             // salariesTable
             // 
@@ -1137,8 +1145,8 @@
             this.salariesTable.Name = "salariesTable";
             this.salariesTable.ReadOnly = true;
             this.salariesTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salariesTable.RowsDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salariesTable.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.salariesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.salariesTable.Size = new System.Drawing.Size(1336, 440);
             this.salariesTable.TabIndex = 0;
@@ -1151,7 +1159,7 @@
             this.salariesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
             this.salariesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
             this.salariesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
-            this.salariesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.salariesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 111F));
             this.salariesPanel.Controls.Add(this.hideSalary, 5, 1);
             this.salariesPanel.Controls.Add(this.tdSPicker, 4, 1);
             this.salariesPanel.Controls.Add(this.addSalary, 5, 0);
@@ -1176,9 +1184,9 @@
             // 
             this.hideSalary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hideSalary.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hideSalary.Location = new System.Drawing.Point(1228, 58);
+            this.hideSalary.Location = new System.Drawing.Point(1227, 58);
             this.hideSalary.Name = "hideSalary";
-            this.hideSalary.Size = new System.Drawing.Size(105, 49);
+            this.hideSalary.Size = new System.Drawing.Size(106, 49);
             this.hideSalary.TabIndex = 6;
             this.hideSalary.Text = "Cancel";
             this.hideSalary.UseVisualStyleBackColor = true;
@@ -1188,7 +1196,7 @@
             // 
             this.tdSPicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tdSPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tdSPicker.Location = new System.Drawing.Point(958, 58);
+            this.tdSPicker.Location = new System.Drawing.Point(957, 58);
             this.tdSPicker.Name = "tdSPicker";
             this.tdSPicker.Size = new System.Drawing.Size(264, 26);
             this.tdSPicker.TabIndex = 10;
@@ -1197,9 +1205,9 @@
             // 
             this.addSalary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addSalary.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addSalary.Location = new System.Drawing.Point(1228, 3);
+            this.addSalary.Location = new System.Drawing.Point(1227, 3);
             this.addSalary.Name = "addSalary";
-            this.addSalary.Size = new System.Drawing.Size(105, 49);
+            this.addSalary.Size = new System.Drawing.Size(106, 49);
             this.addSalary.TabIndex = 5;
             this.addSalary.Text = "Add";
             this.addSalary.UseVisualStyleBackColor = true;
@@ -1208,7 +1216,7 @@
             // 
             this.fdSPicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fdSPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fdSPicker.Location = new System.Drawing.Point(694, 58);
+            this.fdSPicker.Location = new System.Drawing.Point(693, 58);
             this.fdSPicker.Name = "fdSPicker";
             this.fdSPicker.Size = new System.Drawing.Size(258, 26);
             this.fdSPicker.TabIndex = 9;
@@ -1229,7 +1237,7 @@
             this.label22.AutoSize = true;
             this.label22.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label22.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(958, 37);
+            this.label22.Location = new System.Drawing.Point(957, 37);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(264, 18);
             this.label22.TabIndex = 4;
@@ -1251,7 +1259,7 @@
             this.label23.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(254, 37);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(285, 18);
+            this.label23.Size = new System.Drawing.Size(284, 18);
             this.label23.TabIndex = 1;
             this.label23.Text = "Salary";
             // 
@@ -1261,19 +1269,32 @@
             this.salSText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salSText.Location = new System.Drawing.Point(254, 58);
             this.salSText.Name = "salSText";
-            this.salSText.Size = new System.Drawing.Size(285, 26);
+            this.salSText.Size = new System.Drawing.Size(284, 26);
             this.salSText.TabIndex = 8;
+            this.salSText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchBar_KeyPress);
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label24.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(694, 37);
+            this.label24.Location = new System.Drawing.Point(693, 37);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(258, 18);
             this.label24.TabIndex = 3;
             this.label24.Text = "From Date";
+            // 
+            // cancelSearch
+            // 
+            this.cancelSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cancelSearch.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelSearch.Location = new System.Drawing.Point(949, 3);
+            this.cancelSearch.Name = "cancelSearch";
+            this.cancelSearch.Size = new System.Drawing.Size(121, 48);
+            this.cancelSearch.TabIndex = 17;
+            this.cancelSearch.Text = "Cancel Search";
+            this.cancelSearch.UseVisualStyleBackColor = true;
+            this.cancelSearch.Click += new System.EventHandler(this.CancelSearch_Click);
             // 
             // Tables
             // 
@@ -1332,7 +1353,7 @@
         private System.Windows.Forms.TextBox searchBar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TabPage departments;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label showingDepartments;
         private System.Windows.Forms.DataGridView departmentsTable;
         private System.Windows.Forms.TableLayoutPanel departmentsPanel;
         private System.Windows.Forms.Button hideDeptPanel;
@@ -1342,7 +1363,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox dnDText;
         private System.Windows.Forms.TabPage employees;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label showingEmployees;
         private System.Windows.Forms.DataGridView employeesTable;
         private System.Windows.Forms.TableLayoutPanel employeesPanel;
         private System.Windows.Forms.Button hideEmpPanel;
@@ -1359,7 +1380,7 @@
         private System.Windows.Forms.Label genELabel;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage dept_manager;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label showingManagers;
         private System.Windows.Forms.DataGridView deptmanagerTable;
         private System.Windows.Forms.TableLayoutPanel managerPanel;
         private System.Windows.Forms.Button hideManPanel;
@@ -1373,7 +1394,7 @@
         private System.Windows.Forms.TextBox enDMText;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TabPage dept_emp;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label showingDeptemp;
         private System.Windows.Forms.DataGridView deptempTable;
         private System.Windows.Forms.TableLayoutPanel deptempPanel;
         private System.Windows.Forms.Button hideDeptempPanel;
@@ -1387,7 +1408,7 @@
         private System.Windows.Forms.TextBox dnoDEText;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TabPage titles;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label showingTitles;
         private System.Windows.Forms.DataGridView titlesTable;
         private System.Windows.Forms.TableLayoutPanel titlesPanel;
         private System.Windows.Forms.Button hideTitlePanel;
@@ -1401,7 +1422,7 @@
         private System.Windows.Forms.TextBox tiTText;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TabPage salaries;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label showingSalaries;
         private System.Windows.Forms.DataGridView salariesTable;
         private System.Windows.Forms.TableLayoutPanel salariesPanel;
         private System.Windows.Forms.Button hideSalary;
@@ -1414,6 +1435,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox salSText;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button cancelSearch;
     }
 }
 

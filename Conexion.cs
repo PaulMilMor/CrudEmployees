@@ -413,6 +413,52 @@ namespace CrudEmployees
             }
         }
 
+        public DataSet Search(string table, int searched)
+        {
+            String query = "";
+            switch (table)
+            {
+                case "employees":
+                    query = "SELECT * FROM employees WHERE emp_no ="+searched;
+                    Console.WriteLine("It is 1");
+                    break;
+                /*case "departments":
+                    query = "SELECT * FROM departments ORDER BY dept_no";
+                    break;*/
+                case "dept_manager":
+                    query = "SELECT * FROM current_managers WHERE emp_no="+searched;
+                    break;
+                case "dept_emp":
+                    query = "SELECT * FROM current_deptemp WHERE emp_no=" + searched;
+                    break;
+                case "titles":
+                    query = "SELECT * FROM current_titles WHERE emp_no=" + searched;
+                    break;
+                case "salaries":
+                    query = "SELECT * FROM current_salaries WHERE emp_no=" + searched;
+                    break;
+
+            }
+            DataSet ds = new DataSet();
+            //String query = "SELECT * FROM employees ORDER BY hire_date DESC LIMIT 100";
+            if (this.OpenConnection() == true)
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter(query, connection);
+                sda.Fill(ds, table);
+
+
+
+                sda.Dispose();
+                this.CloseConnection();
+                return ds;
+            }
+            else
+            {
+                Console.WriteLine("Doesn¿t work");
+                return ds;
+            }
+        }
+
     }
     
 }
