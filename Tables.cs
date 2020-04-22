@@ -162,6 +162,43 @@ namespace CrudEmployees
                     break;
             }
         }
+        private void InsertData()
+        {
+            Object[] row;
+            int index = tabControl1.SelectedIndex;
+            switch (index)
+            {
+                case 1:
+                    row = new object[5];
+
+
+                    row[0] = fnEText.Text;
+                    row[1] = lnEText.Text;
+                    row[2] = genECombo.SelectedItem.ToString();
+                    row[3] = bdEPicker.Value;
+                    row[4] = hdEPicker.Value;
+                    for (int i = 0; i < row.Length; i++)
+                    {
+                        Console.WriteLine(row[i].GetType());
+                    }
+                    c.Insert("employees", row);
+                    ds = new DataSet();
+                    ds = c.getData("employees");
+                    employeesTable.DataSource = ds.Tables["employees"].DefaultView;
+                    employeesTable.Refresh();
+                    ds.Dispose();
+                    fnEText.Text = "";
+                    lnEText.Text = "";
+                    genECombo.SelectedIndex = -1;
+                    bdEPicker.Value = DateTime.Now;
+                    hdEPicker.Value = DateTime.Now;
+                    break;
+                case 2:
+
+            }
+        }
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -179,11 +216,52 @@ namespace CrudEmployees
         {
             int index = tabControl1.SelectedIndex;
             panels[index].Visible = false;
-            fnEText.Text = "";
-            lnEText.Text = "";
-            genECombo.SelectedIndex = -1;
-            bdEPicker.Value = DateTime.Now;
-            hdEPicker.Value = DateTime.Now;
+            switch (index)
+            {
+                case 0:
+                    fnEText.Text = "";
+                    lnEText.Text = "";
+                    genECombo.SelectedIndex = -1;
+                    bdEPicker.Value = DateTime.Now;
+                    hdEPicker.Value = DateTime.Now;
+                    break;
+                case 1:
+                    dnoDText.Text = "";
+                    dnDText.Text = "";
+                    break;
+                case 2:
+                    dnoDMText.Text = "";
+                    enDMText.Text = "";
+                    fdDMPicker.Value = DateTime.Now;
+                    tdDMPicker.Value = DateTime.Now;
+                    break;
+                case 3:
+                    dnoDEText.Text = "";
+                    enDEText.Text = "";
+                    fdDEPicker.Value = DateTime.Now;
+                    tdDEPicker.Value = DateTime.Now;
+                    break;
+                case 4:
+                    enTText.Text = "";
+                    tiTText.Text = "";
+                    fdTPicker.Value = DateTime.Now;
+                    tdTPicker.Value = DateTime.Now;
+                    break;
+                case 5:
+                    enSText.Text = "";
+                    salSText.Text = "";
+                    fdSPicker.Value = DateTime.Now;
+                    tdSPicker.Value = DateTime.Now;
+                    break;
+
+            }
+
+            
+
+            
+
+
+
         }
 
         private void AddRecord_Click(object sender, EventArgs e)

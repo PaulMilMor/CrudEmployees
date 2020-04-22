@@ -164,7 +164,7 @@ namespace CrudEmployees
             switch (tabla)
             {
                 case "employees":
-                    query = "INSERT INTO employees(emp_no,first_name,last_name,gender,birth_date,hire_date)" +
+                    query = "INSERT INTO employees(emp_no,first_name,last_name,gender,birth_date,hire_date) " +
                             "VALUES(max_emp_no()+1,@fn,@ln,@gen,@bd,@hd)";
                     if (this.OpenConnection() == true)
                     {
@@ -180,11 +180,85 @@ namespace CrudEmployees
                         this.CloseConnection();
                     }
                     break;
+                case "departments":
+                    query = "INSERT INTO departments(dept_no, dept_name) " +
+                            "VALUES(@dno,@dn)";
+                    if(this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@dno", row[0]);
+                        cmd.Parameters.AddWithValue("@dn", row[1]);
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
+                case "dept_manager":
+                    query = "INSERT INTO dept_manager(emp_no,dept_no,from_date,to_date) " +
+                            "VALUES(@en, @dno,@fd,@td)";
+                    if (this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@en", row[0]);
+                        cmd.Parameters.AddWithValue("@dno", row[1]);
+                        cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[2];
+                        cmd.Parameters.Add("@td", MySqlDbType.Date).Value = row[3];
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
+                case "dept_emp":
+                    query = "INSERT INTO dept_emp(emp_no, dept_no, from_date, to_date)" +
+                            "VALUES(@en,@dno,@fd,@td)";
+                    if (this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@en", row[0]);
+                        cmd.Parameters.AddWithValue("@dno", row[1]);
+                        cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[2];
+                        cmd.Parameters.Add("@td", MySqlDbType.Date).Value = row[3];
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
+                case "titles":
+                    query = "INSERT INTO titles(emp_no, title, from_date, to_date)" +
+                            "VALUES(@en,@ti,@fd,@td)";
+                    if (this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@en", row[0]);
+                        cmd.Parameters.AddWithValue("@ti", row[1]);
+                        cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[2];
+                        cmd.Parameters.Add("@td", MySqlDbType.Date).Value = row[3];
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
+                case "salaries":
+                    query = "INSERT INTO salaries(emp_no, salary, from_date, to_date)" +
+                            "VALUES(@en,@sal,@fd,@td)";
+                    if (this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@en", row[0]);
+                        cmd.Parameters.AddWithValue("@sal", row[1]);
+                        cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[2];
+                        cmd.Parameters.Add("@td", MySqlDbType.Date).Value = row[3];
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
+
             }
 
         }
 
-        public void Delete(string table,int empno)
+        public void Delete(string table,Object[] row)
         {
             string query = "";
             switch (table)
@@ -195,7 +269,72 @@ namespace CrudEmployees
                     {
                         MySqlCommand cmd = new MySqlCommand();
                         cmd.CommandText = query;
-                        cmd.Parameters.AddWithValue("@en", empno);
+                        cmd.Parameters.AddWithValue("@en", row[0]);
+                        cmd.Connection = connection;
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
+                case "departments":
+                    query = "DELETE FROM departments WHERE dept_no = @dno";
+                    if(this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@dno", row[0]);
+                        cmd.Connection = connection;
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
+                case "dept_manager":
+                    query = "DELETE FROM dept_manager WHERE emp_no = @en AND dept_no = @dno";
+                    if (this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@en", row[0]);
+                        cmd.Parameters.AddWithValue("@dno", row[1]);
+                        cmd.Connection = connection;
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
+                case "dept_emp":
+                    query = "DELETE FROM dept_emp WHERE emp_no = @en AND dept_no = @dno";
+                    if (this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@en", row[0]);
+                        cmd.Parameters.AddWithValue("@dno", row[1]);
+                        cmd.Connection = connection;
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
+                case "titles":
+                    query = "DELETE FROM titles WHERE emp_no =@en AND title = @ti AND from_date=@fd";
+                    if (this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@en", row[0]);
+                        cmd.Parameters.AddWithValue("@ti", row[1]);
+                        cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[2];
+                        cmd.Connection = connection;
+                        cmd.ExecuteNonQuery();
+                        this.CloseConnection();
+                    }
+                    break;
+                case "salaries":
+                    query = "DELETE FROM salaries WHERE emp_no = @en AND from_date = @fd";
+                    if (this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand();
+                        cmd.CommandText = query;
+                        cmd.Parameters.AddWithValue("@en", row[0]);
+                        cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[1];
                         cmd.Connection = connection;
                         cmd.ExecuteNonQuery();
                         this.CloseConnection();
