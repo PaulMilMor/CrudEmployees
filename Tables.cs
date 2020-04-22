@@ -170,7 +170,7 @@ namespace CrudEmployees
             int index = tabControl1.SelectedIndex;
             switch (index)
             {
-                case 1:
+                case 0:
                     row = new Object[5];
 
 
@@ -191,7 +191,7 @@ namespace CrudEmployees
                     bdEPicker.Value = DateTime.Now;
                     hdEPicker.Value = DateTime.Now;
                     break;
-                case 2:
+                case 1:
                     row = new Object[2];
                     row[0] = dnoDText.Text;
                     row[1] = dnDText.Text;
@@ -204,7 +204,7 @@ namespace CrudEmployees
                     dnoDText.Text = "";
                     dnDText.Text = "";
                     break;
-                case 3:
+                case 2:
                     row = new Object[4];
                     row[0] = enDMText.Text;
                     row[1] = dnoDMText.Text;
@@ -220,6 +220,23 @@ namespace CrudEmployees
                     dnoDMText.Text = "";
                     fdDMPicker.Value = DateTime.Now;
                     tdDMPicker.Value = DateTime.Now;
+                    break;
+                case 3:
+                    row = new object[4];
+                    row[0] = enDEText.Text;
+                    row[1] = dnoDEText.Text;
+                    row[2] = fdDEPicker.Value;
+                    row[3] = tdDEPicker.Value;
+                    c.Insert("dept_emp", row);
+                    ds = new DataSet();
+                    ds = c.getData("dept_emp");
+                    deptempTable.DataSource = ds.Tables["dept_emp"].DefaultView;
+                    deptempTable.Refresh();
+                    ds.Dispose();
+                    enDEText.Text = "";
+                    dnoDEText.Text = "";
+                    fdDEPicker.Value = DateTime.Now;
+                    tdDEPicker.Value = DateTime.Now;
                     break;
                 case 4:
                     row = new Object[4];
@@ -257,6 +274,86 @@ namespace CrudEmployees
                     break;
 
             }
+            tables[index].Refresh();
+        }
+
+        private void EditData()
+        {
+            int index = tabControl1.SelectedIndex;
+            Object[] row;
+            if (tables[index].SelectedCells.Count > 0)
+            {
+                int selectedrowindex = tables[index].SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = tables[index].Rows[selectedrowindex];
+
+                switch (index)
+                {
+                    case 0:
+                        row = new object[6];
+                        row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                        row[1] = fnEText.Text;
+                        row[2] = lnEText.Text;
+                        row[3] = genECombo.SelectedItem.ToString();
+                        row[4] = bdEPicker.Value;
+                        row[5] = hdEPicker.Value;
+                        c.Edit("employees", row);
+                        break;
+                    case 1:
+                        row = new object[2];
+                        row[0] = dnoDText.Text;
+                        row[1] = dnDText.Text;
+                        c.Edit("departments", row);
+                        break;
+                    case 2:
+                        row = new object[4];
+                        row[0] = enDMText.Text;
+                        row[1] = dnoDMText.Text;
+                        row[2] = fdDMPicker.Value;
+                        row[3] = tdDMPicker.Value;
+                        c.Edit("dept_manager", row);
+                        break;
+                    case 3:
+                        row = new object[4];
+                        row[0] = enDEText.Text;
+                        row[1] = dnoDEText.Text;
+                        row[2] = fdDEPicker.Value;
+                        row[3] = tdDEPicker.Value;
+                        c.Edit("dept_emp", row);
+                        break;
+                    case 4:
+                        row = new object[4];
+                        row[0] = enTText.Text;
+                        row[1] = tiTText.Text;
+                        row[2] = fdTPicker.Value;
+                        row[3] = tdTPicker.Value;
+                        c.Edit("titles", row);
+                        break;
+                    case 5:
+                        row = new object[4];
+                        row[0] = enSText.Text;
+                        row[1] = salSText.Text;
+                        row[2] = fdSPicker.Value;
+                        row[3] = tdSPicker.Value;
+                        c.Edit("salaries", row);
+                        break;
+                }
+                //Object[] row = new object[6];
+                string tableName = tabControl1.SelectedTab.Name;
+                this.setData(tableName);
+                this.hideFields_Click(this, new EventArgs());
+
+               /* c.Edit("employees", row);
+                ds = new DataSet();
+                ds = c.getData("employees");
+                employeesTable.DataSource = ds.Tables["employees"].DefaultView;
+                employeesTable.Refresh();
+                ds.Dispose();
+                fnEText.Text = "";
+                lnEText.Text = "";
+                genECombo.SelectedIndex = -1;
+                bdEPicker.Value = DateTime.Now;
+                hdEPicker.Value = DateTime.Now;*/
+            }
         }
 
 
@@ -270,7 +367,56 @@ namespace CrudEmployees
             //employeesPanel.Visible = true;
             int index = tabControl1.SelectedIndex;
             panels[index].Visible = true;
+            tables[index].Enabled = true;
             addButtons[index].Text = "Add";
+            switch (index)
+            {
+                case 0:
+                    fnEText.Text = "";
+                    lnEText.Text = "";
+                    genECombo.SelectedIndex = -1;
+                    bdEPicker.Value = DateTime.Now;
+                    hdEPicker.Value = DateTime.Now;
+                    break;
+                case 1:
+                    dnoDText.Text = "";
+                    dnDText.Text = "";
+                    break;
+                case 2:
+                    dnoDMText.Text = "";
+                    dnoDMText.Enabled = true;
+                    enDMText.Text = "";
+                    enDMText.Enabled = true;
+                    fdDMPicker.Value = DateTime.Now;
+                    tdDMPicker.Value = DateTime.Now;
+                    break;
+                case 3:
+                    dnoDEText.Text = "";
+                    dnoDEText.Enabled = true;
+                    enDEText.Text = "";
+                    enDEText.Enabled = true;
+                    fdDEPicker.Value = DateTime.Now;
+                    tdDEPicker.Value = DateTime.Now;
+                    break;
+                case 4:
+                    enTText.Text = "";
+                    enTText.Enabled = true;
+                    tiTText.Text = "";
+                    tiTText.Enabled = true;
+                    fdTPicker.Value = DateTime.Now;
+                    fdTPicker.Enabled = true;
+                    tdTPicker.Value = DateTime.Now;
+                    break;
+                case 5:
+                    enSText.Text = "";
+                    enSText.Enabled = true;
+                    salSText.Text = "";
+                    fdSPicker.Value = DateTime.Now;
+                    fdSPicker.Enabled = true;
+                    tdSPicker.Value = DateTime.Now;
+                    break;
+
+            }
         }
 
         private void hideFields_Click(object sender, EventArgs e)
@@ -343,34 +489,7 @@ namespace CrudEmployees
             }
             else
             {
-                if (employeesTable.SelectedCells.Count > 0)
-                {
-                    Object[] row = new object[6];
-                    int selectedrowindex = employeesTable.SelectedCells[0].RowIndex;
-                    DataGridViewRow selectedRow = employeesTable.Rows[selectedrowindex];
-                    row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
-
-                    row[1] = fnEText.Text;
-                    row[2] = lnEText.Text;
-                    row[3] = genECombo.SelectedItem.ToString();
-                    row[4] = bdEPicker.Value;
-                    row[5] = hdEPicker.Value;
-                    for (int i = 0; i < row.Length; i++)
-                    {
-                        Console.WriteLine(row[i].GetType());
-                    }
-                    c.Edit("employees", row);
-                    ds = new DataSet();
-                    ds = c.getData("employees");
-                    employeesTable.DataSource = ds.Tables["employees"].DefaultView;
-                    employeesTable.Refresh();
-                    ds.Dispose();
-                    fnEText.Text = "";
-                    lnEText.Text = "";
-                    genECombo.SelectedIndex = -1;
-                    bdEPicker.Value = DateTime.Now;
-                    hdEPicker.Value = DateTime.Now;
-                }
+                this.EditData();
                     
             }
             int index = tabControl1.SelectedIndex;
@@ -381,17 +500,63 @@ namespace CrudEmployees
 
         private void DeleteRecord_Click(object sender, EventArgs e)
         {
-            if (employeesTable.SelectedCells.Count > 0)
+            int index = tabControl1.SelectedIndex;
+            Object[] row;
+            if (tables[index].SelectedCells.Count > 0)
             {
-                int selectedrowindex = employeesTable.SelectedCells[0].RowIndex;
-                DataGridViewRow selectedRow = employeesTable.Rows[selectedrowindex];
-                int empno = Convert.ToInt32(selectedRow.Cells[0].Value);
+                int selectedrowindex = tables[index].SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = tables[index].Rows[selectedrowindex];
+                switch (index)
+                {
+                    case 0:
+                        row = new object[1];
+                        row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                        c.Delete("employees", row);
+                        break;
+                    case 1:
+                        row = new object[1];
+                        row[0] = Convert.ToString(selectedRow.Cells[0].Value);
+                        c.Delete("departments", row);
+                        break;
+                    case 2:
+                        row = new object[2];
+                        row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                        row[1] = Convert.ToString(selectedRow.Cells[3].Value);
+                        c.Delete("dept_manager", row);
+                        break;
+                    case 3:
+                        row = new object[2];
+                        row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                        row[1] = Convert.ToString(selectedRow.Cells[3].Value);
+                        c.Delete("dept_emp", row);
+                        break;
+                    case 4:
+                        row = new object[3];
+                        row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                        row[1] = Convert.ToString(selectedRow.Cells[3].Value);
+                        row[2] = Convert.ToDateTime(selectedRow.Cells[4].Value);
+                        c.Delete("titles", row);
+                        break;
+                    case 5:
+                        row = new object[2];
+                        row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                        row[1] = Convert.ToDateTime(selectedRow.Cells[4].Value);
+                        break;
+
+                }
+
+
+
+
+                string tableName = tabControl1.SelectedTab.Name;
+                this.setData(tableName);
+                tables[index].Refresh();
                 //c.Delete("employees", empno);
-                ds = new DataSet();
-                ds = c.getData("employees");
-                employeesTable.DataSource = ds.Tables["employees"].DefaultView;
-                employeesTable.Refresh();
-                ds.Dispose();
+                //ds = new DataSet();
+                //ds = c.getData("employees");
+                //employeesTable.DataSource = ds.Tables["employees"].DefaultView;
+                //employeesTable.Refresh();
+                //ds.Dispose();
 
             }
         }
@@ -508,6 +673,7 @@ namespace CrudEmployees
             string tableName = tabControl1.SelectedTab.Name;
             this.setData(tableName);
             this.hideFields_Click(this, new EventArgs());
+            
         }
     }
 }

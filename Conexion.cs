@@ -219,7 +219,7 @@ namespace CrudEmployees
                         cmd.Parameters.AddWithValue("@en", row[0]);
                         cmd.Parameters.AddWithValue("@sal", row[1]);
                         cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[2];
-                        cmd.Parameters.Add("@ld", MySqlDbType.Date).Value = row[3];
+                        cmd.Parameters.Add("@td", MySqlDbType.Date).Value = row[3];
                         cmd.ExecuteNonQuery();
                         this.CloseConnection();
                     }
