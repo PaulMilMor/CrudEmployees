@@ -26,17 +26,17 @@ namespace CrudEmployees
         {
             try
             {
-                server = "localhost:3307";
+                server = "localhost";
                 database = "employees";
-                user = "usr217210185";
-                password = "pw217210185";
+                user = "admin";
+                password = "alfarosoto";
                 string connectionString;
                 connectionString = "SERVER=" + server + ";" +
                                     "DATABASE=" + database + ";" +
                                     "UID=" + user + ";" +
                                     "PASSWORD=" + password + ";";
-                // connection = new MySqlConnection(connectionString);
-                connection = new MySqlConnection("SERVER=localhost; PORT=3307; DATABASE=employees; UID=usr217210185; PWD=pw217210185;");
+                 connection = new MySqlConnection(connectionString);
+                // connection = new MySqlConnection("SERVER=localhost; PORT=3306; DATABASE=employees; UID=root; PWD=alfarosoto;");
 
                 Console.WriteLine("Connected");
             }

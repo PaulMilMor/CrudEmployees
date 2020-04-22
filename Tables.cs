@@ -101,7 +101,7 @@ namespace CrudEmployees
                     ds = new DataSet();
                     ds = c.getData(table);
 
-                    employeesTable.DataSource = ds.Tables[table].DefaultView;
+                   employeesTable.DataSource = ds.Tables[table].DefaultView;
                     employeesTable.Columns[0].HeaderText = "Employee Number";
                     employeesTable.Columns[1].HeaderText = "First Name";
                     employeesTable.Columns[2].HeaderText = "Last Name";
@@ -193,7 +193,7 @@ namespace CrudEmployees
                     bdEPicker.Value = DateTime.Now;
                     hdEPicker.Value = DateTime.Now;
                     break;
-                case 2:
+                
 
             }
         }
@@ -337,7 +337,7 @@ namespace CrudEmployees
                 int selectedrowindex = employeesTable.SelectedCells[0].RowIndex;
                 DataGridViewRow selectedRow = employeesTable.Rows[selectedrowindex];
                 int empno = Convert.ToInt32(selectedRow.Cells[0].Value);
-                c.Delete("employees", empno);
+                // c.Delete("employees", empno);
                 ds = new DataSet();
                 ds = c.getData("employees");
                 employeesTable.DataSource = ds.Tables["employees"].DefaultView;
