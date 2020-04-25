@@ -490,7 +490,8 @@ namespace CrudEmployees
 
         private void AddRecord_Click(object sender, EventArgs e)
         {
-            if (addEmployee.Text.Equals("Add"))
+            int index = tabControl1.SelectedIndex;
+            if (addButtons[index].Text.Equals("Add"))
             {
                 this.InsertData();
             }
@@ -499,7 +500,7 @@ namespace CrudEmployees
                 this.EditData();
                     
             }
-            int index = tabControl1.SelectedIndex;
+            
             addButtons[index].Text = "Add";
             panels[index].Visible = false;
             

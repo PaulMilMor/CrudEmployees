@@ -36,6 +36,7 @@ namespace CrudEmployees
                                     "UID=" + user + ";" +
                                     "PASSWORD=" + password + ";";
                 // connection = new MySqlConnection(connectionString);
+                //connection = new MySqlConnection("SERVER=192.168.0.12; PORT=3307; DATABASE=employees; UID=usr217210185; PWD=pw217210185;");
                 connection = new MySqlConnection("SERVER=localhost; PORT=3307; DATABASE=employees; UID=usr217210185; PWD=pw217210185;");
 
                 Console.WriteLine("Connected");
@@ -49,6 +50,8 @@ namespace CrudEmployees
         {
             try
             {
+                connection = new MySqlConnection("SERVER=localhost; PORT=3307; DATABASE=employees; UID=usr217210185; PWD=pw217210185;");
+
                 connection.Open();
                 return true;
             } catch(MySqlException ex)
@@ -74,7 +77,7 @@ namespace CrudEmployees
                 connection.Close();
                 return true;
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return false;
@@ -127,7 +130,7 @@ namespace CrudEmployees
                     Console.WriteLine("Doesn¿t work");
                     return ds;
                 }
-            } catch(MySqlException e)
+            } catch(Exception e)
             {
                 MessageBox.Show(e.Message);
                 return ds;
@@ -235,7 +238,7 @@ namespace CrudEmployees
                         }
                         break;
                 }
-            } catch(MySqlException e)
+            } catch(Exception e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -246,6 +249,7 @@ namespace CrudEmployees
         public void Insert(string tabla, Object[] row)
         {
             string query = "";
+            //this.CloseConnection();
             try
             {
                 switch (tabla)
@@ -342,7 +346,7 @@ namespace CrudEmployees
                         break;
 
                 } 
-            } catch(MySqlException e)
+            } catch(Exception e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -435,7 +439,7 @@ namespace CrudEmployees
                         }
                         break;
                 }
-            } catch(MySqlException e){
+            } catch(Exception e){
                 MessageBox.Show(e.Message);
             }
             
@@ -488,7 +492,7 @@ namespace CrudEmployees
                     Console.WriteLine("Doesn¿t work");
                     return ds;
                 }
-            } catch(MySqlException e)
+            } catch(Exception e)
             {
                 MessageBox.Show(e.Message);
                 return ds;
