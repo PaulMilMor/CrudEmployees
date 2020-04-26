@@ -38,9 +38,9 @@ CREATE TRIGGER title_to_manager
     ON titles FOR EACH ROW
 BEGIN
 	
-    IF(NEW.title = 'Manager') THEN
+    IF(NEW.title = 'Manager' AND SELECT NOT EXISTS(SELECT * FROM dept_manager WHERE emp_no = NEW.emp_no AND from_date = NEW.from_date AND to_date = NEW.to_date)) THEN
 		INSERT INTO dept_manager(emp_no, dept_no, from_date, to_date)
-		VALUES (NEW.emp_no,(SELECT dept_no FROM current_dept_emp),NEW.from_date, NEW.to_date);
+		VALUES (NEW.emp_no,(SELECT dept_no FROM current_dept_emp WHERE emp_no = NEW.emp_no),NEW.from_date, NEW.to_date);
     END IF;
 		
 END$$    
@@ -57,10 +57,10 @@ CREATE TRIGGER manager_to_title
     ON dept_manager FOR EACH ROW
 BEGIN
 	
-    
+    IF(SELECT NOT EXISTS(SELECT * FROM titles WHERE emp_no = NEW.emp_no AND title = "Manager" AND from_date = NEW.from_date AND to_date = NEW.to_date)) THEN
 	INSERT INTO titles(emp_no, title, from_date, to_date)
 	VALUES (NEW.emp_no,"Manager",NEW.from_date, NEW.to_date);
-    
+    END IF;
 		
 END$$    
  
@@ -76,7 +76,7 @@ DELIMITER ;
 DELIMITER $$
  
 CREATE TRIGGER manager_to_deptemp
-    BEFORE INSERT
+    AFTER INSERT
     ON dept_manager FOR EACH ROW
 BEGIN
 	

@@ -36,8 +36,8 @@ namespace CrudEmployees
                                     "UID=" + user + ";" +
                                     "PASSWORD=" + password + ";";
                 // connection = new MySqlConnection(connectionString);
-                //connection = new MySqlConnection("SERVER=192.168.0.12; PORT=3307; DATABASE=employees; UID=usr217210185; PWD=pw217210185;");
-                connection = new MySqlConnection("SERVER=localhost; PORT=3307; DATABASE=employees; UID=usr217210185; PWD=pw217210185;");
+                connection = new MySqlConnection("SERVER=192.168.0.12; PORT=3307; DATABASE=employees; UID=usr217210185; PWD=pw217210185;");
+               // connection = new MySqlConnection("SERVER=localhost; PORT=3307; DATABASE=employees; UID=usr217210185; PWD=pw217210185;");
 
                 Console.WriteLine("Connected");
             }
@@ -280,6 +280,7 @@ namespace CrudEmployees
                             cmd.CommandText = query;
                             cmd.Parameters.AddWithValue("@dno", row[0]);
                             cmd.Parameters.AddWithValue("@dn", row[1]);
+                            cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
                         }
@@ -295,6 +296,7 @@ namespace CrudEmployees
                             cmd.Parameters.AddWithValue("@dno", row[1]);
                             cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[2];
                             cmd.Parameters.Add("@td", MySqlDbType.Date).Value = row[3];
+                            cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
                         }
@@ -310,6 +312,7 @@ namespace CrudEmployees
                             cmd.Parameters.AddWithValue("@dno", row[1]);
                             cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[2];
                             cmd.Parameters.Add("@td", MySqlDbType.Date).Value = row[3];
+                            cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
                         }
@@ -325,6 +328,7 @@ namespace CrudEmployees
                             cmd.Parameters.AddWithValue("@ti", row[1]);
                             cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[2];
                             cmd.Parameters.Add("@td", MySqlDbType.Date).Value = row[3];
+                            cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
                         }
@@ -340,6 +344,7 @@ namespace CrudEmployees
                             cmd.Parameters.AddWithValue("@sal", row[1]);
                             cmd.Parameters.Add("@fd", MySqlDbType.Date).Value = row[2];
                             cmd.Parameters.Add("@td", MySqlDbType.Date).Value = row[3];
+                            cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
                         }
