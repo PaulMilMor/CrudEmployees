@@ -15,12 +15,16 @@ namespace CrudEmployees
     {
         Conexion c = null;
         DataSet ds = null;
+        List<String> deptnums;
         Panel[] panels;
         Button[] addButtons;
         DataGridView[] tables;
         public Tables()
         {
             InitializeComponent();
+
+            
+            
             //Datos del Form y tamaños
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
             /*employeesTable.Width = this.Width - this.Width/28;
@@ -91,10 +95,16 @@ namespace CrudEmployees
             tables = new DataGridView[] { employeesTable, departmentsTable, deptmanagerTable, deptempTable, titlesTable, salariesTable };
             searchBar.GotFocus += search_GotFocus;
             searchBar.LostFocus += search_LostFocus;
+            
             c = new Conexion();
             this.setData("employees");
 
             ds.Dispose();
+            deptnums = c.getDeptId();
+            foreach (String deptno in deptnums)
+            {
+                Console.WriteLine(deptno);
+            }
         }
         private void setData(string table)
         {
@@ -214,7 +224,8 @@ namespace CrudEmployees
                 case 2:
                     row = new Object[4];
                     row[0] = enDMText.Text;
-                    row[1] = dnoDMText.Text;
+                    //row[1] = dnoDMText.Text;
+                    row[1] = dnoDMCombo.SelectedItem.ToString();
                     row[2] = fdDMPicker.Value;
                     row[3] = tdDMPicker.Value;
                     c.Insert("dept_manager", row);
@@ -224,14 +235,23 @@ namespace CrudEmployees
                     deptmanagerTable.Refresh();
                     ds.Dispose();
                     enDMText.Text = "";
-                    dnoDMText.Text = "";
+                    //dnoDMText.Text = "";
+                    dnoDMCombo.Items.Clear();
+                    deptnums = c.getDeptId();
+                    
+                    foreach (String dno in deptnums)
+                    {
+                        dnoDMCombo.Items.Add(dno);
+                    }
+                    dnoDMCombo.SelectedIndex = -1;
                     fdDMPicker.Value = DateTime.Now;
                     tdDMPicker.Value = DateTime.Now;
                     break;
                 case 3:
                     row = new object[4];
                     row[0] = enDEText.Text;
-                    row[1] = dnoDEText.Text;
+                    //row[1] = dnoDEText.Text;
+                    row[1] = dnoDECombo.SelectedItem.ToString();
                     row[2] = fdDEPicker.Value;
                     row[3] = tdDEPicker.Value;
                     c.Insert("dept_emp", row);
@@ -241,7 +261,15 @@ namespace CrudEmployees
                     deptempTable.Refresh();
                     ds.Dispose();
                     enDEText.Text = "";
-                    dnoDEText.Text = "";
+                    //dnoDEText.Text = "";
+                    dnoDECombo.Items.Clear();
+                    deptnums = c.getDeptId();
+
+                    foreach (String dno in deptnums)
+                    {
+                        dnoDECombo.Items.Add(dno);
+                    }
+                    dnoDECombo.SelectedIndex = -1;
                     fdDEPicker.Value = DateTime.Now;
                     tdDEPicker.Value = DateTime.Now;
                     break;
@@ -314,7 +342,8 @@ namespace CrudEmployees
                     case 2:
                         row = new object[4];
                         row[0] = enDMText.Text;
-                        row[1] = dnoDMText.Text;
+                        //row[1] = dnoDMText.Text;
+                        row[1] = dnoDMCombo.SelectedItem.ToString();
                         row[2] = fdDMPicker.Value;
                         row[3] = tdDMPicker.Value;
                         c.Edit("dept_manager", row);
@@ -322,7 +351,8 @@ namespace CrudEmployees
                     case 3:
                         row = new object[4];
                         row[0] = enDEText.Text;
-                        row[1] = dnoDEText.Text;
+                        //row[1] = dnoDEText.Text;
+                        row[1] = dnoDECombo.SelectedItem.ToString();
                         row[2] = fdDEPicker.Value;
                         row[3] = tdDEPicker.Value;
                         c.Edit("dept_emp", row);
@@ -386,20 +416,42 @@ namespace CrudEmployees
                     hdEPicker.Value = DateTime.Now;
                     break;
                 case 1:
-                    dnoDText.Text = "";
+                    String lastdno = deptnums[deptnums.Count-1];
+                    lastdno = lastdno.Remove(0, 1);
+                    int newdno = int.Parse(lastdno) + 1;
+                    //int newdno = 1000;
+                    lastdno = newdno.ToString("000");
+                    dnoDText.Text = "d"+lastdno;
                     dnDText.Text = "";
                     break;
                 case 2:
-                    dnoDMText.Text = "";
-                    dnoDMText.Enabled = true;
+                    //dnoDMText.Text = "";
+                    deptnums = c.getDeptId();
+                    dnoDMCombo.Items.Clear();
+                    foreach(String dno in deptnums)
+                    {
+                        dnoDMCombo.Items.Add(dno);
+                    }
+                    dnoDMCombo.Enabled = true;
+                    //dnoDMText.Enabled = true;
+                   // dnoDMCombo.Enabled = true;
                     enDMText.Text = "";
                     enDMText.Enabled = true;
                     fdDMPicker.Value = DateTime.Now;
                     tdDMPicker.Value = DateTime.Now;
                     break;
                 case 3:
-                    dnoDEText.Text = "";
-                    dnoDEText.Enabled = true;
+                   // dnoDEText.Text = "";
+                    //dnoDEText.Enabled = true;
+                    deptnums = c.getDeptId();
+                    dnoDECombo.Items.Clear();
+                    foreach (String dno in deptnums)
+                    {
+                        dnoDECombo.Items.Add(dno);
+                    }
+                    dnoDECombo.Enabled = true;
+                    //dnoDMText.Enabled = true;
+                    //dnoDMCombo.Enabled = true;
                     enDEText.Text = "";
                     enDEText.Enabled = true;
                     fdDEPicker.Value = DateTime.Now;
@@ -445,16 +497,34 @@ namespace CrudEmployees
                     dnDText.Text = "";
                     break;
                 case 2:
-                    dnoDMText.Text = "";
-                    dnoDMText.Enabled = true;
+                    //dnoDMText.Text = "";
+                   // dnoDMText.Enabled = true;
+                    
+                    deptnums = c.getDeptId();
+                    dnoDMCombo.Items.Clear();
+                    foreach (String dno in deptnums)
+                    {
+                        dnoDMCombo.Items.Add(dno);
+                    }
+                    dnoDMCombo.SelectedIndex = -1;
+
+                    dnoDMCombo.Enabled = true;
                     enDMText.Text = "";
                     enDMText.Enabled = true;
                     fdDMPicker.Value = DateTime.Now;
                     tdDMPicker.Value = DateTime.Now;
                     break;
                 case 3:
-                    dnoDEText.Text = "";
-                    dnoDEText.Enabled = true;
+                    //dnoDEText.Text = "";
+                    //dnoDEText.Enabled = true;
+                    deptnums = c.getDeptId();
+                    dnoDECombo.Items.Clear();
+                    foreach (String dno in deptnums)
+                    {
+                        dnoDECombo.Items.Add(dno);
+                    }
+                    dnoDECombo.SelectedIndex = -1;
+                    dnoDECombo.Enabled = true;
                     enDEText.Text = "";
                     enDEText.Enabled = true;
                     fdDEPicker.Value = DateTime.Now;
@@ -491,15 +561,66 @@ namespace CrudEmployees
         private void AddRecord_Click(object sender, EventArgs e)
         {
             int index = tabControl1.SelectedIndex;
-            if (addButtons[index].Text.Equals("Add"))
+            Boolean validateEmpty = true;
+            Boolean validateDate = true;
+            switch (index)
             {
-                this.InsertData();
+                case 0:
+                    validateEmpty = string.IsNullOrWhiteSpace(fnEText.Text)
+                                || string.IsNullOrWhiteSpace(lnEText.Text)
+                                || genECombo.SelectedIndex == -1;
+                    validateDate = DateTime.Compare(hdEPicker.Value, bdEPicker.Value) <= 0;
+                    break;
+                case 1:
+                    validateEmpty = string.IsNullOrWhiteSpace(dnDText.Text);
+                    break;
+                case 2:
+                    validateEmpty = dnoDMCombo.SelectedIndex == -1
+                                || string.IsNullOrWhiteSpace(enDMText.Text);
+                    validateDate = DateTime.Compare(tdDMPicker.Value, fdDMPicker.Value) <= 0;
+                    break;
+                case 3:
+                    validateEmpty = dnoDECombo.SelectedIndex == -1
+                                || string.IsNullOrWhiteSpace(enDEText.Text);
+                    validateDate = DateTime.Compare(tdDEPicker.Value, fdDEPicker.Value) <= 0;
+
+                    break;
+                case 4:
+                    validateEmpty = string.IsNullOrWhiteSpace(tiTText.Text)
+                                || string.IsNullOrWhiteSpace(enDEText.Text);
+                    validateDate = DateTime.Compare(tdTPicker.Value, fdTPicker.Value) <= 0;
+
+                    break;
+                case 5:
+                    validateEmpty = string.IsNullOrWhiteSpace(salSText.Text)
+                                || string.IsNullOrWhiteSpace(enSText.Text);
+                    validateDate = DateTime.Compare(tdSPicker.Value, fdSPicker.Value) <= 0;
+
+                    break;
+                
+            }
+            if (validateEmpty)
+            {
+                MessageBox.Show("Fill all the fields.");
+            }
+            else if (validateDate)
+            {
+                MessageBox.Show("Inserted dates aren't congruent");
             }
             else
             {
-                this.EditData();
-                    
+                if (addButtons[index].Text.Equals("Add"))
+                {
+                    this.InsertData();
+                }
+                else
+                {
+                    this.EditData();
+
+                }
             }
+            validateEmpty = true;
+            validateDate = true;
             
             addButtons[index].Text = "Add";
             panels[index].Visible = false;
@@ -614,8 +735,16 @@ namespace CrudEmployees
                     case 2:
                         enDMText.Text = Convert.ToString(selectedRow.Cells[0].Value);
                         enDMText.Enabled = false;
-                        dnoDMText.Text = Convert.ToString(selectedRow.Cells[3].Value);
-                        dnoDMText.Enabled = false;
+                        //dnoDMText.Text = Convert.ToString(selectedRow.Cells[3].Value);
+                        //dnoDMText.Enabled = false;
+                        deptnums = c.getDeptId();
+                        dnoDMCombo.Items.Clear();
+                        foreach (String dno in deptnums)
+                        {
+                            dnoDMCombo.Items.Add(dno);
+                        }
+                        dnoDMCombo.SelectedIndex = dnoDMCombo.Items.IndexOf(Convert.ToString(selectedRow.Cells[3].Value));
+                        dnoDMCombo.Enabled = false;
                         fdDMPicker.Value = Convert.ToDateTime(selectedRow.Cells[4].Value);
                         temptd = Convert.ToDateTime(selectedRow.Cells[5].Value);
                         
@@ -629,8 +758,16 @@ namespace CrudEmployees
                     case 3:
                         enDEText.Text = Convert.ToString(selectedRow.Cells[0].Value);
                         enDEText.Enabled = false;
-                        dnoDEText.Text = Convert.ToString(selectedRow.Cells[3].Value);
-                        dnoDEText.Enabled = false;
+                        //dnoDEText.Text = Convert.ToString(selectedRow.Cells[3].Value);
+                        //dnoDEText.Enabled = false;
+                        deptnums = c.getDeptId();
+                        dnoDECombo.Items.Clear();
+                        foreach (String dno in deptnums)
+                        {
+                            dnoDECombo.Items.Add(dno);
+                        }
+                        dnoDECombo.SelectedIndex = dnoDECombo.Items.IndexOf(Convert.ToString(selectedRow.Cells[3].Value));
+                        dnoDECombo.Enabled = false;
                         fdDEPicker.Value = Convert.ToDateTime(selectedRow.Cells[4].Value);
                         temptd = Convert.ToDateTime(selectedRow.Cells[5].Value);
 

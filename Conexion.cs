@@ -505,6 +505,31 @@ namespace CrudEmployees
             
         }
 
+
+        public List<String> getDeptId()
+        {
+            List<String> deptid = new List<string>();
+            String query = "SELECT DISTINCT dept_no FROM departments ORDER BY dept_no";
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    deptid.Add((string)dataReader["dept_no"]);
+                }
+                dataReader.Close();
+                this.CloseConnection();
+                return deptid;
+            }
+            else
+            {
+                return deptid;
+            }
+
+            
+        }
+
     }
     
 }
