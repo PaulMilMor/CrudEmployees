@@ -36,8 +36,8 @@ namespace CrudEmployees
                                     "UID=" + user + ";" +
                                     "PASSWORD=" + password + ";";
                 // connection = new MySqlConnection(connectionString);
-                connection = new MySqlConnection("SERVER=192.168.0.12; PORT=3307; DATABASE=employees; UID=usr217210185; PWD=pw217210185;");
-               // connection = new MySqlConnection("SERVER=localhost; PORT=3307; DATABASE=employees; UID=usr217210185; PWD=pw217210185;");
+                //connection = new MySqlConnection("SERVER=192.168.0.12; PORT=3307; DATABASE=employees; UID=usr217210185; PWD=pw217210185;");
+                connection = new MySqlConnection("SERVER=localhost; PORT=3306; DATABASE=employees; UID=usr217210185; PWD=pw217210185;");
 
                 Console.WriteLine("Connected");
             }
@@ -107,6 +107,9 @@ namespace CrudEmployees
                     break;
                 case "salaries":
                     query = "SELECT * FROM current_salaries ORDER BY from_date DESC LIMIT 100";
+                    break;
+                case "bonus":
+                    query = "SELECT * FROM bonus ORDER BY bonus_date DESC LIMIT 100";
                     break;
 
             }

@@ -16,7 +16,8 @@ namespace CrudEmployees
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Tables());
+            //Application.Run(new Tables());
+            Application.Run(new Payment());
             //Conexion c = new Conexion();
         }
     }
