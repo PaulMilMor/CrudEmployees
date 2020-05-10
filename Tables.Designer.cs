@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             this.searchBar = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.showFields = new System.Windows.Forms.Button();
@@ -136,61 +136,56 @@
             this.salSText = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.bonus = new System.Windows.Forms.TabPage();
-            this.label19 = new System.Windows.Forms.Label();
+            this.showingBonus = new System.Windows.Forms.Label();
             this.bonusTable = new System.Windows.Forms.DataGridView();
             this.bonusPanel = new System.Windows.Forms.TableLayoutPanel();
             this.hideBonus = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.addBonus = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.btnBCombo = new System.Windows.Forms.ComboBox();
+            this.bodBPicker = new System.Windows.Forms.DateTimePicker();
             this.label20 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.enBText = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.baBText = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
             this.deduction = new System.Windows.Forms.TabPage();
-            this.label29 = new System.Windows.Forms.Label();
+            this.showingDeductions = new System.Windows.Forms.Label();
             this.deductionsTable = new System.Windows.Forms.DataGridView();
             this.deductionPanel = new System.Windows.Forms.TableLayoutPanel();
             this.hideDeductions = new System.Windows.Forms.Button();
             this.addDeductions = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.daDSText = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.enDSText = new System.Windows.Forms.TextBox();
             this.holiday = new System.Windows.Forms.TabPage();
-            this.label33 = new System.Windows.Forms.Label();
+            this.showingHolidays = new System.Windows.Forms.Label();
             this.holidayTable = new System.Windows.Forms.DataGridView();
             this.holidayPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.hideHolidays = new System.Windows.Forms.Button();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.edHPicker = new System.Windows.Forms.DateTimePicker();
             this.addHolidays = new System.Windows.Forms.Button();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.label34 = new System.Windows.Forms.Label();
+            this.sdHPicker = new System.Windows.Forms.DateTimePicker();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.enHText = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.sickleave = new System.Windows.Forms.TabPage();
-            this.label38 = new System.Windows.Forms.Label();
+            this.showingSickleaves = new System.Windows.Forms.Label();
             this.sickleaveTable = new System.Windows.Forms.DataGridView();
             this.sickleavePanel = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.hideSickleave = new System.Windows.Forms.Button();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.edSLPicker = new System.Windows.Forms.DateTimePicker();
             this.addSickleave = new System.Windows.Forms.Button();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
+            this.sdSLPicker = new System.Windows.Forms.DateTimePicker();
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.enSLText = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.paydetails = new System.Windows.Forms.TabPage();
-            this.label43 = new System.Windows.Forms.Label();
+            this.showingPaydetails = new System.Windows.Forms.Label();
             this.paydetailsTable = new System.Windows.Forms.DataGridView();
             this.paydetailsPanel = new System.Windows.Forms.TableLayoutPanel();
             this.hidePaydetails = new System.Windows.Forms.Button();
@@ -204,7 +199,7 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.payhistory = new System.Windows.Forms.TabPage();
-            this.label48 = new System.Windows.Forms.Label();
+            this.showingPayhistory = new System.Windows.Forms.Label();
             this.payhistoryTable = new System.Windows.Forms.DataGridView();
             this.payhistoryPanel = new System.Windows.Forms.TableLayoutPanel();
             this.hidePayhistory = new System.Windows.Forms.Button();
@@ -217,6 +212,11 @@
             this.label51 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
+            this.ddDSPicker = new System.Windows.Forms.DateTimePicker();
+            this.label28 = new System.Windows.Forms.Label();
+            this.dtnDSCombo = new System.Windows.Forms.ComboBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.reSLText = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.departments.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.departmentsTable)).BeginInit();
@@ -464,8 +464,8 @@
             this.departmentsTable.Name = "departmentsTable";
             this.departmentsTable.ReadOnly = true;
             this.departmentsTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.departmentsTable.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.departmentsTable.RowsDefaultCellStyle = dataGridViewCellStyle25;
             this.departmentsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.departmentsTable.Size = new System.Drawing.Size(1336, 440);
             this.departmentsTable.TabIndex = 0;
@@ -605,8 +605,8 @@
             this.employeesTable.Name = "employeesTable";
             this.employeesTable.ReadOnly = true;
             this.employeesTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employeesTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeesTable.RowsDefaultCellStyle = dataGridViewCellStyle26;
             this.employeesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.employeesTable.Size = new System.Drawing.Size(1336, 440);
             this.employeesTable.TabIndex = 0;
@@ -848,8 +848,8 @@
             this.deptmanagerTable.Name = "deptmanagerTable";
             this.deptmanagerTable.ReadOnly = true;
             this.deptmanagerTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deptmanagerTable.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deptmanagerTable.RowsDefaultCellStyle = dataGridViewCellStyle28;
             this.deptmanagerTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.deptmanagerTable.Size = new System.Drawing.Size(1336, 440);
             this.deptmanagerTable.TabIndex = 0;
@@ -1038,8 +1038,8 @@
             this.deptempTable.Name = "deptempTable";
             this.deptempTable.ReadOnly = true;
             this.deptempTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deptempTable.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deptempTable.RowsDefaultCellStyle = dataGridViewCellStyle27;
             this.deptempTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.deptempTable.Size = new System.Drawing.Size(1336, 440);
             this.deptempTable.TabIndex = 0;
@@ -1228,8 +1228,8 @@
             this.titlesTable.Name = "titlesTable";
             this.titlesTable.ReadOnly = true;
             this.titlesTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titlesTable.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titlesTable.RowsDefaultCellStyle = dataGridViewCellStyle29;
             this.titlesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.titlesTable.Size = new System.Drawing.Size(1336, 440);
             this.titlesTable.TabIndex = 0;
@@ -1417,8 +1417,8 @@
             this.salariesTable.Name = "salariesTable";
             this.salariesTable.ReadOnly = true;
             this.salariesTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salariesTable.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salariesTable.RowsDefaultCellStyle = dataGridViewCellStyle30;
             this.salariesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.salariesTable.Size = new System.Drawing.Size(1336, 440);
             this.salariesTable.TabIndex = 0;
@@ -1572,7 +1572,7 @@
             // 
             // bonus
             // 
-            this.bonus.Controls.Add(this.label19);
+            this.bonus.Controls.Add(this.showingBonus);
             this.bonus.Controls.Add(this.bonusTable);
             this.bonus.Controls.Add(this.bonusPanel);
             this.bonus.Location = new System.Drawing.Point(4, 4);
@@ -1583,15 +1583,15 @@
             this.bonus.Text = "Bonus";
             this.bonus.UseVisualStyleBackColor = true;
             // 
-            // label19
+            // showingBonus
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(8, 125);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(246, 18);
-            this.label19.TabIndex = 19;
-            this.label19.Text = "Showing last 100 hired employees";
+            this.showingBonus.AutoSize = true;
+            this.showingBonus.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showingBonus.Location = new System.Drawing.Point(8, 125);
+            this.showingBonus.Name = "showingBonus";
+            this.showingBonus.Size = new System.Drawing.Size(190, 18);
+            this.showingBonus.TabIndex = 19;
+            this.showingBonus.Text = "Showing last 100 bonuses";
             // 
             // bonusTable
             // 
@@ -1607,8 +1607,8 @@
             this.bonusTable.Name = "bonusTable";
             this.bonusTable.ReadOnly = true;
             this.bonusTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bonusTable.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bonusTable.RowsDefaultCellStyle = dataGridViewCellStyle31;
             this.bonusTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.bonusTable.Size = new System.Drawing.Size(1336, 440);
             this.bonusTable.TabIndex = 0;
@@ -1623,17 +1623,15 @@
             this.bonusPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.bonusPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
             this.bonusPanel.Controls.Add(this.hideBonus, 5, 1);
-            this.bonusPanel.Controls.Add(this.dateTimePicker1, 4, 1);
             this.bonusPanel.Controls.Add(this.addBonus, 5, 0);
-            this.bonusPanel.Controls.Add(this.comboBox1, 2, 1);
-            this.bonusPanel.Controls.Add(this.dateTimePicker2, 3, 1);
             this.bonusPanel.Controls.Add(this.label20, 0, 0);
             this.bonusPanel.Controls.Add(this.label25, 4, 0);
             this.bonusPanel.Controls.Add(this.enBText, 0, 1);
-            this.bonusPanel.Controls.Add(this.label26, 1, 0);
-            this.bonusPanel.Controls.Add(this.textBox2, 1, 1);
-            this.bonusPanel.Controls.Add(this.label27, 3, 0);
-            this.bonusPanel.Controls.Add(this.label28, 2, 0);
+            this.bonusPanel.Controls.Add(this.btnBCombo, 4, 1);
+            this.bonusPanel.Controls.Add(this.label26, 3, 0);
+            this.bonusPanel.Controls.Add(this.baBText, 3, 1);
+            this.bonusPanel.Controls.Add(this.bodBPicker, 1, 1);
+            this.bonusPanel.Controls.Add(this.label27, 1, 0);
             this.bonusPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.bonusPanel.Location = new System.Drawing.Point(3, 3);
             this.bonusPanel.Name = "bonusPanel";
@@ -1658,15 +1656,6 @@
             this.hideBonus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.hideBonus.UseVisualStyleBackColor = false;
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(941, 58);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(264, 26);
-            this.dateTimePicker1.TabIndex = 10;
-            // 
             // addBonus
             // 
             this.addBonus.BackColor = System.Drawing.Color.Transparent;
@@ -1681,28 +1670,25 @@
             this.addBonus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addBonus.UseVisualStyleBackColor = false;
             // 
-            // comboBox1
+            // btnBCombo
             // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "M",
-            "F"});
-            this.comboBox1.Location = new System.Drawing.Point(528, 58);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(143, 28);
-            this.comboBox1.TabIndex = 11;
+            this.btnBCombo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.btnBCombo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBCombo.FormattingEnabled = true;
+            this.btnBCombo.Location = new System.Drawing.Point(941, 58);
+            this.btnBCombo.Name = "btnBCombo";
+            this.btnBCombo.Size = new System.Drawing.Size(264, 28);
+            this.btnBCombo.TabIndex = 11;
             // 
-            // dateTimePicker2
+            // bodBPicker
             // 
-            this.dateTimePicker2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(677, 58);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(258, 26);
-            this.dateTimePicker2.TabIndex = 9;
+            this.bodBPicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bodBPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bodBPicker.Location = new System.Drawing.Point(247, 58);
+            this.bodBPicker.Name = "bodBPicker";
+            this.bodBPicker.Size = new System.Drawing.Size(275, 26);
+            this.bodBPicker.TabIndex = 9;
             // 
             // label20
             // 
@@ -1727,7 +1713,7 @@
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(264, 40);
             this.label25.TabIndex = 4;
-            this.label25.Text = "Hire Date";
+            this.label25.Text = "Bonus Type";
             this.label25.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // enBText
@@ -1746,21 +1732,22 @@
             this.label26.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label26.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(247, 15);
+            this.label26.Location = new System.Drawing.Point(677, 15);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(275, 40);
+            this.label26.Size = new System.Drawing.Size(258, 40);
             this.label26.TabIndex = 1;
-            this.label26.Text = "Last Name";
+            this.label26.Text = "Bonus Amount";
             this.label26.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // textBox2
+            // baBText
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(247, 58);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(275, 26);
-            this.textBox2.TabIndex = 8;
+            this.baBText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.baBText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baBText.Location = new System.Drawing.Point(677, 58);
+            this.baBText.Name = "baBText";
+            this.baBText.Size = new System.Drawing.Size(258, 26);
+            this.baBText.TabIndex = 8;
+            this.baBText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BaBText_KeyPress);
             // 
             // label27
             // 
@@ -1768,29 +1755,16 @@
             this.label27.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label27.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(677, 15);
+            this.label27.Location = new System.Drawing.Point(247, 15);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(258, 40);
+            this.label27.Size = new System.Drawing.Size(275, 40);
             this.label27.TabIndex = 3;
-            this.label27.Text = "Birth Date";
+            this.label27.Text = "Bonus Date";
             this.label27.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // label28
-            // 
-            this.label28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
-            this.label28.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label28.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(528, 15);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(143, 40);
-            this.label28.TabIndex = 2;
-            this.label28.Text = "Gender";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // deduction
             // 
-            this.deduction.Controls.Add(this.label29);
+            this.deduction.Controls.Add(this.showingDeductions);
             this.deduction.Controls.Add(this.deductionsTable);
             this.deduction.Controls.Add(this.deductionPanel);
             this.deduction.Location = new System.Drawing.Point(4, 4);
@@ -1801,15 +1775,15 @@
             this.deduction.Text = "Deductions";
             this.deduction.UseVisualStyleBackColor = true;
             // 
-            // label29
+            // showingDeductions
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(8, 127);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(178, 18);
-            this.label29.TabIndex = 19;
-            this.label29.Text = "Showing all departments";
+            this.showingDeductions.AutoSize = true;
+            this.showingDeductions.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showingDeductions.Location = new System.Drawing.Point(8, 127);
+            this.showingDeductions.Name = "showingDeductions";
+            this.showingDeductions.Size = new System.Drawing.Size(207, 18);
+            this.showingDeductions.TabIndex = 19;
+            this.showingDeductions.Text = "Showing last 100 deductions";
             // 
             // deductionsTable
             // 
@@ -1825,8 +1799,8 @@
             this.deductionsTable.Name = "deductionsTable";
             this.deductionsTable.ReadOnly = true;
             this.deductionsTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deductionsTable.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deductionsTable.RowsDefaultCellStyle = dataGridViewCellStyle32;
             this.deductionsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.deductionsTable.Size = new System.Drawing.Size(1336, 440);
             this.deductionsTable.TabIndex = 0;
@@ -1842,10 +1816,14 @@
             this.deductionPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
             this.deductionPanel.Controls.Add(this.hideDeductions, 5, 1);
             this.deductionPanel.Controls.Add(this.addDeductions, 5, 0);
-            this.deductionPanel.Controls.Add(this.textBox3, 3, 1);
+            this.deductionPanel.Controls.Add(this.daDSText, 3, 1);
             this.deductionPanel.Controls.Add(this.label30, 3, 0);
-            this.deductionPanel.Controls.Add(this.label31, 1, 0);
-            this.deductionPanel.Controls.Add(this.textBox4, 1, 1);
+            this.deductionPanel.Controls.Add(this.enDSText, 0, 1);
+            this.deductionPanel.Controls.Add(this.label31, 0, 0);
+            this.deductionPanel.Controls.Add(this.label28, 1, 0);
+            this.deductionPanel.Controls.Add(this.dtnDSCombo, 4, 1);
+            this.deductionPanel.Controls.Add(this.label53, 4, 0);
+            this.deductionPanel.Controls.Add(this.ddDSPicker, 1, 1);
             this.deductionPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.deductionPanel.Location = new System.Drawing.Point(3, 3);
             this.deductionPanel.Name = "deductionPanel";
@@ -1882,14 +1860,15 @@
             this.addDeductions.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addDeductions.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // daDSText
             // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(677, 58);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(258, 26);
-            this.textBox3.TabIndex = 8;
+            this.daDSText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.daDSText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.daDSText.Location = new System.Drawing.Point(677, 58);
+            this.daDSText.Name = "daDSText";
+            this.daDSText.Size = new System.Drawing.Size(258, 26);
+            this.daDSText.TabIndex = 8;
+            this.daDSText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BaBText_KeyPress);
             // 
             // label30
             // 
@@ -1901,7 +1880,7 @@
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(258, 40);
             this.label30.TabIndex = 1;
-            this.label30.Text = "Department Name";
+            this.label30.Text = "Deduct Amount";
             this.label30.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // label31
@@ -1910,26 +1889,27 @@
             this.label31.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label31.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(247, 15);
+            this.label31.Location = new System.Drawing.Point(3, 15);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(275, 40);
+            this.label31.Size = new System.Drawing.Size(238, 40);
             this.label31.TabIndex = 0;
-            this.label31.Text = "Department Number";
+            this.label31.Text = "Employee Number";
             this.label31.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // textBox4
+            // enDSText
             // 
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Enabled = false;
-            this.textBox4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(247, 58);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(275, 26);
-            this.textBox4.TabIndex = 7;
+            this.enDSText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.enDSText.Enabled = false;
+            this.enDSText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enDSText.Location = new System.Drawing.Point(3, 58);
+            this.enDSText.Name = "enDSText";
+            this.enDSText.Size = new System.Drawing.Size(238, 26);
+            this.enDSText.TabIndex = 7;
+            this.enDSText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchBar_KeyPress);
             // 
             // holiday
             // 
-            this.holiday.Controls.Add(this.label33);
+            this.holiday.Controls.Add(this.showingHolidays);
             this.holiday.Controls.Add(this.holidayTable);
             this.holiday.Controls.Add(this.holidayPanel);
             this.holiday.Location = new System.Drawing.Point(4, 4);
@@ -1940,15 +1920,15 @@
             this.holiday.Text = "Holidays";
             this.holiday.UseVisualStyleBackColor = true;
             // 
-            // label33
+            // showingHolidays
             // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(8, 127);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(161, 18);
-            this.label33.TabIndex = 19;
-            this.label33.Text = "Showing all managers";
+            this.showingHolidays.AutoSize = true;
+            this.showingHolidays.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showingHolidays.Location = new System.Drawing.Point(8, 127);
+            this.showingHolidays.Name = "showingHolidays";
+            this.showingHolidays.Size = new System.Drawing.Size(188, 18);
+            this.showingHolidays.TabIndex = 19;
+            this.showingHolidays.Text = "Showing last 100 holidays";
             // 
             // holidayTable
             // 
@@ -1964,8 +1944,8 @@
             this.holidayTable.Name = "holidayTable";
             this.holidayTable.ReadOnly = true;
             this.holidayTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.holidayTable.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.holidayTable.RowsDefaultCellStyle = dataGridViewCellStyle33;
             this.holidayTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.holidayTable.Size = new System.Drawing.Size(1336, 440);
             this.holidayTable.TabIndex = 0;
@@ -1979,15 +1959,13 @@
             this.holidayPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
             this.holidayPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.holidayPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
-            this.holidayPanel.Controls.Add(this.comboBox2, 0, 1);
             this.holidayPanel.Controls.Add(this.hideHolidays, 5, 1);
-            this.holidayPanel.Controls.Add(this.dateTimePicker3, 4, 1);
+            this.holidayPanel.Controls.Add(this.edHPicker, 4, 1);
             this.holidayPanel.Controls.Add(this.addHolidays, 5, 0);
-            this.holidayPanel.Controls.Add(this.dateTimePicker4, 3, 1);
-            this.holidayPanel.Controls.Add(this.label34, 0, 0);
+            this.holidayPanel.Controls.Add(this.sdHPicker, 3, 1);
             this.holidayPanel.Controls.Add(this.label35, 4, 0);
             this.holidayPanel.Controls.Add(this.label36, 1, 0);
-            this.holidayPanel.Controls.Add(this.textBox5, 1, 1);
+            this.holidayPanel.Controls.Add(this.enHText, 1, 1);
             this.holidayPanel.Controls.Add(this.label37, 3, 0);
             this.holidayPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.holidayPanel.Location = new System.Drawing.Point(3, 3);
@@ -1998,16 +1976,6 @@
             this.holidayPanel.Size = new System.Drawing.Size(1336, 110);
             this.holidayPanel.TabIndex = 18;
             this.holidayPanel.Visible = false;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(3, 58);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(238, 26);
-            this.comboBox2.TabIndex = 20;
             // 
             // hideHolidays
             // 
@@ -2022,14 +1990,14 @@
             this.hideHolidays.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.hideHolidays.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker3
+            // edHPicker
             // 
-            this.dateTimePicker3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker3.Location = new System.Drawing.Point(941, 58);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(264, 26);
-            this.dateTimePicker3.TabIndex = 10;
+            this.edHPicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.edHPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edHPicker.Location = new System.Drawing.Point(941, 58);
+            this.edHPicker.Name = "edHPicker";
+            this.edHPicker.Size = new System.Drawing.Size(264, 26);
+            this.edHPicker.TabIndex = 10;
             // 
             // addHolidays
             // 
@@ -2044,27 +2012,14 @@
             this.addHolidays.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addHolidays.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker4
+            // sdHPicker
             // 
-            this.dateTimePicker4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker4.Location = new System.Drawing.Point(677, 58);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(258, 26);
-            this.dateTimePicker4.TabIndex = 9;
-            // 
-            // label34
-            // 
-            this.label34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
-            this.label34.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label34.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.White;
-            this.label34.Location = new System.Drawing.Point(3, 15);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(238, 40);
-            this.label34.TabIndex = 0;
-            this.label34.Text = "Department Number";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.sdHPicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sdHPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sdHPicker.Location = new System.Drawing.Point(677, 58);
+            this.sdHPicker.Name = "sdHPicker";
+            this.sdHPicker.Size = new System.Drawing.Size(258, 26);
+            this.sdHPicker.TabIndex = 9;
             // 
             // label35
             // 
@@ -2076,7 +2031,7 @@
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(264, 40);
             this.label35.TabIndex = 4;
-            this.label35.Text = "To Date";
+            this.label35.Text = "End Date";
             this.label35.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // label36
@@ -2092,14 +2047,15 @@
             this.label36.Text = "Employee Number";
             this.label36.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // textBox5
+            // enHText
             // 
-            this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(247, 58);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(275, 26);
-            this.textBox5.TabIndex = 8;
+            this.enHText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.enHText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enHText.Location = new System.Drawing.Point(247, 58);
+            this.enHText.Name = "enHText";
+            this.enHText.Size = new System.Drawing.Size(275, 26);
+            this.enHText.TabIndex = 8;
+            this.enHText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchBar_KeyPress);
             // 
             // label37
             // 
@@ -2111,12 +2067,12 @@
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(258, 40);
             this.label37.TabIndex = 3;
-            this.label37.Text = "From Date";
+            this.label37.Text = "Start Date";
             this.label37.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // sickleave
             // 
-            this.sickleave.Controls.Add(this.label38);
+            this.sickleave.Controls.Add(this.showingSickleaves);
             this.sickleave.Controls.Add(this.sickleaveTable);
             this.sickleave.Controls.Add(this.sickleavePanel);
             this.sickleave.Location = new System.Drawing.Point(4, 4);
@@ -2127,15 +2083,15 @@
             this.sickleave.Text = "Sick leaves";
             this.sickleave.UseVisualStyleBackColor = true;
             // 
-            // label38
+            // showingSickleaves
             // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(8, 127);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(273, 18);
-            this.label38.TabIndex = 19;
-            this.label38.Text = "Showing last 100 department changes";
+            this.showingSickleaves.AutoSize = true;
+            this.showingSickleaves.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showingSickleaves.Location = new System.Drawing.Point(8, 127);
+            this.showingSickleaves.Name = "showingSickleaves";
+            this.showingSickleaves.Size = new System.Drawing.Size(208, 18);
+            this.showingSickleaves.TabIndex = 19;
+            this.showingSickleaves.Text = "Showing last 100 sick leaves";
             // 
             // sickleaveTable
             // 
@@ -2151,8 +2107,8 @@
             this.sickleaveTable.Name = "sickleaveTable";
             this.sickleaveTable.ReadOnly = true;
             this.sickleaveTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sickleaveTable.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sickleaveTable.RowsDefaultCellStyle = dataGridViewCellStyle34;
             this.sickleaveTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.sickleaveTable.Size = new System.Drawing.Size(1336, 440);
             this.sickleaveTable.TabIndex = 0;
@@ -2166,14 +2122,14 @@
             this.sickleavePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
             this.sickleavePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
             this.sickleavePanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
-            this.sickleavePanel.Controls.Add(this.comboBox3, 1, 1);
+            this.sickleavePanel.Controls.Add(this.reSLText, 0, 1);
             this.sickleavePanel.Controls.Add(this.hideSickleave, 5, 1);
-            this.sickleavePanel.Controls.Add(this.dateTimePicker5, 4, 1);
+            this.sickleavePanel.Controls.Add(this.edSLPicker, 4, 1);
             this.sickleavePanel.Controls.Add(this.addSickleave, 5, 0);
-            this.sickleavePanel.Controls.Add(this.dateTimePicker6, 3, 1);
+            this.sickleavePanel.Controls.Add(this.sdSLPicker, 3, 1);
             this.sickleavePanel.Controls.Add(this.label39, 0, 0);
             this.sickleavePanel.Controls.Add(this.label40, 4, 0);
-            this.sickleavePanel.Controls.Add(this.textBox6, 0, 1);
+            this.sickleavePanel.Controls.Add(this.enSLText, 0, 1);
             this.sickleavePanel.Controls.Add(this.label41, 1, 0);
             this.sickleavePanel.Controls.Add(this.label42, 3, 0);
             this.sickleavePanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2185,16 +2141,6 @@
             this.sickleavePanel.Size = new System.Drawing.Size(1336, 110);
             this.sickleavePanel.TabIndex = 18;
             this.sickleavePanel.Visible = false;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(247, 58);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(275, 26);
-            this.comboBox3.TabIndex = 21;
             // 
             // hideSickleave
             // 
@@ -2209,14 +2155,14 @@
             this.hideSickleave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.hideSickleave.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker5
+            // edSLPicker
             // 
-            this.dateTimePicker5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker5.Location = new System.Drawing.Point(941, 58);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(264, 26);
-            this.dateTimePicker5.TabIndex = 10;
+            this.edSLPicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.edSLPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edSLPicker.Location = new System.Drawing.Point(941, 58);
+            this.edSLPicker.Name = "edSLPicker";
+            this.edSLPicker.Size = new System.Drawing.Size(264, 26);
+            this.edSLPicker.TabIndex = 10;
             // 
             // addSickleave
             // 
@@ -2231,14 +2177,14 @@
             this.addSickleave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addSickleave.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker6
+            // sdSLPicker
             // 
-            this.dateTimePicker6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateTimePicker6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker6.Location = new System.Drawing.Point(677, 58);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.Size = new System.Drawing.Size(258, 26);
-            this.dateTimePicker6.TabIndex = 9;
+            this.sdSLPicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sdSLPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sdSLPicker.Location = new System.Drawing.Point(677, 58);
+            this.sdSLPicker.Name = "sdSLPicker";
+            this.sdSLPicker.Size = new System.Drawing.Size(258, 26);
+            this.sdSLPicker.TabIndex = 9;
             // 
             // label39
             // 
@@ -2263,17 +2209,17 @@
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(264, 40);
             this.label40.TabIndex = 4;
-            this.label40.Text = "To Date";
+            this.label40.Text = "End Date";
             this.label40.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // textBox6
+            // enSLText
             // 
-            this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(3, 58);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(238, 26);
-            this.textBox6.TabIndex = 7;
+            this.enSLText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.enSLText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enSLText.Location = new System.Drawing.Point(3, 58);
+            this.enSLText.Name = "enSLText";
+            this.enSLText.Size = new System.Drawing.Size(238, 26);
+            this.enSLText.TabIndex = 7;
             // 
             // label41
             // 
@@ -2285,7 +2231,7 @@
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(275, 40);
             this.label41.TabIndex = 1;
-            this.label41.Text = "Department Number";
+            this.label41.Text = "Reason";
             this.label41.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // label42
@@ -2298,12 +2244,12 @@
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(258, 40);
             this.label42.TabIndex = 3;
-            this.label42.Text = "From Date";
+            this.label42.Text = "Start Date";
             this.label42.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // paydetails
             // 
-            this.paydetails.Controls.Add(this.label43);
+            this.paydetails.Controls.Add(this.showingPaydetails);
             this.paydetails.Controls.Add(this.paydetailsTable);
             this.paydetails.Controls.Add(this.paydetailsPanel);
             this.paydetails.Location = new System.Drawing.Point(4, 4);
@@ -2314,15 +2260,15 @@
             this.paydetails.Text = "Pay Details";
             this.paydetails.UseVisualStyleBackColor = true;
             // 
-            // label43
+            // showingPaydetails
             // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(8, 127);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(218, 18);
-            this.label43.TabIndex = 19;
-            this.label43.Text = "Showing last 100 title changes";
+            this.showingPaydetails.AutoSize = true;
+            this.showingPaydetails.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showingPaydetails.Location = new System.Drawing.Point(8, 127);
+            this.showingPaydetails.Name = "showingPaydetails";
+            this.showingPaydetails.Size = new System.Drawing.Size(212, 18);
+            this.showingPaydetails.TabIndex = 19;
+            this.showingPaydetails.Text = "Showing last 100 paid details";
             // 
             // paydetailsTable
             // 
@@ -2338,8 +2284,8 @@
             this.paydetailsTable.Name = "paydetailsTable";
             this.paydetailsTable.ReadOnly = true;
             this.paydetailsTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paydetailsTable.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paydetailsTable.RowsDefaultCellStyle = dataGridViewCellStyle35;
             this.paydetailsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.paydetailsTable.Size = new System.Drawing.Size(1336, 440);
             this.paydetailsTable.TabIndex = 0;
@@ -2489,7 +2435,7 @@
             // 
             // payhistory
             // 
-            this.payhistory.Controls.Add(this.label48);
+            this.payhistory.Controls.Add(this.showingPayhistory);
             this.payhistory.Controls.Add(this.payhistoryTable);
             this.payhistory.Controls.Add(this.payhistoryPanel);
             this.payhistory.Location = new System.Drawing.Point(4, 4);
@@ -2500,15 +2446,15 @@
             this.payhistory.Text = "Pay History";
             this.payhistory.UseVisualStyleBackColor = true;
             // 
-            // label48
+            // showingPayhistory
             // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(8, 127);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(235, 18);
-            this.label48.TabIndex = 19;
-            this.label48.Text = "Showing last 100 salary changes";
+            this.showingPayhistory.AutoSize = true;
+            this.showingPayhistory.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.showingPayhistory.Location = new System.Drawing.Point(8, 127);
+            this.showingPayhistory.Name = "showingPayhistory";
+            this.showingPayhistory.Size = new System.Drawing.Size(198, 18);
+            this.showingPayhistory.TabIndex = 19;
+            this.showingPayhistory.Text = "Showing last 100 payments";
             // 
             // payhistoryTable
             // 
@@ -2524,8 +2470,8 @@
             this.payhistoryTable.Name = "payhistoryTable";
             this.payhistoryTable.ReadOnly = true;
             this.payhistoryTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.payhistoryTable.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payhistoryTable.RowsDefaultCellStyle = dataGridViewCellStyle36;
             this.payhistoryTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.payhistoryTable.Size = new System.Drawing.Size(1336, 440);
             this.payhistoryTable.TabIndex = 0;
@@ -2672,6 +2618,61 @@
             this.label52.TabIndex = 3;
             this.label52.Text = "From Date";
             this.label52.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // ddDSPicker
+            // 
+            this.ddDSPicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ddDSPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ddDSPicker.Location = new System.Drawing.Point(247, 58);
+            this.ddDSPicker.Name = "ddDSPicker";
+            this.ddDSPicker.Size = new System.Drawing.Size(275, 26);
+            this.ddDSPicker.TabIndex = 10;
+            // 
+            // label28
+            // 
+            this.label28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
+            this.label28.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label28.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Location = new System.Drawing.Point(247, 15);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(275, 40);
+            this.label28.TabIndex = 11;
+            this.label28.Text = "Deduct Date";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // dtnDSCombo
+            // 
+            this.dtnDSCombo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtnDSCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dtnDSCombo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtnDSCombo.FormattingEnabled = true;
+            this.dtnDSCombo.Location = new System.Drawing.Point(941, 58);
+            this.dtnDSCombo.Name = "dtnDSCombo";
+            this.dtnDSCombo.Size = new System.Drawing.Size(264, 28);
+            this.dtnDSCombo.TabIndex = 12;
+            // 
+            // label53
+            // 
+            this.label53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
+            this.label53.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label53.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.ForeColor = System.Drawing.Color.White;
+            this.label53.Location = new System.Drawing.Point(941, 15);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(264, 40);
+            this.label53.TabIndex = 13;
+            this.label53.Text = "Deduct Amount";
+            this.label53.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // reSLText
+            // 
+            this.reSLText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reSLText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reSLText.Location = new System.Drawing.Point(247, 58);
+            this.reSLText.Name = "reSLText";
+            this.reSLText.Size = new System.Drawing.Size(275, 26);
+            this.reSLText.TabIndex = 11;
             // 
             // Tables
             // 
@@ -2850,61 +2851,56 @@
         private System.Windows.Forms.TextBox enDMText;
         private System.Windows.Forms.ComboBox dnoDECombo;
         private System.Windows.Forms.TabPage bonus;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label showingBonus;
         private System.Windows.Forms.DataGridView bonusTable;
         private System.Windows.Forms.TableLayoutPanel bonusPanel;
         private System.Windows.Forms.Button hideBonus;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button addBonus;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.ComboBox btnBCombo;
+        private System.Windows.Forms.DateTimePicker bodBPicker;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox enBText;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox baBText;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TabPage deduction;
-        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label showingDeductions;
         private System.Windows.Forms.DataGridView deductionsTable;
         private System.Windows.Forms.TableLayoutPanel deductionPanel;
         private System.Windows.Forms.Button hideDeductions;
         private System.Windows.Forms.Button addDeductions;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox daDSText;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox enDSText;
         private System.Windows.Forms.TabPage holiday;
-        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label showingHolidays;
         private System.Windows.Forms.DataGridView holidayTable;
         private System.Windows.Forms.TableLayoutPanel holidayPanel;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button hideHolidays;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker edHPicker;
         private System.Windows.Forms.Button addHolidays;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.DateTimePicker sdHPicker;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox enHText;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TabPage sickleave;
-        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label showingSickleaves;
         private System.Windows.Forms.DataGridView sickleaveTable;
         private System.Windows.Forms.TableLayoutPanel sickleavePanel;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button hideSickleave;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.DateTimePicker edSLPicker;
         private System.Windows.Forms.Button addSickleave;
-        private System.Windows.Forms.DateTimePicker dateTimePicker6;
+        private System.Windows.Forms.DateTimePicker sdSLPicker;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox enSLText;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.TabPage paydetails;
-        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label showingPaydetails;
         private System.Windows.Forms.DataGridView paydetailsTable;
         private System.Windows.Forms.TableLayoutPanel paydetailsPanel;
         private System.Windows.Forms.Button hidePaydetails;
@@ -2918,7 +2914,7 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.TabPage payhistory;
-        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label showingPayhistory;
         private System.Windows.Forms.DataGridView payhistoryTable;
         private System.Windows.Forms.TableLayoutPanel payhistoryPanel;
         private System.Windows.Forms.Button hidePayhistory;
@@ -2931,6 +2927,11 @@
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.DateTimePicker ddDSPicker;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ComboBox dtnDSCombo;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.TextBox reSLText;
     }
 }
 

@@ -189,31 +189,64 @@ namespace CrudEmployees
                     ds = new DataSet();
                     ds = c.getData(table);
                     bonusTable.DataSource = ds.Tables[table].DefaultView;
+                    bonusTable.Columns[0].HeaderText = "Employee Number";
+                    bonusTable.Columns[1].HeaderText = "Bonus Date";
+                    bonusTable.Columns[2].HeaderText = "Bonus Amount";
+                    bonusTable.Columns[3].HeaderText = "Bonus Type";
+                    showingBonus.Text = "Showing last 100 bonuses";
                     break;
                 case "deduction":
                     ds = new DataSet();
                     ds = c.getData(table);
                     deductionsTable.DataSource = ds.Tables[table].DefaultView;
+                    deductionsTable.Columns[0].HeaderText = "Employee Number";
+                    deductionsTable.Columns[1].HeaderText = "Deduct Date";
+                    deductionsTable.Columns[2].HeaderText = "Deduct Amount";
+                    deductionsTable.Columns[3].HeaderText = "Deduct Type";
+                    showingDeductions.Text = "Showing last 100 deductions";
                     break;
                 case "holiday":
                     ds = new DataSet();
                     ds = c.getData(table);
                     holidayTable.DataSource = ds.Tables[table].DefaultView;
+                    holidayTable.Columns[0].HeaderText = "Employee Number";
+                    holidayTable.Columns[1].HeaderText = "Start Date";
+                    holidayTable.Columns[2].HeaderText = "End Date";
+                    showingHolidays.Text = "Showing last 100 holidays";
                     break;
                 case "sickleave":
                     ds = new DataSet();
                     ds = c.getData(table);
                     sickleaveTable.DataSource = ds.Tables[table].DefaultView;
+                    sickleaveTable.Columns[0].HeaderText = "Employee Number";
+                    sickleaveTable.Columns[1].HeaderText = "Start Date";
+                    sickleaveTable.Columns[2].HeaderText = "End Date";
+                    sickleaveTable.Columns[3].HeaderText = "Reason";
+                    showingSickleaves.Text = "Showing last 100 sick leaves";
                     break;
                 case "paydetails":
                     ds = new DataSet();
                     ds = c.getData(table);
                     paydetailsTable.DataSource = ds.Tables[table].DefaultView;
+                    paydetailsTable.Columns[0].HeaderText = "Employee Number";
+                    paydetailsTable.Columns[1].HeaderText = "Start Date";
+                    paydetailsTable.Columns[2].HeaderText = "Routing Number";
+                    paydetailsTable.Columns[3].HeaderText = "Account Type";
+                    paydetailsTable.Columns[4].HeaderText = "Bank Name";
+                    paydetailsTable.Columns[5].HeaderText = "Bank Address";
+                    paydetailsTable.Columns[6].HeaderText = "Pay Type";
+                    showingPaydetails.Text = "Showing last 100 paid details";
                     break;
                 case "payhistory":
                     ds = new DataSet();
                     ds = c.getData(table);
                     payhistoryTable.DataSource = ds.Tables[table].DefaultView;
+                    payhistoryTable.Columns[0].HeaderText = "Pay Number";
+                    payhistoryTable.Columns[1].HeaderText = "Employee Number";
+                    payhistoryTable.Columns[2].HeaderText = "Pay Date";
+                    payhistoryTable.Columns[3].HeaderText = "Check Number";
+                    payhistoryTable.Columns[4].HeaderText = "Pay Amount";
+                    showingPayhistory.Text = "Showing last 100 payments";
                     break;
             }
         }
@@ -343,6 +376,72 @@ namespace CrudEmployees
                     fdSPicker.Value = DateTime.Now;
                     tdSPicker.Value = DateTime.Now;
                     break;
+                case 6:
+                    row = new Object[4];
+                    row[0] = enBText.Text;
+                    row[1] = bodBPicker.Value;
+                    row[2] = baBText.Text;
+                    row[3] = btnBCombo.SelectedItem.ToString();
+                    c.Insert("bonus", row);
+                    ds = new DataSet();
+                    ds = c.getData("bonus");
+                    bonusTable.DataSource = ds.Tables["bonus"].DefaultView;
+                    bonusTable.Refresh();
+                    ds.Dispose();
+                    enBText.Text = "";
+                    bodBPicker.Value = DateTime.Now;
+                    baBText.Text = "";
+                    btnBCombo.SelectedIndex = -1;
+                    break;
+                case 7:
+                    row = new Object[4];
+                    row[0] = enDSText.Text;
+                    row[1] = ddDSPicker.Value;
+                    row[2] = daDSText.Text;
+                    row[3] = dtnDSCombo.SelectedItem.ToString();
+                    c.Insert("deduction", row);
+                    ds = new DataSet();
+                    ds = c.getData("deduction");
+                    deductionsTable.DataSource = ds.Tables["deduction"].DefaultView;
+                    deductionsTable.Refresh();
+                    ds.Dispose();
+                    enDSText.Text = "";
+                    ddDSPicker.Value = DateTime.Now;
+                    daDSText.Text = "";
+                    dtnDSCombo.SelectedIndex = -1;
+                    break;
+                case 8:
+                    row = new Object[3];
+                    row[0] = enHText.Text;
+                    row[1] = sdHPicker.Value;
+                    row[2] = edHPicker.Value;
+                    c.Insert("holiday", row);
+                    ds = new DataSet();
+                    ds = c.getData("holiday");
+                    holidayTable.DataSource = ds.Tables["holiday"].DefaultView;
+                    holidayTable.Refresh();
+                    ds.Dispose();
+                    enHText.Text = "";
+                    sdHPicker.Value = DateTime.Now;
+                    edHPicker.Value = DateTime.Now;
+                    break;
+                case 9:
+                    row = new Object[4];
+                    row[0] = enSLText.Text;
+                    row[1] = sdSLPicker.Value;
+                    row[2] = edSLPicker.Value;
+                    row[3] = reSLText.Text;
+                    c.Insert("sickleave", row);
+                    ds = new DataSet();
+                    ds = c.getData("sickleave");
+                    sickleaveTable.DataSource = ds.Tables["sickleave"].DefaultView;
+                    sickleaveTable.Refresh();
+                    ds.Dispose();
+                    enSLText.Text = "";
+                    sdSLPicker.Value = DateTime.Now;
+                    edSLPicker.Value = DateTime.Now;
+                    reSLText.Text = "";
+                    break;
 
             }
             tables[index].Refresh();
@@ -409,6 +508,38 @@ namespace CrudEmployees
                         row[3] = tdSPicker.Value;
                         c.Edit("salaries", row);
                         break;
+                    case 6:
+                        row = new Object[4];
+                        row[0] = enBText.Text;
+                        row[1] = bodBPicker.Value;
+                        row[2] = baBText.Text;
+                        row[3] = btnBCombo.SelectedItem.ToString();
+                        c.Edit("bonus", row);
+                        break;
+                    case 7:
+                        row = new Object[4];
+                        row[0] = enDSText.Text;
+                        row[1] = ddDSPicker.Value;
+                        row[2] = daDSText.Text;
+                        row[3] = dtnDSCombo.SelectedItem.ToString();
+                        c.Edit("deduction", row);
+                        break;
+                    case 8:
+                        row = new Object[3];
+                        row[0] = enHText.Text;
+                        row[1] = sdHPicker.Value;
+                        row[2] = edHPicker.Value;
+                        c.Edit("holiday", row);
+                        break;
+                    case 9:
+                        row = new Object[4];
+                        row[0] = enSLText.Text;
+                        row[1] = sdSLPicker.Value;
+                        row[2] = edSLPicker.Value;
+                        row[3] = reSLText.Text;
+                        c.Edit("sickleave", row);
+                        break;
+
                 }
                 //Object[] row = new object[6];
                 string tableName = tabControl1.SelectedTab.Name;
@@ -510,6 +641,45 @@ namespace CrudEmployees
                     fdSPicker.Enabled = true;
                     tdSPicker.Value = DateTime.Now;
                     break;
+                case 6:
+                    enBText.Text = "";
+                    enBText.Enabled = true;
+                    bodBPicker.Value = DateTime.Now;
+                    bodBPicker.Enabled = true;
+                    baBText.Text = "";
+                    baBText.Enabled = true;
+                    btnBCombo.SelectedIndex = -1;
+                    btnBCombo.Enabled = true;
+                    break;
+                case 7:
+                    enDSText.Text = "";
+                    ddDSPicker.Value = DateTime.Now;
+                    daDSText.Text = "";
+                    dtnDSCombo.SelectedIndex = -1;
+                    enDSText.Enabled = true;
+                    ddDSPicker.Enabled = true;
+                    daDSText.Enabled = true;
+                    dtnDSCombo.Enabled = true;
+                    break;
+                case 8:
+                    enHText.Text = "";
+                    sdHPicker.Value = DateTime.Now;
+                    edHPicker.Value = DateTime.Now;
+                    enHText.Enabled = true;
+                    sdHPicker.Enabled = true;
+                    edHPicker.Enabled = true;
+                    break;
+                case 9:
+                    enSLText.Text = "";
+                    sdSLPicker.Value = DateTime.Now;
+                    edSLPicker.Value = DateTime.Now;
+                    reSLText.Text = "";
+                    enSLText.Enabled = true;
+                    sdSLPicker.Enabled = true;
+                    edSLPicker.Enabled = true;
+                    reSLText.Enabled = true;
+                    break;
+
 
             }
         }
@@ -583,6 +753,44 @@ namespace CrudEmployees
                     fdSPicker.Enabled = true;
                     tdSPicker.Value = DateTime.Now;
                     break;
+                case 6:
+                    enBText.Text = "";
+                    enBText.Enabled = true;
+                    bodBPicker.Value = DateTime.Now;
+                    bodBPicker.Enabled = true;
+                    baBText.Text = "";
+                    baBText.Enabled = true;
+                    btnBCombo.SelectedIndex = -1;
+                    btnBCombo.Enabled = true;
+                    break;
+                case 7:
+                    enDSText.Text = "";
+                    ddDSPicker.Value = DateTime.Now;
+                    daDSText.Text = "";
+                    dtnDSCombo.SelectedIndex = -1;
+                    enDSText.Enabled = true;
+                    ddDSPicker.Enabled = true;
+                    daDSText.Enabled = true;
+                    dtnDSCombo.Enabled = true;
+                    break;
+                case 8:
+                    enHText.Text = "";
+                    sdHPicker.Value = DateTime.Now;
+                    edHPicker.Value = DateTime.Now;
+                    enHText.Enabled = true;
+                    sdHPicker.Enabled = true;
+                    edHPicker.Enabled = true;
+                    break;
+                case 9:
+                    enSLText.Text = "";
+                    sdSLPicker.Value = DateTime.Now;
+                    edSLPicker.Value = DateTime.Now;
+                    reSLText.Text = "";
+                    enSLText.Enabled = true;
+                    sdSLPicker.Enabled = true;
+                    edSLPicker.Enabled = true;
+                    reSLText.Enabled = true;
+                    break;
 
             }
 
@@ -632,6 +840,25 @@ namespace CrudEmployees
                                 || string.IsNullOrWhiteSpace(enSText.Text);
                     validateDate = DateTime.Compare(tdSPicker.Value, fdSPicker.Value) <= 0;
 
+                    break;
+                case 6:
+                    validateEmpty = string.IsNullOrWhiteSpace(enBText.Text)
+                                || string.IsNullOrWhiteSpace(baBText.Text)
+                                || btnBCombo.SelectedIndex == -1;
+                    break;
+                case 7:
+                    validateEmpty = string.IsNullOrWhiteSpace(enDSText.Text)
+                                || string.IsNullOrWhiteSpace(daDSText.Text)
+                                || dtnDSCombo.SelectedIndex == -1;
+                    break;
+                case 8:
+                    validateEmpty = string.IsNullOrWhiteSpace(enHText.Text);
+                    validateDate = DateTime.Compare(edHPicker.Value, sdHPicker.Value) <= 0;
+                    break;
+                case 9:
+                    validateEmpty = string.IsNullOrWhiteSpace(enSLText.Text)
+                                || string.IsNullOrWhiteSpace(reSLText.Text);
+                    validateDate = DateTime.Compare(edSLPicker.Value, sdSLPicker.Value) <= 0;
                     break;
                 
             }
@@ -711,7 +938,26 @@ namespace CrudEmployees
                             row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
                             row[1] = Convert.ToDateTime(selectedRow.Cells[4].Value);
                             break;
-
+                        case 6:
+                            row = new object[2];
+                            row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                            row[1] = Convert.ToDateTime(selectedRow.Cells[1].Value);
+                            break;
+                        case 7:
+                            row = new object[2];
+                            row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                            row[1] = Convert.ToDateTime(selectedRow.Cells[1].Value);
+                            break;
+                        case 8:
+                            row = new object[2];
+                            row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                            row[1] = Convert.ToDateTime(selectedRow.Cells[1].Value);
+                            break;
+                        case 9:
+                            row = new object[2];
+                            row[0] = Convert.ToInt32(selectedRow.Cells[0].Value);
+                            row[1] = Convert.ToDateTime(selectedRow.Cells[1].Value);
+                            break;
                     }
 
 
@@ -1066,6 +1312,19 @@ namespace CrudEmployees
                 //cancelSearch.Enabled = true;
                 //search.Enabled = true;
             }*/
+        }
+
+        private void BaBText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
         
