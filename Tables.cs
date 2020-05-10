@@ -16,6 +16,9 @@ namespace CrudEmployees
         Conexion c = null;
         DataSet ds = null;
         List<String> deptnums;
+        List<String> bonustype;
+        List<String> deducttype;
+        List<String> paytype;
         Panel[] panels;
         Button[] addButtons;
         DataGridView[] tables;
@@ -106,7 +109,22 @@ namespace CrudEmployees
             this.setData("employees");
 
             ds.Dispose();
+            bonustype = c.getBonusType();
+            btnBCombo.Items.Clear();
+            foreach(String btn in bonustype)
+            {
+                btnBCombo.Items.Add(btn);
+            }
+            deducttype = c.getDeductType();
+            dtnDSCombo.Items.Clear();
+            foreach (String btn in deducttype)
+            {
+                dtnDSCombo.Items.Add(btn);
+            }
+
+            
             deptnums = c.getDeptId();
+
             foreach (String deptno in deptnums)
             {
                 Console.WriteLine(deptno);
@@ -381,7 +399,7 @@ namespace CrudEmployees
                     row[0] = enBText.Text;
                     row[1] = bodBPicker.Value;
                     row[2] = baBText.Text;
-                    row[3] = btnBCombo.SelectedItem.ToString();
+                    row[3] = btnBCombo.SelectedIndex + 1001;
                     c.Insert("bonus", row);
                     ds = new DataSet();
                     ds = c.getData("bonus");
@@ -398,7 +416,7 @@ namespace CrudEmployees
                     row[0] = enDSText.Text;
                     row[1] = ddDSPicker.Value;
                     row[2] = daDSText.Text;
-                    row[3] = dtnDSCombo.SelectedItem.ToString();
+                    row[3] = dtnDSCombo.SelectedIndex + 3001;
                     c.Insert("deduction", row);
                     ds = new DataSet();
                     ds = c.getData("deduction");
@@ -513,7 +531,7 @@ namespace CrudEmployees
                         row[0] = enBText.Text;
                         row[1] = bodBPicker.Value;
                         row[2] = baBText.Text;
-                        row[3] = btnBCombo.SelectedItem.ToString();
+                        row[3] = btnBCombo.SelectedIndex + 1001;
                         c.Edit("bonus", row);
                         break;
                     case 7:
@@ -521,7 +539,7 @@ namespace CrudEmployees
                         row[0] = enDSText.Text;
                         row[1] = ddDSPicker.Value;
                         row[2] = daDSText.Text;
-                        row[3] = dtnDSCombo.SelectedItem.ToString();
+                        row[3] = dtnDSCombo.SelectedIndex + 3001;
                         c.Edit("deduction", row);
                         break;
                     case 8:
@@ -1091,6 +1109,39 @@ namespace CrudEmployees
                         }
                         tdSPicker.Value = temptd;
                         break;
+                    case 6:
+                        enBText.Text = Convert.ToString(selectedRow.Cells[0].Value);
+                        enBText.Enabled = false;
+                        bodBPicker.Value = Convert.ToDateTime(selectedRow.Cells[1].Value);
+                        bodBPicker.Enabled = false;
+                        baBText.Text = Convert.ToString(selectedRow.Cells[2].Value);
+                        btnBCombo.SelectedIndex = Convert.ToInt32(selectedRow.Cells[3].Value) - 1001;
+                        break;
+                    case 7:
+                        enDSText.Text = Convert.ToString(selectedRow.Cells[0].Value);
+                        enDSText.Enabled = false;
+                        ddDSPicker.Value = Convert.ToDateTime(selectedRow.Cells[1].Value);
+                        ddDSPicker.Enabled = false;
+                        daDSText.Text = Convert.ToString(selectedRow.Cells[2].Value);
+
+                        dtnDSCombo.SelectedIndex = Convert.ToInt32(selectedRow.Cells[3].Value) - 3001;
+                        break;
+                    case 8:
+                        enHText.Text = Convert.ToString(selectedRow.Cells[0].Value);
+                        enHText.Enabled = false;
+                        sdHPicker.Value = Convert.ToDateTime(selectedRow.Cells[1].Value);
+                        sdHPicker.Enabled = false;
+                        edHPicker.Value = Convert.ToDateTime(selectedRow.Cells[2].Value);
+                        break;
+                    case 9:
+                        enSLText.Text = Convert.ToString(selectedRow.Cells[0].Value);
+                        enSLText.Enabled = false;
+                        sdSLPicker.Value = Convert.ToDateTime(selectedRow.Cells[1].Value);
+                        sdSLPicker.Enabled = false;
+                        edSLPicker.Value = Convert.ToDateTime(selectedRow.Cells[2].Value);
+                        reSLText.Text = Convert.ToString(selectedRow.Cells[3].Value);
+                        break;
+
                 }
                 
                 string a = Convert.ToString(selectedRow.Cells[0].Value);
@@ -1108,6 +1159,7 @@ namespace CrudEmployees
         {
             
             string tableName = tabControl1.SelectedTab.Name;
+            int index = tabControl1.SelectedIndex;
             this.setData(tableName);
             this.hideFields_Click(this, new EventArgs());
             if(tableName == "departments")
@@ -1120,7 +1172,20 @@ namespace CrudEmployees
                 cancelSearch.Enabled = true;
                 search.Enabled = true;
             }
-            
+            if(index > 9)
+            {
+                showFields.Enabled = false;
+                editRecord.Enabled = false;
+                deleteRecord.Enabled = false;
+            }
+            else
+            {
+                showFields.Enabled = true;
+                editRecord.Enabled = true;
+                deleteRecord.Enabled = true;
+
+            }
+
         }
 
         private void search_GotFocus(object sender, EventArgs e)
@@ -1275,7 +1340,118 @@ namespace CrudEmployees
                         showingSalaries.Text = "Showing current salary of employee " + searched;
                     }
                     break;
-                    
+                case "bonus":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    bonusTable.DataSource = ds.Tables[table].DefaultView;
+                    bonusTable.Columns[0].HeaderText = "Employee Number";
+                    bonusTable.Columns[1].HeaderText = "Bonus Date";
+                    bonusTable.Columns[2].HeaderText = "Bonus Amount";
+                    bonusTable.Columns[3].HeaderText = "Bonus Type";
+                    showingBonus.Text = "Showing last 100 bonuses";
+                    if (searched == 0)
+                    {
+                        showingSalaries.Text = "No records found";
+                    }
+                    else
+                    {
+                        showingSalaries.Text = "Showing current salary of employee " + searched;
+                    }
+                    break;
+                case "deduction":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    deductionsTable.DataSource = ds.Tables[table].DefaultView;
+                    deductionsTable.Columns[0].HeaderText = "Employee Number";
+                    deductionsTable.Columns[1].HeaderText = "Deduct Date";
+                    deductionsTable.Columns[2].HeaderText = "Deduct Amount";
+                    deductionsTable.Columns[3].HeaderText = "Deduct Type";
+                    showingDeductions.Text = "Showing last 100 deductions";
+                    if (searched == 0)
+                    {
+                        showingSalaries.Text = "No records found";
+                    }
+                    else
+                    {
+                        showingSalaries.Text = "Showing current salary of employee " + searched;
+                    }
+                    break;
+                case "holiday":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    holidayTable.DataSource = ds.Tables[table].DefaultView;
+                    holidayTable.Columns[0].HeaderText = "Employee Number";
+                    holidayTable.Columns[1].HeaderText = "Start Date";
+                    holidayTable.Columns[2].HeaderText = "End Date";
+                    showingHolidays.Text = "Showing last 100 holidays";
+                    if (searched == 0)
+                    {
+                        showingSalaries.Text = "No records found";
+                    }
+                    else
+                    {
+                        showingSalaries.Text = "Showing current salary of employee " + searched;
+                    }
+                    break;
+                case "sickleave":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    sickleaveTable.DataSource = ds.Tables[table].DefaultView;
+                    sickleaveTable.Columns[0].HeaderText = "Employee Number";
+                    sickleaveTable.Columns[1].HeaderText = "Start Date";
+                    sickleaveTable.Columns[2].HeaderText = "End Date";
+                    sickleaveTable.Columns[3].HeaderText = "Reason";
+                    showingSickleaves.Text = "Showing last 100 sick leaves";
+                    if (searched == 0)
+                    {
+                        showingSalaries.Text = "No records found";
+                    }
+                    else
+                    {
+                        showingSalaries.Text = "Showing current salary of employee " + searched;
+                    }
+                    break;
+                case "paydetails":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    paydetailsTable.DataSource = ds.Tables[table].DefaultView;
+                    paydetailsTable.Columns[0].HeaderText = "Employee Number";
+                    paydetailsTable.Columns[1].HeaderText = "Start Date";
+                    paydetailsTable.Columns[2].HeaderText = "Routing Number";
+                    paydetailsTable.Columns[3].HeaderText = "Account Type";
+                    paydetailsTable.Columns[4].HeaderText = "Bank Name";
+                    paydetailsTable.Columns[5].HeaderText = "Bank Address";
+                    paydetailsTable.Columns[6].HeaderText = "Pay Type";
+                    showingPaydetails.Text = "Showing last 100 paid details";
+                    if (searched == 0)
+                    {
+                        showingSalaries.Text = "No records found";
+                    }
+                    else
+                    {
+                        showingSalaries.Text = "Showing current salary of employee " + searched;
+                    }
+                    break;
+                case "payhistory":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    payhistoryTable.DataSource = ds.Tables[table].DefaultView;
+                    payhistoryTable.Columns[0].HeaderText = "Pay Number";
+                    payhistoryTable.Columns[1].HeaderText = "Employee Number";
+                    payhistoryTable.Columns[2].HeaderText = "Pay Date";
+                    payhistoryTable.Columns[3].HeaderText = "Check Number";
+                    payhistoryTable.Columns[4].HeaderText = "Pay Amount";
+                    showingPayhistory.Text = "Showing last 100 payments";
+                    if (searched == 0)
+                    {
+                        showingSalaries.Text = "No records found";
+                    }
+                    else
+                    {
+                        showingSalaries.Text = "Showing current salary of employee " + searched;
+                    }
+                    break;
+
             }
         }
 

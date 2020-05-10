@@ -54,7 +54,7 @@ namespace CrudEmployees
 
                 connection.Open();
                 return true;
-            } catch(MySqlException ex)
+            } catch (MySqlException ex)
             {
                 switch (ex.Number)
                 {
@@ -148,12 +148,12 @@ namespace CrudEmployees
                     Console.WriteLine("Doesn¿t work");
                     return ds;
                 }
-            } catch(Exception e)
+            } catch (Exception e)
             {
                 MessageBox.Show(e.Message);
                 return ds;
             }
-            
+
         }
 
         public void Edit(string tabla, Object[] row)
@@ -255,13 +255,68 @@ namespace CrudEmployees
                             this.CloseConnection();
                         }
                         break;
+                    case "bonus":
+                        query = "UPDATE bonus SET bonus_amount = @ba, bonus_type_no = @btn WHERE emp_no = @en AND bonus_date = @bod";
+                        if (this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@bod", MySqlDbType.Date).Value = row[1];
+                            cmd.Parameters.AddWithValue("@ba", row[2]);
+                            cmd.Parameters.AddWithValue("@btn", row[3]);
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                        }
+                        break;
+                    case "deduction":
+                        query = "UPDATE deduction SET deduct_amount = @da, bonus_type_no = @dtn WHERE emp_no = @en AND deduct_date = @dd";
+                        if (this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@dd", MySqlDbType.Date).Value = row[1];
+                            cmd.Parameters.AddWithValue("@da", row[2]);
+                            cmd.Parameters.AddWithValue("@dtn", row[3]);
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                        }
+                        break;
+                    case "holiday":
+                        query = "UPDATE holiday SET end_date = @ed WHERE emp_no = @en AND start_date = @sd";
+                        if (this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@sd", MySqlDbType.Date).Value = row[1];
+                            cmd.Parameters.Add("@ed", MySqlDbType.Date).Value = row[2];
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                        }
+                        break;
+                    case "sickleave":
+                        query = "UPDATE sickleave SET end_date = @ed, reason = @re WHERE emp_no = @en AND start_date = @sd";
+                        if (this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@sd", MySqlDbType.Date).Value = row[1];
+                            cmd.Parameters.Add("@ed", MySqlDbType.Date).Value = row[2];
+                            cmd.Parameters.AddWithValue("@re", row[3]);
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                        }
+                        break;
                 }
-            } catch(Exception e)
+            } catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
-            
-            
+
+
         }
 
         public void Insert(string tabla, Object[] row)
@@ -367,17 +422,76 @@ namespace CrudEmployees
                             this.CloseConnection();
                         }
                         break;
+                    case "bonus":
+                        query = "INSERT INTO bonus(emp_no, bonus_date, bonus_amount, bonus_type_no)" +
+                                "VALUES(@en,@bod,@ba,@btn)";
+                        if (this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@bod", MySqlDbType.Date).Value = row[1];
+                            cmd.Parameters.AddWithValue("@ba", row[2]);
+                            cmd.Parameters.AddWithValue("@btn", row[3]);
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                        }
+                        break;
+                    case "deduction":
+                        query = "INSERT INTO deduction(emp_no, deduct_date, deduct_amount, deduct_type_no)" +
+                                "VALUES(@en,@dd,@da,@dtn)";
+                        if (this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@dd", MySqlDbType.Date).Value = row[1];
+                            cmd.Parameters.AddWithValue("@da", row[2]);
+                            cmd.Parameters.AddWithValue("@dtn", row[3]);
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                        }
+                        break;
+                    case "holiday":
+                        query = "INSERT INTO holiday(emp_no, start_date, end_date)" +
+                                "VALUES(@en,@sd,@ed)";
+                        if (this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@sd", MySqlDbType.Date).Value = row[1];
+                            cmd.Parameters.Add("@ed", MySqlDbType.Date).Value = row[2];
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                        }
+                        break;
+                    case "sickleave":
+                        query = "INSERT INTO sickleave(emp_no, start_date, end_date, reason)" +
+                                "VALUES(@en,@sd,@ed,@re)";
+                        if (this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@sd", MySqlDbType.Date).Value = row[1];
+                            cmd.Parameters.Add("@ed", MySqlDbType.Date).Value = row[2];
+                            cmd.Parameters.AddWithValue("@re", row[3]);
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                        }
+                        break;
 
-                } 
-            } catch(Exception e)
+                }
+            } catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
-            
+
 
         }
 
-        public void Delete(string table,Object[] row)
+        public void Delete(string table, Object[] row)
         {
             string query = "";
             try
@@ -461,28 +575,80 @@ namespace CrudEmployees
                             this.CloseConnection();
                         }
                         break;
+                    case "bonus":
+                        query = "DELETE FROM bonus WHERE emp_no = @en AND bonus_date = @bod";
+                        if (this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@bod", MySqlDbType.Date).Value = row[1];
+                            cmd.Connection = connection;
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                        }
+                        break;
+                    case "deduction":
+                        query = "DELETE FROM deduction WHERE emp_no = @en AND deduct_date = @dd";
+                        if (this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@dd", MySqlDbType.Date).Value = row[1];
+                            cmd.Connection = connection;
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                        }
+                        break;
+                    case "holiday":
+                        query = "DELETE FROM holiday WHERE emp_no = @en AND start_date = @sd";
+                        if (this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@sd", MySqlDbType.Date).Value = row[1];
+                            cmd.Connection = connection;
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                        }
+                        break;
+                    case "sickleave":
+                        query = "DELETE FROM sickleave WHERE emp_no = @en AND start_date = @sd";
+                        if (this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@sd", MySqlDbType.Date).Value = row[1];
+                            cmd.Connection = connection;
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                        }
+                        break;
                 }
-            } catch(Exception e){
+            } catch (Exception e) {
                 MessageBox.Show(e.Message);
             }
-            
+
         }
 
         public DataSet Search(string table, int searched)
         {
             String query = "";
-            
+
             switch (table)
             {
                 case "employees":
-                    query = "SELECT * FROM employees WHERE emp_no ="+searched;
+                    query = "SELECT * FROM employees WHERE emp_no =" + searched;
                     Console.WriteLine("It is 1");
                     break;
                 /*case "departments":
                     query = "SELECT * FROM departments ORDER BY dept_no";
                     break;*/
                 case "dept_manager":
-                    query = "SELECT * FROM current_managers WHERE emp_no="+searched;
+                    query = "SELECT * FROM current_managers WHERE emp_no=" + searched;
                     break;
                 case "dept_emp":
                     query = "SELECT * FROM current_deptemp WHERE emp_no=" + searched;
@@ -493,7 +659,18 @@ namespace CrudEmployees
                 case "salaries":
                     query = "SELECT * FROM current_salaries WHERE emp_no=" + searched;
                     break;
-
+                case "bonus":
+                    query = "SELECT * FROM bonus WHERE emp_no=" + searched;
+                    break;
+                case "deduction":
+                    query = "SELECT * FROM deduction WHERE emp_no=" + searched;
+                    break;
+                case "holiday":
+                    query = "SELECT * FROM holiday WHERE emp_no=" + searched;
+                    break;
+                case "sickleave":
+                    query = "SELECT * FROM sickleave WHERE emp_no=" + searched;
+                    break;
             }
             DataSet ds = new DataSet();
             //String query = "SELECT * FROM employees ORDER BY hire_date DESC LIMIT 100";
@@ -515,12 +692,12 @@ namespace CrudEmployees
                     Console.WriteLine("Doesn¿t work");
                     return ds;
                 }
-            } catch(Exception e)
+            } catch (Exception e)
             {
                 MessageBox.Show(e.Message);
                 return ds;
             }
-            
+
         }
 
 
@@ -545,8 +722,79 @@ namespace CrudEmployees
                 return deptid;
             }
 
-            
+
         }
+        public List<String> getBonusType()
+        {
+            List<String> bonustype = new List<string>();
+            String query = "SELECT DISTINCT bonus_description FROM bonustype ORDER BY bonus_type_no";
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    bonustype.Add((string)dataReader["bonus_description"]);
+                }
+                dataReader.Close();
+                this.CloseConnection();
+                return bonustype;
+            }
+            else
+            {
+                return bonustype;
+            }
+
+
+        }
+        public List<String> getDeductType()
+        {
+            List<String> deducttype = new List<string>();
+            String query = "SELECT DISTINCT deduct_description FROM deducttype ORDER BY deduct_type_no";
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    deducttype.Add((string)dataReader["deduct_description"]);
+                }
+                dataReader.Close();
+                this.CloseConnection();
+                return deducttype;
+            }
+            else
+            {
+                return deducttype;
+            }
+
+
+        }
+
+        public List<String> getPayType()
+        {
+            List<String> paytype = new List<string>();
+            String query = "SELECT DISTINCT pay_type_description FROM paytype ORDER BY pay_type_no";
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    paytype.Add((string)dataReader["pay_type_description"]);
+                }
+                dataReader.Close();
+                this.CloseConnection();
+                return paytype;
+            }
+            else
+            {
+                return paytype;
+            }
+
+
+        }
+
 
     }
     
