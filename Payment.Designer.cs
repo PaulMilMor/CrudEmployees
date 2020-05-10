@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.showFields = new System.Windows.Forms.Button();
             this.search = new System.Windows.Forms.Button();
@@ -330,7 +330,6 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1350, 623);
             this.tabControl1.TabIndex = 23;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_SelectedIndexChanged);
             // 
             // bonus
             // 
@@ -369,8 +368,8 @@
             this.bonusTable.Name = "bonusTable";
             this.bonusTable.ReadOnly = true;
             this.bonusTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bonusTable.RowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bonusTable.RowsDefaultCellStyle = dataGridViewCellStyle37;
             this.bonusTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.bonusTable.Size = new System.Drawing.Size(1336, 440);
             this.bonusTable.TabIndex = 0;
@@ -586,8 +585,8 @@
             this.deductionsTable.Name = "deductionsTable";
             this.deductionsTable.ReadOnly = true;
             this.deductionsTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deductionsTable.RowsDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deductionsTable.RowsDefaultCellStyle = dataGridViewCellStyle38;
             this.deductionsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.deductionsTable.Size = new System.Drawing.Size(1336, 440);
             this.deductionsTable.TabIndex = 0;
@@ -725,8 +724,8 @@
             this.holidayTable.Name = "holidayTable";
             this.holidayTable.ReadOnly = true;
             this.holidayTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.holidayTable.RowsDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.holidayTable.RowsDefaultCellStyle = dataGridViewCellStyle39;
             this.holidayTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.holidayTable.Size = new System.Drawing.Size(1336, 440);
             this.holidayTable.TabIndex = 0;
@@ -912,8 +911,8 @@
             this.sickleaveTable.Name = "sickleaveTable";
             this.sickleaveTable.ReadOnly = true;
             this.sickleaveTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sickleaveTable.RowsDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sickleaveTable.RowsDefaultCellStyle = dataGridViewCellStyle40;
             this.sickleaveTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.sickleaveTable.Size = new System.Drawing.Size(1336, 440);
             this.sickleaveTable.TabIndex = 0;
@@ -1099,8 +1098,8 @@
             this.paydetailsTable.Name = "paydetailsTable";
             this.paydetailsTable.ReadOnly = true;
             this.paydetailsTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paydetailsTable.RowsDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paydetailsTable.RowsDefaultCellStyle = dataGridViewCellStyle41;
             this.paydetailsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.paydetailsTable.Size = new System.Drawing.Size(1336, 440);
             this.paydetailsTable.TabIndex = 0;
@@ -1285,8 +1284,8 @@
             this.payhistoryTable.Name = "payhistoryTable";
             this.payhistoryTable.ReadOnly = true;
             this.payhistoryTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.payhistoryTable.RowsDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payhistoryTable.RowsDefaultCellStyle = dataGridViewCellStyle42;
             this.payhistoryTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.payhistoryTable.Size = new System.Drawing.Size(1336, 440);
             this.payhistoryTable.TabIndex = 0;

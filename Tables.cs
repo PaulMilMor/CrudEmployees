@@ -835,6 +835,7 @@ namespace CrudEmployees
                     break;
                 case 1:
                     validateEmpty = string.IsNullOrWhiteSpace(dnDText.Text);
+                    validateDate = false;
                     break;
                 case 2:
                     validateEmpty = dnoDMCombo.SelectedIndex == -1
@@ -863,11 +864,13 @@ namespace CrudEmployees
                     validateEmpty = string.IsNullOrWhiteSpace(enBText.Text)
                                 || string.IsNullOrWhiteSpace(baBText.Text)
                                 || btnBCombo.SelectedIndex == -1;
+                    validateDate = false;
                     break;
                 case 7:
                     validateEmpty = string.IsNullOrWhiteSpace(enDSText.Text)
                                 || string.IsNullOrWhiteSpace(daDSText.Text)
                                 || dtnDSCombo.SelectedIndex == -1;
+                    validateDate = false;
                     break;
                 case 8:
                     validateEmpty = string.IsNullOrWhiteSpace(enHText.Text);
@@ -1501,6 +1504,12 @@ namespace CrudEmployees
             {
                 e.Handled = true;
             }
+        }
+
+        private void OpenPayment_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            new Payment().Show();
         }
     }
         
