@@ -1508,8 +1508,9 @@ namespace CrudEmployees
 
         private void OpenPayment_Click(object sender, EventArgs e)
         {
-            this.Dispose();
             new Payment().Show();
+            this.Hide();
+
         }
     }
         

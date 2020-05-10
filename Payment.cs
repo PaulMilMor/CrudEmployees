@@ -24,8 +24,9 @@ namespace CrudEmployees
             
         }
 
-        
-
-        
+        private void Payment_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
