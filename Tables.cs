@@ -90,9 +90,15 @@ namespace CrudEmployees
             showFields.Location = new Point(showSearch.Width + showSearch.Width / 2 , 0);
             editRecord.Location = new Point(showFields.Location.X + showFields.Width*3/2, 0);
             deleteRecord.Location = new Point(panel2.Width-deleteRecord.Width, 0);*/
-            panels = new Panel[]{employeesPanel, departmentsPanel, managerPanel, deptempPanel, titlesPanel, salariesPanel };
-            addButtons = new Button[] {addEmployee,addDepartment,addManager,addDeptEmp,addTitle,addSalary };
-            tables = new DataGridView[] { employeesTable, departmentsTable, deptmanagerTable, deptempTable, titlesTable, salariesTable };
+            panels = new Panel[]{employeesPanel, departmentsPanel, managerPanel, deptempPanel, titlesPanel, salariesPanel,
+                                 bonusPanel, deductionPanel, holidayPanel, sickleavePanel, paydetailsPanel, payhistoryPanel};
+
+            addButtons = new Button[] {addEmployee,addDepartment,addManager,addDeptEmp,addTitle,addSalary,
+                                       addBonus, addDeductions, addHolidays, addSickleave, addPaydetails, addPayhistory};
+
+            tables = new DataGridView[] { employeesTable, departmentsTable, deptmanagerTable, deptempTable, titlesTable, salariesTable,
+                                         bonusTable, deductionsTable, holidayTable, sickleaveTable, paydetailsTable, payhistoryTable};
+
             searchBar.GotFocus += search_GotFocus;
             searchBar.LostFocus += search_LostFocus;
             
@@ -178,6 +184,36 @@ namespace CrudEmployees
                     salariesTable.Columns[4].HeaderText = "From Date";
                     salariesTable.Columns[5].HeaderText = "To Date";
                     showingSalaries.Text = "Showing last 100 salary changes";
+                    break;
+                case "bonus":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    bonusTable.DataSource = ds.Tables[table].DefaultView;
+                    break;
+                case "deduction":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    deductionsTable.DataSource = ds.Tables[table].DefaultView;
+                    break;
+                case "holiday":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    holidayTable.DataSource = ds.Tables[table].DefaultView;
+                    break;
+                case "sickleave":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    sickleaveTable.DataSource = ds.Tables[table].DefaultView;
+                    break;
+                case "paydetails":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    paydetailsTable.DataSource = ds.Tables[table].DefaultView;
+                    break;
+                case "payhistory":
+                    ds = new DataSet();
+                    ds = c.getData(table);
+                    payhistoryTable.DataSource = ds.Tables[table].DefaultView;
                     break;
             }
         }
