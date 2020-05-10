@@ -111,6 +111,21 @@ namespace CrudEmployees
                 case "bonus":
                     query = "SELECT * FROM bonus ORDER BY bonus_date DESC LIMIT 100";
                     break;
+                case "deduction":
+                    query = "SELECT * FROM deduction ORDER BY deduct_date DESC LIMIT 100";
+                    break;
+                case "holiday":
+                    query = "SELECT * FROM holiday ORDER BY  start_date DESC LIMIT 100";
+                    break;
+                case "sickleave":
+                    query = "SELECT * FROM sickleave ORDER BY start_date DESC LIMIT 100";
+                    break;
+                case "paydetails":
+                    query = "SELECT * FROM paydetails ORDER BY start_date DESC LIMIT 100";
+                    break;
+                case "payhistory":
+                    query = "SELECT * FROM payhistory ORDER BY pay_date DESC LIMIT 100";
+                    break;
 
             }
             DataSet ds = new DataSet();
