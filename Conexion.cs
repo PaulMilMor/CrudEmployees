@@ -806,6 +806,26 @@ namespace CrudEmployees
 
         }
 
+        public void getBonus()
+        {
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "get_current_bonus";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new MySqlParameter("selectedemp",500000));
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    Console.WriteLine("THESE ARE THE BONUSES" + (string)dataReader["currentbonus"]);
+                }
+                dataReader.Close();
+                this.CloseConnection();
+            }
+        }
+
+
 
     }
     
