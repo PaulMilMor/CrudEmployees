@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.employeesTable = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.paymentTable = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.showFields = new System.Windows.Forms.Button();
             this.search = new System.Windows.Forms.Button();
             this.searchBar = new System.Windows.Forms.TextBox();
-            this.editRecord = new System.Windows.Forms.Button();
+            this.editDetails = new System.Windows.Forms.Button();
             this.deleteRecord = new System.Windows.Forms.Button();
             this.cancelSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,44 +44,51 @@
             this.label14 = new System.Windows.Forms.Label();
             this.openPayment = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.employeesPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.hideEmpPanel = new System.Windows.Forms.Button();
-            this.hdEPicker = new System.Windows.Forms.DateTimePicker();
-            this.addEmployee = new System.Windows.Forms.Button();
-            this.genECombo = new System.Windows.Forms.ComboBox();
-            this.bdEPicker = new System.Windows.Forms.DateTimePicker();
-            this.fnELabel = new System.Windows.Forms.Label();
-            this.hdELabel = new System.Windows.Forms.Label();
-            this.fnEText = new System.Windows.Forms.TextBox();
-            this.lnELabel = new System.Windows.Forms.Label();
-            this.lnEText = new System.Windows.Forms.TextBox();
-            this.bdELabel = new System.Windows.Forms.Label();
-            this.genELabel = new System.Windows.Forms.Label();
+            this.paydetailsPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.sdPLabel = new System.Windows.Forms.Label();
+            this.addPDetail = new System.Windows.Forms.Button();
+            this.sdPPicker = new System.Windows.Forms.DateTimePicker();
+            this.atPCombo = new System.Windows.Forms.ComboBox();
+            this.enPLabel = new System.Windows.Forms.Label();
+            this.enPText = new System.Windows.Forms.TextBox();
+            this.atPLabel = new System.Windows.Forms.Label();
+            this.baPText = new System.Windows.Forms.TextBox();
+            this.baPLabel = new System.Windows.Forms.Label();
+            this.bnPLabel = new System.Windows.Forms.Label();
+            this.rnPLabel = new System.Windows.Forms.Label();
+            this.rnPText = new System.Windows.Forms.TextBox();
+            this.bnPText = new System.Windows.Forms.TextBox();
+            this.ptPLabel = new System.Windows.Forms.Label();
+            this.ptPCombo = new System.Windows.Forms.ComboBox();
+            this.hidePPanel = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.employeesTable)).BeginInit();
+            this.deptPCombo = new System.Windows.Forms.ComboBox();
+            this.departmentPLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentTable)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.employeesPanel.SuspendLayout();
+            this.paydetailsPanel.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // employeesTable
+            // paymentTable
             // 
-            this.employeesTable.AllowUserToAddRows = false;
-            this.employeesTable.AllowUserToDeleteRows = false;
-            this.employeesTable.AllowUserToResizeColumns = false;
-            this.employeesTable.AllowUserToResizeRows = false;
-            this.employeesTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.employeesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeesTable.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.employeesTable.Location = new System.Drawing.Point(0, 289);
-            this.employeesTable.MultiSelect = false;
-            this.employeesTable.Name = "employeesTable";
-            this.employeesTable.ReadOnly = true;
-            this.employeesTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employeesTable.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.employeesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.employeesTable.Size = new System.Drawing.Size(1350, 440);
-            this.employeesTable.TabIndex = 23;
+            this.paymentTable.AllowUserToAddRows = false;
+            this.paymentTable.AllowUserToDeleteRows = false;
+            this.paymentTable.AllowUserToResizeColumns = false;
+            this.paymentTable.AllowUserToResizeRows = false;
+            this.paymentTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.paymentTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.paymentTable.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.paymentTable.Location = new System.Drawing.Point(0, 354);
+            this.paymentTable.MultiSelect = false;
+            this.paymentTable.Name = "paymentTable";
+            this.paymentTable.ReadOnly = true;
+            this.paymentTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentTable.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.paymentTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.paymentTable.Size = new System.Drawing.Size(1350, 375);
+            this.paymentTable.TabIndex = 23;
             // 
             // tableLayoutPanel1
             // 
@@ -93,11 +100,11 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 226F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 94F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel1.Controls.Add(this.showFields, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.search, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.searchBar, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.editRecord, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.editDetails, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.deleteRecord, 7, 0);
             this.tableLayoutPanel1.Controls.Add(this.cancelSearch, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
@@ -112,8 +119,8 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1350, 100);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1350, 114);
             this.tableLayoutPanel1.TabIndex = 24;
             // 
             // showFields
@@ -124,9 +131,10 @@
             this.showFields.Image = global::CrudEmployees.Properties.Resources.plus;
             this.showFields.Location = new System.Drawing.Point(3, 3);
             this.showFields.Name = "showFields";
-            this.showFields.Size = new System.Drawing.Size(74, 74);
+            this.showFields.Size = new System.Drawing.Size(73, 75);
             this.showFields.TabIndex = 6;
             this.showFields.UseVisualStyleBackColor = false;
+            this.showFields.Click += new System.EventHandler(this.ShowFields_Click);
             // 
             // search
             // 
@@ -134,35 +142,38 @@
             this.search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.search.Dock = System.Windows.Forms.DockStyle.Fill;
             this.search.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search.Location = new System.Drawing.Point(783, 3);
+            this.search.Location = new System.Drawing.Point(781, 3);
             this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(77, 74);
+            this.search.Size = new System.Drawing.Size(77, 75);
             this.search.TabIndex = 12;
             this.search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.search.UseVisualStyleBackColor = false;
+            this.search.Click += new System.EventHandler(this.Search_Click);
             // 
             // searchBar
             // 
             this.searchBar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.searchBar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchBar.ForeColor = System.Drawing.Color.DarkGray;
-            this.searchBar.Location = new System.Drawing.Point(164, 51);
+            this.searchBar.Location = new System.Drawing.Point(162, 52);
             this.searchBar.Name = "searchBar";
             this.searchBar.Size = new System.Drawing.Size(613, 26);
             this.searchBar.TabIndex = 16;
             this.searchBar.Text = "Search by employee number";
+            this.searchBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBar_KeyDown);
             // 
-            // editRecord
+            // editDetails
             // 
-            this.editRecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
-            this.editRecord.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editRecord.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editRecord.Image = global::CrudEmployees.Properties.Resources.configuration;
-            this.editRecord.Location = new System.Drawing.Point(83, 3);
-            this.editRecord.Name = "editRecord";
-            this.editRecord.Size = new System.Drawing.Size(75, 74);
-            this.editRecord.TabIndex = 5;
-            this.editRecord.UseVisualStyleBackColor = false;
+            this.editDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
+            this.editDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editDetails.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editDetails.Image = global::CrudEmployees.Properties.Resources.configuration;
+            this.editDetails.Location = new System.Drawing.Point(82, 3);
+            this.editDetails.Name = "editDetails";
+            this.editDetails.Size = new System.Drawing.Size(74, 75);
+            this.editDetails.TabIndex = 5;
+            this.editDetails.UseVisualStyleBackColor = false;
+            this.editDetails.Click += new System.EventHandler(this.EditDetails_Click);
             // 
             // deleteRecord
             // 
@@ -170,9 +181,9 @@
             this.deleteRecord.Dock = System.Windows.Forms.DockStyle.Fill;
             this.deleteRecord.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteRecord.Image = global::CrudEmployees.Properties.Resources.rubbish;
-            this.deleteRecord.Location = new System.Drawing.Point(1258, 3);
+            this.deleteRecord.Location = new System.Drawing.Point(1256, 3);
             this.deleteRecord.Name = "deleteRecord";
-            this.deleteRecord.Size = new System.Drawing.Size(89, 74);
+            this.deleteRecord.Size = new System.Drawing.Size(91, 75);
             this.deleteRecord.TabIndex = 6;
             this.deleteRecord.UseVisualStyleBackColor = false;
             // 
@@ -181,20 +192,21 @@
             this.cancelSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.cancelSearch.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelSearch.Image = global::CrudEmployees.Properties.Resources.magnifying_lens_with_handle;
-            this.cancelSearch.Location = new System.Drawing.Point(866, 3);
+            this.cancelSearch.Location = new System.Drawing.Point(864, 3);
             this.cancelSearch.Name = "cancelSearch";
             this.cancelSearch.Size = new System.Drawing.Size(78, 74);
             this.cancelSearch.TabIndex = 17;
             this.cancelSearch.UseVisualStyleBackColor = false;
+            this.cancelSearch.Click += new System.EventHandler(this.CancelSearch_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 80);
+            this.label1.Location = new System.Drawing.Point(3, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 20);
+            this.label1.Size = new System.Drawing.Size(73, 33);
             this.label1.TabIndex = 18;
             this.label1.Text = "Add Details";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -204,9 +216,9 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(83, 80);
+            this.label2.Location = new System.Drawing.Point(82, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 20);
+            this.label2.Size = new System.Drawing.Size(74, 33);
             this.label2.TabIndex = 19;
             this.label2.Text = "Edit Details";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -216,11 +228,11 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(783, 80);
+            this.label4.Location = new System.Drawing.Point(781, 81);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 20);
+            this.label4.Size = new System.Drawing.Size(77, 33);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Bonus and Deducts";
+            this.label4.Text = "Search";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
@@ -228,9 +240,9 @@
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(866, 80);
+            this.label8.Location = new System.Drawing.Point(864, 81);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 20);
+            this.label8.Size = new System.Drawing.Size(78, 33);
             this.label8.TabIndex = 21;
             this.label8.Text = "Clear Search";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -240,9 +252,9 @@
             this.label14.AutoSize = true;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(1258, 80);
+            this.label14.Location = new System.Drawing.Point(1256, 81);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(89, 20);
+            this.label14.Size = new System.Drawing.Size(91, 33);
             this.label14.TabIndex = 22;
             this.label14.Text = "Discharge Employee";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -253,9 +265,9 @@
             this.openPayment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.openPayment.Font = new System.Drawing.Font("Source Serif Pro", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.openPayment.ForeColor = System.Drawing.Color.White;
-            this.openPayment.Location = new System.Drawing.Point(950, 3);
+            this.openPayment.Location = new System.Drawing.Point(948, 3);
             this.openPayment.Name = "openPayment";
-            this.openPayment.Size = new System.Drawing.Size(76, 74);
+            this.openPayment.Size = new System.Drawing.Size(76, 75);
             this.openPayment.TabIndex = 23;
             this.openPayment.UseVisualStyleBackColor = false;
             // 
@@ -263,201 +275,280 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label19.Location = new System.Drawing.Point(950, 80);
+            this.label19.Location = new System.Drawing.Point(948, 81);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(76, 20);
+            this.label19.Size = new System.Drawing.Size(76, 33);
             this.label19.TabIndex = 24;
             this.label19.Text = "CRUD";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // employeesPanel
+            // paydetailsPanel
             // 
-            this.employeesPanel.ColumnCount = 6;
-            this.employeesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.39175F));
-            this.employeesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.60825F));
-            this.employeesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
-            this.employeesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 264F));
-            this.employeesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 270F));
-            this.employeesPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
-            this.employeesPanel.Controls.Add(this.hideEmpPanel, 5, 1);
-            this.employeesPanel.Controls.Add(this.hdEPicker, 4, 1);
-            this.employeesPanel.Controls.Add(this.addEmployee, 5, 0);
-            this.employeesPanel.Controls.Add(this.genECombo, 2, 1);
-            this.employeesPanel.Controls.Add(this.bdEPicker, 3, 1);
-            this.employeesPanel.Controls.Add(this.fnELabel, 0, 0);
-            this.employeesPanel.Controls.Add(this.hdELabel, 4, 0);
-            this.employeesPanel.Controls.Add(this.fnEText, 0, 1);
-            this.employeesPanel.Controls.Add(this.lnELabel, 1, 0);
-            this.employeesPanel.Controls.Add(this.lnEText, 1, 1);
-            this.employeesPanel.Controls.Add(this.bdELabel, 3, 0);
-            this.employeesPanel.Controls.Add(this.genELabel, 2, 0);
-            this.employeesPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.employeesPanel.Location = new System.Drawing.Point(0, 100);
-            this.employeesPanel.Name = "employeesPanel";
-            this.employeesPanel.RowCount = 2;
-            this.employeesPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.employeesPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.employeesPanel.Size = new System.Drawing.Size(1350, 110);
-            this.employeesPanel.TabIndex = 25;
-            this.employeesPanel.Visible = false;
+            this.paydetailsPanel.ColumnCount = 5;
+            this.paydetailsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.paydetailsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.paydetailsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 311F));
+            this.paydetailsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 311F));
+            this.paydetailsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
+            this.paydetailsPanel.Controls.Add(this.sdPLabel, 1, 0);
+            this.paydetailsPanel.Controls.Add(this.addPDetail, 4, 0);
+            this.paydetailsPanel.Controls.Add(this.sdPPicker, 1, 1);
+            this.paydetailsPanel.Controls.Add(this.atPCombo, 3, 3);
+            this.paydetailsPanel.Controls.Add(this.enPLabel, 0, 0);
+            this.paydetailsPanel.Controls.Add(this.enPText, 0, 1);
+            this.paydetailsPanel.Controls.Add(this.atPLabel, 3, 2);
+            this.paydetailsPanel.Controls.Add(this.baPText, 2, 3);
+            this.paydetailsPanel.Controls.Add(this.baPLabel, 2, 2);
+            this.paydetailsPanel.Controls.Add(this.bnPLabel, 1, 2);
+            this.paydetailsPanel.Controls.Add(this.rnPLabel, 0, 2);
+            this.paydetailsPanel.Controls.Add(this.rnPText, 0, 3);
+            this.paydetailsPanel.Controls.Add(this.bnPText, 1, 3);
+            this.paydetailsPanel.Controls.Add(this.ptPLabel, 3, 0);
+            this.paydetailsPanel.Controls.Add(this.ptPCombo, 3, 1);
+            this.paydetailsPanel.Controls.Add(this.hidePPanel, 4, 2);
+            this.paydetailsPanel.Location = new System.Drawing.Point(0, 135);
+            this.paydetailsPanel.Name = "paydetailsPanel";
+            this.paydetailsPanel.RowCount = 4;
+            this.paydetailsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.paydetailsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
+            this.paydetailsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.paydetailsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.paydetailsPanel.Size = new System.Drawing.Size(1350, 148);
+            this.paydetailsPanel.TabIndex = 25;
+            this.paydetailsPanel.Visible = false;
             // 
-            // hideEmpPanel
+            // sdPLabel
             // 
-            this.hideEmpPanel.BackColor = System.Drawing.Color.Transparent;
-            this.hideEmpPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hideEmpPanel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hideEmpPanel.Image = global::CrudEmployees.Properties.Resources.toxic;
-            this.hideEmpPanel.Location = new System.Drawing.Point(1225, 58);
-            this.hideEmpPanel.Name = "hideEmpPanel";
-            this.hideEmpPanel.Size = new System.Drawing.Size(122, 49);
-            this.hideEmpPanel.TabIndex = 6;
-            this.hideEmpPanel.Text = "Cancel";
-            this.hideEmpPanel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.hideEmpPanel.UseVisualStyleBackColor = false;
+            this.sdPLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
+            this.sdPLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.sdPLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sdPLabel.ForeColor = System.Drawing.Color.White;
+            this.sdPLabel.Location = new System.Drawing.Point(314, 0);
+            this.sdPLabel.Name = "sdPLabel";
+            this.sdPLabel.Size = new System.Drawing.Size(305, 39);
+            this.sdPLabel.TabIndex = 1;
+            this.sdPLabel.Text = "Start Date";
+            this.sdPLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // hdEPicker
+            // addPDetail
             // 
-            this.hdEPicker.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hdEPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hdEPicker.Location = new System.Drawing.Point(955, 58);
-            this.hdEPicker.Name = "hdEPicker";
-            this.hdEPicker.Size = new System.Drawing.Size(264, 26);
-            this.hdEPicker.TabIndex = 10;
+            this.addPDetail.BackColor = System.Drawing.Color.Transparent;
+            this.addPDetail.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addPDetail.Image = global::CrudEmployees.Properties.Resources.plusmini;
+            this.addPDetail.Location = new System.Drawing.Point(1247, 3);
+            this.addPDetail.Name = "addPDetail";
+            this.addPDetail.Size = new System.Drawing.Size(100, 33);
+            this.addPDetail.TabIndex = 5;
+            this.addPDetail.Text = "Add";
+            this.addPDetail.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.addPDetail.UseVisualStyleBackColor = false;
             // 
-            // addEmployee
+            // sdPPicker
             // 
-            this.addEmployee.BackColor = System.Drawing.Color.Transparent;
-            this.addEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addEmployee.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addEmployee.Image = global::CrudEmployees.Properties.Resources.plusmini;
-            this.addEmployee.Location = new System.Drawing.Point(1225, 3);
-            this.addEmployee.Name = "addEmployee";
-            this.addEmployee.Size = new System.Drawing.Size(122, 49);
-            this.addEmployee.TabIndex = 5;
-            this.addEmployee.Text = "Add";
-            this.addEmployee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.addEmployee.UseVisualStyleBackColor = false;
+            this.sdPPicker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sdPPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sdPPicker.Location = new System.Drawing.Point(314, 42);
+            this.sdPPicker.Name = "sdPPicker";
+            this.sdPPicker.Size = new System.Drawing.Size(305, 26);
+            this.sdPPicker.TabIndex = 10;
             // 
-            // genECombo
+            // atPCombo
             // 
-            this.genECombo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.genECombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.genECombo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genECombo.FormattingEnabled = true;
-            this.genECombo.Items.AddRange(new object[] {
-            "M",
-            "F"});
-            this.genECombo.Location = new System.Drawing.Point(542, 58);
-            this.genECombo.Name = "genECombo";
-            this.genECombo.Size = new System.Drawing.Size(143, 28);
-            this.genECombo.TabIndex = 11;
+            this.atPCombo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.atPCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.atPCombo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.atPCombo.FormattingEnabled = true;
+            this.atPCombo.Items.AddRange(new object[] {
+            "Basic Checking Account",
+            "Savings Account",
+            "Interest Bearing Checking Account",
+            "Money Market Account",
+            "Investment Retirement Account",
+            "Brokerage Account"});
+            this.atPCombo.Location = new System.Drawing.Point(936, 115);
+            this.atPCombo.Name = "atPCombo";
+            this.atPCombo.Size = new System.Drawing.Size(305, 28);
+            this.atPCombo.TabIndex = 11;
             // 
-            // bdEPicker
+            // enPLabel
             // 
-            this.bdEPicker.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bdEPicker.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bdEPicker.Location = new System.Drawing.Point(691, 58);
-            this.bdEPicker.Name = "bdEPicker";
-            this.bdEPicker.Size = new System.Drawing.Size(258, 26);
-            this.bdEPicker.TabIndex = 9;
+            this.enPLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
+            this.enPLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.enPLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enPLabel.ForeColor = System.Drawing.Color.White;
+            this.enPLabel.Location = new System.Drawing.Point(3, 0);
+            this.enPLabel.Name = "enPLabel";
+            this.enPLabel.Size = new System.Drawing.Size(305, 39);
+            this.enPLabel.TabIndex = 0;
+            this.enPLabel.Text = "Employee Number";
+            this.enPLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // fnELabel
+            // enPText
             // 
-            this.fnELabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
-            this.fnELabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.fnELabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fnELabel.ForeColor = System.Drawing.Color.White;
-            this.fnELabel.Location = new System.Drawing.Point(3, 15);
-            this.fnELabel.Name = "fnELabel";
-            this.fnELabel.Size = new System.Drawing.Size(244, 40);
-            this.fnELabel.TabIndex = 0;
-            this.fnELabel.Text = "First Name";
-            this.fnELabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.enPText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.enPText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.enPText.Location = new System.Drawing.Point(3, 42);
+            this.enPText.Name = "enPText";
+            this.enPText.Size = new System.Drawing.Size(305, 26);
+            this.enPText.TabIndex = 8;
             // 
-            // hdELabel
+            // atPLabel
             // 
-            this.hdELabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
-            this.hdELabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.hdELabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hdELabel.ForeColor = System.Drawing.Color.White;
-            this.hdELabel.Location = new System.Drawing.Point(955, 15);
-            this.hdELabel.Name = "hdELabel";
-            this.hdELabel.Size = new System.Drawing.Size(264, 40);
-            this.hdELabel.TabIndex = 4;
-            this.hdELabel.Text = "Hire Date";
-            this.hdELabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.atPLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
+            this.atPLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.atPLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.atPLabel.ForeColor = System.Drawing.Color.White;
+            this.atPLabel.Location = new System.Drawing.Point(936, 73);
+            this.atPLabel.Name = "atPLabel";
+            this.atPLabel.Size = new System.Drawing.Size(305, 39);
+            this.atPLabel.TabIndex = 12;
+            this.atPLabel.Text = "Account Type";
+            this.atPLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // fnEText
+            // baPText
             // 
-            this.fnEText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fnEText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fnEText.Location = new System.Drawing.Point(3, 58);
-            this.fnEText.Name = "fnEText";
-            this.fnEText.Size = new System.Drawing.Size(244, 26);
-            this.fnEText.TabIndex = 7;
+            this.baPText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.baPText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baPText.Location = new System.Drawing.Point(625, 115);
+            this.baPText.Name = "baPText";
+            this.baPText.Size = new System.Drawing.Size(305, 26);
+            this.baPText.TabIndex = 7;
             // 
-            // lnELabel
+            // baPLabel
             // 
-            this.lnELabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
-            this.lnELabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lnELabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnELabel.ForeColor = System.Drawing.Color.White;
-            this.lnELabel.Location = new System.Drawing.Point(253, 15);
-            this.lnELabel.Name = "lnELabel";
-            this.lnELabel.Size = new System.Drawing.Size(283, 40);
-            this.lnELabel.TabIndex = 1;
-            this.lnELabel.Text = "Last Name";
-            this.lnELabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.baPLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
+            this.baPLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.baPLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baPLabel.ForeColor = System.Drawing.Color.White;
+            this.baPLabel.Location = new System.Drawing.Point(625, 73);
+            this.baPLabel.Name = "baPLabel";
+            this.baPLabel.Size = new System.Drawing.Size(305, 39);
+            this.baPLabel.TabIndex = 2;
+            this.baPLabel.Text = "Bank Address";
+            this.baPLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // lnEText
+            // bnPLabel
             // 
-            this.lnEText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lnEText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnEText.Location = new System.Drawing.Point(253, 58);
-            this.lnEText.Name = "lnEText";
-            this.lnEText.Size = new System.Drawing.Size(283, 26);
-            this.lnEText.TabIndex = 8;
+            this.bnPLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
+            this.bnPLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bnPLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnPLabel.ForeColor = System.Drawing.Color.White;
+            this.bnPLabel.Location = new System.Drawing.Point(314, 73);
+            this.bnPLabel.Name = "bnPLabel";
+            this.bnPLabel.Size = new System.Drawing.Size(305, 39);
+            this.bnPLabel.TabIndex = 3;
+            this.bnPLabel.Text = "Bank Name";
+            this.bnPLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // bdELabel
+            // rnPLabel
             // 
-            this.bdELabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
-            this.bdELabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bdELabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bdELabel.ForeColor = System.Drawing.Color.White;
-            this.bdELabel.Location = new System.Drawing.Point(691, 15);
-            this.bdELabel.Name = "bdELabel";
-            this.bdELabel.Size = new System.Drawing.Size(258, 40);
-            this.bdELabel.TabIndex = 3;
-            this.bdELabel.Text = "Birth Date";
-            this.bdELabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.rnPLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
+            this.rnPLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.rnPLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rnPLabel.ForeColor = System.Drawing.Color.White;
+            this.rnPLabel.Location = new System.Drawing.Point(3, 77);
+            this.rnPLabel.Name = "rnPLabel";
+            this.rnPLabel.Size = new System.Drawing.Size(305, 35);
+            this.rnPLabel.TabIndex = 14;
+            this.rnPLabel.Text = "Routing Number";
+            this.rnPLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // genELabel
+            // rnPText
             // 
-            this.genELabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
-            this.genELabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.genELabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.genELabel.ForeColor = System.Drawing.Color.White;
-            this.genELabel.Location = new System.Drawing.Point(542, 15);
-            this.genELabel.Name = "genELabel";
-            this.genELabel.Size = new System.Drawing.Size(143, 40);
-            this.genELabel.TabIndex = 2;
-            this.genELabel.Text = "Gender";
-            this.genELabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.rnPText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rnPText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rnPText.Location = new System.Drawing.Point(3, 115);
+            this.rnPText.Name = "rnPText";
+            this.rnPText.Size = new System.Drawing.Size(305, 26);
+            this.rnPText.TabIndex = 15;
+            // 
+            // bnPText
+            // 
+            this.bnPText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bnPText.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bnPText.Location = new System.Drawing.Point(314, 115);
+            this.bnPText.Name = "bnPText";
+            this.bnPText.Size = new System.Drawing.Size(305, 26);
+            this.bnPText.TabIndex = 16;
+            // 
+            // ptPLabel
+            // 
+            this.ptPLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
+            this.ptPLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ptPLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ptPLabel.ForeColor = System.Drawing.Color.White;
+            this.ptPLabel.Location = new System.Drawing.Point(936, 0);
+            this.ptPLabel.Name = "ptPLabel";
+            this.ptPLabel.Size = new System.Drawing.Size(305, 39);
+            this.ptPLabel.TabIndex = 4;
+            this.ptPLabel.Text = "Pay Type";
+            this.ptPLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // ptPCombo
+            // 
+            this.ptPCombo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ptPCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ptPCombo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ptPCombo.FormattingEnabled = true;
+            this.ptPCombo.Location = new System.Drawing.Point(936, 42);
+            this.ptPCombo.Name = "ptPCombo";
+            this.ptPCombo.Size = new System.Drawing.Size(305, 28);
+            this.ptPCombo.TabIndex = 13;
+            // 
+            // hidePPanel
+            // 
+            this.hidePPanel.BackColor = System.Drawing.Color.Transparent;
+            this.hidePPanel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hidePPanel.Image = global::CrudEmployees.Properties.Resources.toxic;
+            this.hidePPanel.Location = new System.Drawing.Point(1247, 76);
+            this.hidePPanel.Name = "hidePPanel";
+            this.hidePPanel.Size = new System.Drawing.Size(100, 33);
+            this.hidePPanel.TabIndex = 6;
+            this.hidePPanel.Text = "Cancel";
+            this.hidePPanel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.hidePPanel.UseVisualStyleBackColor = false;
+            this.hidePPanel.Click += new System.EventHandler(this.HidePPanel_Click);
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 5;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 469F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 663F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 357F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 124F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 342F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 250);
+            this.tableLayoutPanel2.Controls.Add(this.deptPCombo, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.departmentPLabel, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 315);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1350, 33);
             this.tableLayoutPanel2.TabIndex = 26;
+            // 
+            // deptPCombo
+            // 
+            this.deptPCombo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deptPCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.deptPCombo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deptPCombo.FormattingEnabled = true;
+            this.deptPCombo.Location = new System.Drawing.Point(266, 3);
+            this.deptPCombo.Name = "deptPCombo";
+            this.deptPCombo.Size = new System.Drawing.Size(351, 28);
+            this.deptPCombo.TabIndex = 16;
+            // 
+            // departmentPLabel
+            // 
+            this.departmentPLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
+            this.departmentPLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.departmentPLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.departmentPLabel.ForeColor = System.Drawing.Color.White;
+            this.departmentPLabel.Location = new System.Drawing.Point(3, 0);
+            this.departmentPLabel.Name = "departmentPLabel";
+            this.departmentPLabel.Size = new System.Drawing.Size(257, 33);
+            this.departmentPLabel.TabIndex = 15;
+            this.departmentPLabel.Text = "Department";
+            this.departmentPLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // Payment
             // 
@@ -465,29 +556,30 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.employeesPanel);
+            this.Controls.Add(this.paydetailsPanel);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.employeesTable);
+            this.Controls.Add(this.paymentTable);
             this.Name = "Payment";
             this.Text = "Payment";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Payment_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.employeesTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.paymentTable)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.employeesPanel.ResumeLayout(false);
-            this.employeesPanel.PerformLayout();
+            this.paydetailsPanel.ResumeLayout(false);
+            this.paydetailsPanel.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView employeesTable;
+        private System.Windows.Forms.DataGridView paymentTable;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button showFields;
         private System.Windows.Forms.Button search;
         private System.Windows.Forms.TextBox searchBar;
-        private System.Windows.Forms.Button editRecord;
+        private System.Windows.Forms.Button editDetails;
         private System.Windows.Forms.Button deleteRecord;
         private System.Windows.Forms.Button cancelSearch;
         private System.Windows.Forms.Label label1;
@@ -497,19 +589,25 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button openPayment;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TableLayoutPanel employeesPanel;
-        private System.Windows.Forms.Button hideEmpPanel;
-        private System.Windows.Forms.DateTimePicker hdEPicker;
-        private System.Windows.Forms.Button addEmployee;
-        private System.Windows.Forms.ComboBox genECombo;
-        private System.Windows.Forms.DateTimePicker bdEPicker;
-        private System.Windows.Forms.Label fnELabel;
-        private System.Windows.Forms.Label hdELabel;
-        private System.Windows.Forms.TextBox fnEText;
-        private System.Windows.Forms.Label lnELabel;
-        private System.Windows.Forms.TextBox lnEText;
-        private System.Windows.Forms.Label bdELabel;
-        private System.Windows.Forms.Label genELabel;
+        private System.Windows.Forms.TableLayoutPanel paydetailsPanel;
+        private System.Windows.Forms.Button hidePPanel;
+        private System.Windows.Forms.DateTimePicker sdPPicker;
+        private System.Windows.Forms.ComboBox atPCombo;
+        private System.Windows.Forms.Label enPLabel;
+        private System.Windows.Forms.Label ptPLabel;
+        private System.Windows.Forms.TextBox baPText;
+        private System.Windows.Forms.Label sdPLabel;
+        private System.Windows.Forms.TextBox enPText;
+        private System.Windows.Forms.Label bnPLabel;
+        private System.Windows.Forms.Label baPLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button addPDetail;
+        private System.Windows.Forms.Label atPLabel;
+        private System.Windows.Forms.Label rnPLabel;
+        private System.Windows.Forms.TextBox rnPText;
+        private System.Windows.Forms.TextBox bnPText;
+        private System.Windows.Forms.ComboBox ptPCombo;
+        private System.Windows.Forms.ComboBox deptPCombo;
+        private System.Windows.Forms.Label departmentPLabel;
     }
 }
