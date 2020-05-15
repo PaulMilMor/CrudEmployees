@@ -15,6 +15,7 @@ namespace CrudEmployees
         Conexion c = null;
         DataSet ds = null;
         List<String> deptnums;
+        List<String> paytype;
         
         public Payment()
         {
@@ -25,12 +26,21 @@ namespace CrudEmployees
 
             c = new Conexion();
 
-            ds.Dispose();
+            //ds.Dispose();
             deptnums = c.getDeptId();
-            foreach(String deptno in deptnums)
+            deptPCombo.Items.Clear();
+            foreach (String deptno in deptnums)
             {
                 deptPCombo.Items.Add(deptno);
             }
+            paytype = c.getPayType();
+            ptPCombo.Items.Clear();
+            foreach (String type in paytype)
+            {
+                ptPCombo.Items.Add(type);
+            }
+            sdPPicker.Value = new DateTime(sdPPicker.Value.Year, sdPPicker.Value.Month, 1);
+            sdPPicker.Enabled = false;
 
         }
 
@@ -52,16 +62,24 @@ namespace CrudEmployees
         private void InsertData()
         {
             Object[] row;
-            row = new object[5];
+            row = new object[7];
             row[0] = enPText.Text;
-            row[0] = sdPPicker.Value;
-            row[0] = rnPText.Text;
-            row[0] = atPCombo.SelectedItem.ToString();
-            row[0] = bnPText.Text;
-            row[0] = baPText.Text;
-            row[0] = ptPCombo.SelectedIndex;
+            row[1] = sdPPicker.Value;
+            row[2] = rnPText.Text;
+            row[3] = atPCombo.SelectedItem.ToString();
+            row[4] = bnPText.Text;
+            row[5] = baPText.Text;
+            row[6] = ptPCombo.SelectedIndex +2001;
+            if(c.Insert("paydetails", row))
+            {
+                HidePPanel_Click(this, new EventArgs());
+            }
 
-            HidePPanel_Click(this, new EventArgs());
+            /*ds = new DataSet();
+            ds = c.getData("paydetails");*/
+            
+
+            
         }
 
         private void Payment_FormClosing(object sender, FormClosingEventArgs e)
@@ -76,7 +94,7 @@ namespace CrudEmployees
             rnPText.Text = "";
             bnPText.Text = "";
             baPText.Text = "";
-            sdPPicker.Value = DateTime.Now;
+            sdPPicker.Value = new DateTime(sdPPicker.Value.Year, sdPPicker.Value.Month, 1);
             ptPCombo.SelectedIndex = -1;
             atPCombo.SelectedIndex = -1;
             paydetailsPanel.Visible = true;
@@ -168,11 +186,50 @@ namespace CrudEmployees
             rnPText.Text = "";
             bnPText.Text = "";
             baPText.Text = "";
-            sdPPicker.Value = DateTime.Now;
+            sdPPicker.Value = new DateTime(sdPPicker.Value.Year, sdPPicker.Value.Month, 1);
             ptPCombo.SelectedIndex = -1;
             atPCombo.SelectedIndex = -1;
             paydetailsPanel.Visible = false;
 
+        }
+
+        private void OpenCrud_Click(object sender, EventArgs e)
+        {
+            var Tables = new Tables();
+            Tables.Shown += (o, args) => { this.Hide(); };
+            Tables.Show();
+        }
+
+        private void AddPDetail_Click(object sender, EventArgs e)
+        {
+            Boolean validateEmpty = true;
+            Boolean validateRouting = true;
+            validateEmpty = string.IsNullOrWhiteSpace(enPText.Text)
+                        || string.IsNullOrWhiteSpace(rnPText.Text)
+                        || string.IsNullOrWhiteSpace(bnPText.Text)
+                        || string.IsNullOrWhiteSpace(baPText.Text)
+                        || atPCombo.SelectedIndex == -1
+                        || ptPCombo.SelectedIndex == -1;
+            validateRouting = rnPText.Text.Length !=9;
+            if (validateEmpty)
+            {
+                MessageBox.Show("Fill all the fields");
+            } else if (validateRouting)
+            {
+                MessageBox.Show("Routing number must be exactly 9 characters");
+            }
+            else
+            {
+                if (addPDetail.Text.Equals("Add"))
+                {
+                    this.InsertData();
+                }
+                else
+                {
+                    
+                }
+                validateEmpty = true;
+            }
         }
     }
 }

@@ -897,18 +897,21 @@ namespace CrudEmployees
                 if (addButtons[index].Text.Equals("Add"))
                 {
                     this.InsertData();
+                    addButtons[index].Text = "Add";
+                    panels[index].Visible = false;
                 }
                 else
                 {
                     this.EditData();
+                    addButtons[index].Text = "Add";
+                    panels[index].Visible = false;
 
                 }
             }
             validateEmpty = true;
             validateDate = true;
             
-            addButtons[index].Text = "Add";
-            panels[index].Visible = false;
+            
             
         }
 
@@ -1509,8 +1512,11 @@ namespace CrudEmployees
 
         private void OpenPayment_Click(object sender, EventArgs e)
         {
-            new Payment().Show();
-            this.Hide();
+            /*new Payment().Show();
+            this.Hide();*/
+            var Payment = new Payment();
+            Payment.Shown += (o, args) => { this.Hide(); };
+            Payment.Show();
 
         }
     }

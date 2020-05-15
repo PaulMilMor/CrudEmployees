@@ -326,9 +326,10 @@ namespace CrudEmployees
 
         }
 
-        public void Insert(string tabla, Object[] row)
+        public Boolean Insert(string tabla, Object[] row)
         {
             string query = "";
+            string result = "";
             //this.CloseConnection();
             try
             {
@@ -349,6 +350,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Employee registered correctly.";
                         }
                         break;
                     case "departments":
@@ -363,6 +365,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Department registered correctly.";
                         }
                         break;
                     case "dept_manager":
@@ -379,6 +382,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Manager registered correctly.";
                         }
                         break;
                     case "dept_emp":
@@ -395,6 +399,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Employee registered correctly at department.";
                         }
                         break;
                     case "titles":
@@ -411,6 +416,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Title registered correctly.";
                         }
                         break;
                     case "salaries":
@@ -427,6 +433,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Salary registered correctly.";
                         }
                         break;
                     case "bonus":
@@ -443,6 +450,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Bonus registered correctly.";
                         }
                         break;
                     case "deduction":
@@ -459,6 +467,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Deduction registered correctly.";
                         }
                         break;
                     case "holiday":
@@ -474,6 +483,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Holiday registered correctly.";
                         }
                         break;
                     case "sickleave":
@@ -490,13 +500,38 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Sick Leave registered correctly.";
+                        }
+                        break;
+                    case "paydetails":
+                        query = "INSERT INTO paydetails(emp_no, start_date, routing_number, account_type, bank_name, bank_address,pay_type_no) " +
+                            "VALUES(@en,@sd,@rn,@at,@bn,@ba,@ptn)";
+                        if(this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@sd", MySqlDbType.Date).Value = row[1];
+                            cmd.Parameters.AddWithValue("@rn", row[2]);
+                            cmd.Parameters.AddWithValue("@at", row[3]);
+                            cmd.Parameters.AddWithValue("@bn", row[4]);
+                            cmd.Parameters.AddWithValue("@ba", row[5]);
+                            cmd.Parameters.AddWithValue("@ptn", row[6]);
+                            cmd.Connection = connection;
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                            result = "Pay Details registered correctly.";
                         }
                         break;
 
                 }
+                MessageBox.Show(result);
+                return true;
             } catch (Exception e)
             {
                 MessageBox.Show(e.Message);
+                return false;
+                //MessageBox.Show("There's something wrong with your data.");
             }
 
 
@@ -823,6 +858,32 @@ namespace CrudEmployees
                 dataReader.Close();
                 this.CloseConnection();
             }
+        }
+
+        public DataSet getPayroll(string deptno)
+        {
+            DataSet ds = new DataSet();
+            
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "get_payroll_details";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new MySqlParameter("deptno", deptno));
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                
+                sda.SelectCommand = cmd;
+                sda.Fill(ds);
+
+
+
+                sda.Dispose();
+                this.CloseConnection();
+                return ds;
+
+            }
+            return ds;
         }
 
 
