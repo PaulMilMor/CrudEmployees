@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.paymentTable = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.showFields = new System.Windows.Forms.Button();
@@ -64,6 +64,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.deptPCombo = new System.Windows.Forms.ComboBox();
             this.departmentPLabel = new System.Windows.Forms.Label();
+            this.loadEmployees = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.paymentTable)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.paydetailsPanel.SuspendLayout();
@@ -84,8 +85,8 @@
             this.paymentTable.Name = "paymentTable";
             this.paymentTable.ReadOnly = true;
             this.paymentTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paymentTable.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentTable.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.paymentTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.paymentTable.Size = new System.Drawing.Size(1350, 375);
             this.paymentTable.TabIndex = 23;
@@ -520,9 +521,10 @@
             this.tableLayoutPanel2.ColumnCount = 5;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 357F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 124F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 342F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 281F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.loadEmployees, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.deptPCombo, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.departmentPLabel, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 315);
@@ -542,6 +544,7 @@
             this.deptPCombo.Name = "deptPCombo";
             this.deptPCombo.Size = new System.Drawing.Size(351, 28);
             this.deptPCombo.TabIndex = 16;
+            this.deptPCombo.SelectedIndexChanged += new System.EventHandler(this.DeptPCombo_SelectedIndexChanged);
             // 
             // departmentPLabel
             // 
@@ -555,6 +558,20 @@
             this.departmentPLabel.TabIndex = 15;
             this.departmentPLabel.Text = "Department";
             this.departmentPLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // loadEmployees
+            // 
+            this.loadEmployees.BackColor = System.Drawing.Color.Transparent;
+            this.loadEmployees.Enabled = false;
+            this.loadEmployees.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadEmployees.Location = new System.Drawing.Point(623, 3);
+            this.loadEmployees.Name = "loadEmployees";
+            this.loadEmployees.Size = new System.Drawing.Size(260, 27);
+            this.loadEmployees.TabIndex = 17;
+            this.loadEmployees.Text = "Load Employees";
+            this.loadEmployees.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.loadEmployees.UseVisualStyleBackColor = false;
+            this.loadEmployees.Click += new System.EventHandler(this.LoadEmployees_Click);
             // 
             // Payment
             // 
@@ -615,5 +632,6 @@
         private System.Windows.Forms.ComboBox ptPCombo;
         private System.Windows.Forms.ComboBox deptPCombo;
         private System.Windows.Forms.Label departmentPLabel;
+        private System.Windows.Forms.Button loadEmployees;
     }
 }

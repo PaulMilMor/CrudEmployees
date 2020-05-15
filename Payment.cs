@@ -231,5 +231,42 @@ namespace CrudEmployees
                 validateEmpty = true;
             }
         }
+
+        private void LoadEmployees_Click(object sender, EventArgs e)
+        {
+            ds = new DataSet();
+            ds = c.getPayroll(deptPCombo.SelectedItem.ToString());
+            paymentTable.DataSource = ds.Tables[0];
+            paymentTable.Columns.Add("Column", "Net Salary");
+            for (int i = 0; i < paymentTable.Rows.Count; i++)
+            {
+                //MessageBox.Show(paymentTable[2,i].Value.ToString());
+                float salary = float.Parse(paymentTable[3, i].Value.ToString());
+                string tbonus = paymentTable[4, i].Value.ToString();
+                string tdeduct = paymentTable[5, i].Value.ToString();
+                if (string.IsNullOrEmpty(tbonus))
+                {
+                    paymentTable[4, i].Value = 0;
+                } else if (string.IsNullOrEmpty(tdeduct))
+                {
+                    paymentTable[5, i].Value = 0;
+                }
+                float floatbonus = float.Parse(tbonus);
+                float floatdeduct = float.Parse(tdeduct);
+                paymentTable[6, i].Value = salary + floatbonus - floatdeduct;
+            }
+        }
+
+        private void DeptPCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(deptPCombo.SelectedIndex == -1)
+            {
+                loadEmployees.Enabled = false;
+            }
+            else
+            {
+                loadEmployees.Enabled = true;
+            }
+        }
     }
 }
