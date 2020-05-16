@@ -578,6 +578,7 @@ namespace CrudEmployees
         public void Delete(string table, Object[] row)
         {
             string query = "";
+            string result = "";
             try
             {
                 switch (table)
@@ -592,6 +593,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Deleted employee successfully.";
                         }
                         break;
                     case "departments":
@@ -604,6 +606,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Deleted department successfully.";
                         }
                         break;
                     case "dept_manager":
@@ -617,6 +620,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Deleted manager successfully.";
                         }
                         break;
                     case "dept_emp":
@@ -630,6 +634,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Deleted employee's department successfully.";
                         }
                         break;
                     case "titles":
@@ -644,6 +649,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Deleted employee's title successfully.";
                         }
                         break;
                     case "salaries":
@@ -657,6 +663,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Deleted employee's salary successfully.";
                         }
                         break;
                     case "bonus":
@@ -670,6 +677,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Deleted employee's bonus successfully.";
                         }
                         break;
                     case "deduction":
@@ -683,6 +691,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Deleted employee's deduction successfully.";
                         }
                         break;
                     case "holiday":
@@ -696,6 +705,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Deleted employee's holiday successfully.";
                         }
                         break;
                     case "sickleave":
@@ -709,6 +719,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Deleted employee's sickleave successfully.";
                         }
                         break;
                     case "paydetails":
@@ -722,9 +733,11 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Discharged employee from payroll successfully.";
                         }
                         break;
                 }
+                MessageBox.Show(result);
             } catch (Exception e) {
                 MessageBox.Show(e.Message);
             }

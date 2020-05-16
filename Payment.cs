@@ -284,10 +284,14 @@ namespace CrudEmployees
             ds = new DataSet();
             ds = c.getPayroll(deptPCombo.SelectedItem.ToString());
             paymentTable.DataSource = ds.Tables[0];
-            paymentTable.Columns.Add("Column", "Net Salary");
+            if(paymentTable.Columns.Count < 7)
+            {
+                paymentTable.Columns.Add("Column", "Net Salary");
+
+            }
             for (int i = 0; i < paymentTable.Rows.Count; i++)
             {
-                //MessageBox.Show(paymentTable[3,i].Value.ToString());
+                MessageBox.Show(paymentTable[3,i].Value.ToString());
                 double salary = double.Parse(paymentTable[3, i].Value.ToString());
                 string tbonus = paymentTable[4, i].Value.ToString();
                 string tdeduct = paymentTable[5, i].Value.ToString();
@@ -313,6 +317,39 @@ namespace CrudEmployees
             else
             {
                 loadEmployees.Enabled = true;
+            }
+        }
+
+        private void DeleteRecord_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to discharge this employee from payroll?", "Delete", MessageBoxButtons.YesNo);
+            if(dialogResult == DialogResult.Yes)
+            {
+                Object[] row;
+                if (paymentTable.SelectedCells.Count > 0)
+                {
+                    int searched;
+                    int selectedrowindex = paymentTable.SelectedCells[0].RowIndex;
+                    DataGridViewRow selectedRow = paymentTable.Rows[selectedrowindex];
+                    String empno = Convert.ToString(selectedRow.Cells[0].Value);
+                    try
+                    {
+                        searched = int.Parse(empno);
+
+                    }
+                    catch (FormatException)
+                    {
+                        searched = 0;
+                    }
+                    ds = new DataSet();
+                    ds = c.Search("onepaydetails", searched);
+                    row = new object[2];
+                    row[0] = ds.Tables[0].Rows[0][0];
+                    row[1] = ds.Tables[0].Rows[0][3];
+                    c.Delete("paydetails", row);
+                    this.LoadEmployees_Click(this, new EventArgs());
+                    paymentTable.Refresh();
+                }
             }
         }
     }

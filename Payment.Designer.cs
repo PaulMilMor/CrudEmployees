@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.paymentTable = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.showFields = new System.Windows.Forms.Button();
@@ -85,8 +85,8 @@
             this.paymentTable.Name = "paymentTable";
             this.paymentTable.ReadOnly = true;
             this.paymentTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paymentTable.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentTable.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.paymentTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.paymentTable.Size = new System.Drawing.Size(1350, 375);
             this.paymentTable.TabIndex = 23;
@@ -188,6 +188,7 @@
             this.deleteRecord.Size = new System.Drawing.Size(95, 75);
             this.deleteRecord.TabIndex = 6;
             this.deleteRecord.UseVisualStyleBackColor = false;
+            this.deleteRecord.Click += new System.EventHandler(this.DeleteRecord_Click);
             // 
             // cancelSearch
             // 
