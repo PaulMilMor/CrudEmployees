@@ -126,6 +126,7 @@ namespace CrudEmployees
                 case "payhistory":
                     query = "SELECT * FROM payhistory ORDER BY pay_date DESC LIMIT 100";
                     break;
+                
 
             }
             DataSet ds = new DataSet();
@@ -156,9 +157,10 @@ namespace CrudEmployees
 
         }
 
-        public void Edit(string tabla, Object[] row)
+        public Boolean Edit(string tabla, Object[] row)
         {
             string query = "";
+            string result = "";
             try
             {
                 switch (tabla)
@@ -183,6 +185,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Employee data updated correctly.";
                         }
                         break;
                     case "departments":
@@ -196,6 +199,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Department data updated correctly.";
                         }
                         break;
                     case "dept_manager":
@@ -211,6 +215,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Manager data updated correctly.";
                         }
                         break;
                     case "dept_emp":
@@ -226,6 +231,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Employee's department updated correctly.";
                         }
                         break;
                     case "titles":
@@ -241,6 +247,8 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+
+                            result = "Employee's title updated correctly.";
                         }
                         break;
                     case "salaries":
@@ -256,6 +264,8 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+
+                            result = "Employee's salary updated correctly.";
                         }
                         break;
                     case "bonus":
@@ -271,6 +281,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Employee's bonus updated correctly.";
                         }
                         break;
                     case "deduction":
@@ -286,6 +297,7 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Employee's deduction updated correctly.";
                         }
                         break;
                     case "holiday":
@@ -300,6 +312,8 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+
+                            result = "Employee's holiday updated correctly.";
                         }
                         break;
                     case "sickleave":
@@ -315,12 +329,36 @@ namespace CrudEmployees
                             cmd.Connection = connection;
                             cmd.ExecuteNonQuery();
                             this.CloseConnection();
+                            result = "Employee's sick leave updated correctly.";
+                        }
+                        break;
+                    case "paydetails":
+                        query = "UPDATE paydetails SET routing_number = @rn, account_type = @at, bank_name = @bn, bank_address = @ba, pay_type_no = @ptn " +
+                                "WHERE emp_no = @en AND start_date = @sd";
+                        if (this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@sd", MySqlDbType.Date).Value = row[1];
+                            cmd.Parameters.AddWithValue("@rn", row[2]);
+                            cmd.Parameters.AddWithValue("@at", row[3]);
+                            cmd.Parameters.AddWithValue("@bn", row[4]);
+                            cmd.Parameters.AddWithValue("@ba", row[5]);
+                            cmd.Parameters.AddWithValue("@ptn", row[6]);
+                            cmd.Connection = connection;
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                            result = "Employee's pay details updated correctly.";
                         }
                         break;
                 }
+                MessageBox.Show(result);
+                return true;
             } catch (Exception e)
             {
                 MessageBox.Show(e.Message);
+                return false;
             }
 
 
@@ -673,6 +711,19 @@ namespace CrudEmployees
                             this.CloseConnection();
                         }
                         break;
+                    case "paydetails":
+                        query = "DELETE FROM paydetails WHERE emp_no= @en AND start_date = @sd";
+                        if (this.OpenConnection() == true)
+                        {
+                            MySqlCommand cmd = new MySqlCommand();
+                            cmd.CommandText = query;
+                            cmd.Parameters.AddWithValue("@en", row[0]);
+                            cmd.Parameters.Add("@sd", MySqlDbType.Date).Value = row[1];
+                            cmd.Connection = connection;
+                            cmd.ExecuteNonQuery();
+                            this.CloseConnection();
+                        }
+                        break;
                 }
             } catch (Exception e) {
                 MessageBox.Show(e.Message);
@@ -717,6 +768,16 @@ namespace CrudEmployees
                 case "sickleave":
                     query = "SELECT * FROM sickleave WHERE emp_no=" + searched;
                     break;
+                case "paydetails":
+                    query = "SELECT * FROM paydetails WHERE emp_no=" + searched;
+                    break;
+                case "payhistory":
+                    query = "SELECT * FROM payhistory WHERE emp_no=" + searched;
+                    break;
+                case "onepaydetails":
+                    query = "SELECT * FROM current_paydetails WHERE emp_no=" + searched;
+                    break;
+
             }
             DataSet ds = new DataSet();
             //String query = "SELECT * FROM employees ORDER BY hire_date DESC LIMIT 100";
@@ -884,6 +945,18 @@ namespace CrudEmployees
 
             }
             return ds;
+        }
+
+        public void updatePaydetails()
+        {
+            if(this.OpenConnection()== true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = "update_current_paydetails";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+            }
         }
 
 

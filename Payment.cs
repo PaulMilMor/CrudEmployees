@@ -16,7 +16,7 @@ namespace CrudEmployees
         DataSet ds = null;
         List<String> deptnums;
         List<String> paytype;
-        
+
         public Payment()
         {
             InitializeComponent();
@@ -26,6 +26,7 @@ namespace CrudEmployees
 
             c = new Conexion();
 
+            c.updatePaydetails();
             //ds.Dispose();
             deptnums = c.getDeptId();
             deptPCombo.Items.Clear();
@@ -69,17 +70,33 @@ namespace CrudEmployees
             row[3] = atPCombo.SelectedItem.ToString();
             row[4] = bnPText.Text;
             row[5] = baPText.Text;
-            row[6] = ptPCombo.SelectedIndex +2001;
-            if(c.Insert("paydetails", row))
+            row[6] = ptPCombo.SelectedIndex + 2001;
+            if (c.Insert("paydetails", row))
             {
                 HidePPanel_Click(this, new EventArgs());
             }
 
             /*ds = new DataSet();
             ds = c.getData("paydetails");*/
-            
 
-            
+
+
+        }
+        private void EditData()
+        {
+            Object[] row;
+            row = new object[7];
+            row[0] = enPText.Text;
+            row[1] = sdPPicker.Value;
+            row[2] = rnPText.Text;
+            row[3] = atPCombo.SelectedItem.ToString();
+            row[4] = bnPText.Text;
+            row[5] = baPText.Text;
+            row[6] = ptPCombo.SelectedIndex + 2001;
+            if (c.Edit("paydetails", row))
+            {
+                HidePPanel_Click(this, new EventArgs());
+            }
         }
 
         private void Payment_FormClosing(object sender, FormClosingEventArgs e)
@@ -102,8 +119,36 @@ namespace CrudEmployees
 
         private void EditDetails_Click(object sender, EventArgs e)
         {
+            if (paymentTable.SelectedCells.Count > 0)
+            {
+                int searched;
+                int selectedrowindex = paymentTable.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = paymentTable.Rows[selectedrowindex];
+                String empno = Convert.ToString(selectedRow.Cells[0].Value);
+                try
+                {
+                    searched = int.Parse(empno);
 
+                }
+                catch (FormatException)
+                {
+                    searched = 0;
+                }
+                ds = new DataSet();
+                ds = c.Search("onepaydetails", searched);
+                enPText.Text = ds.Tables[0].Rows[0][0].ToString();
+                enPText.Enabled = false;
+                sdPPicker.Value = DateTime.Parse(ds.Tables[0].Rows[0][3].ToString());
+                rnPText.Text = ds.Tables[0].Rows[0][4].ToString();
+                atPCombo.SelectedIndex = atPCombo.Items.IndexOf(ds.Tables[0].Rows[0][5].ToString());
+                bnPText.Text = ds.Tables[0].Rows[0][6].ToString();
+                baPText.Text = ds.Tables[0].Rows[0][7].ToString();
+                ptPCombo.SelectedIndex = int.Parse(ds.Tables[0].Rows[0][8].ToString())-2001;
+                paydetailsPanel.Visible = true;
+                addPDetail.Text = "Edit";
+            }
         }
+
 
         private void search_GotFocus(object sender, EventArgs e)
         {
@@ -226,7 +271,9 @@ namespace CrudEmployees
                 }
                 else
                 {
-                    
+                    this.EditData();
+                    addPDetail.Text = "Add";
+                    this.HidePPanel_Click(this, new EventArgs());
                 }
                 validateEmpty = true;
             }
@@ -240,8 +287,8 @@ namespace CrudEmployees
             paymentTable.Columns.Add("Column", "Net Salary");
             for (int i = 0; i < paymentTable.Rows.Count; i++)
             {
-                //MessageBox.Show(paymentTable[2,i].Value.ToString());
-                float salary = float.Parse(paymentTable[3, i].Value.ToString());
+                //MessageBox.Show(paymentTable[3,i].Value.ToString());
+                double salary = double.Parse(paymentTable[3, i].Value.ToString());
                 string tbonus = paymentTable[4, i].Value.ToString();
                 string tdeduct = paymentTable[5, i].Value.ToString();
                 if (string.IsNullOrEmpty(tbonus))
@@ -251,9 +298,9 @@ namespace CrudEmployees
                 {
                     paymentTable[5, i].Value = 0;
                 }
-                float floatbonus = float.Parse(tbonus);
-                float floatdeduct = float.Parse(tdeduct);
-                paymentTable[6, i].Value = salary + floatbonus - floatdeduct;
+                double doublebonus = double.Parse(tbonus);
+                double doublededuct = double.Parse(tdeduct);
+                paymentTable[6, i].Value = salary + doublebonus - doublededuct;
             }
         }
 

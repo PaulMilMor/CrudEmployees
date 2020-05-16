@@ -2,15 +2,35 @@
 --VISTA PARA OBTENER LOS ÚLTIMOS DATOS REGISTRADOS EN LA TABLA paydetails
 
 CREATE VIEW current_paydetails AS
-SELECT latest_date.emp_no, employees.first_name, employees.last_name,
-	latest_date.start_date, paydetails.routing_number, paydetails.account_type, paydetails.bank_name, paydetails.bank_address, paydetails.pay_type_no
-FROM paydetails JOIN (SELECT emp_no, MAX(start_date) AS start_date 
-FROM paydetails GROUP BY emp_no) as latest_date JOIN employees
-ON paydetails.emp_no = latest_date.emp_no AND latest_date.emp_no = employees.emp_no
-AND paydetails.start_date = latest_date.start_date;
+	SELECT previous_date.emp_no, employees.first_name, employees.last_name, previous_date.start_date,
+		paydetails.routing_number, paydetails.account_type, paydetails.bank_name, paydetails.bank_address, paydetails.pay_type_no 
+		FROM paydetails 
+			JOIN (
+				SELECT emp_no, start_date 
+					FROM paydetails 
+						WHERE MONTH(start_date) = MONTH(current_date())
+						AND YEAR(start_date) = YEAR(current_date())) as previous_date
+			JOIN employees
+			ON paydetails.emp_no = previous_date.emp_no
+			AND previous_date.emp_no = employees.emp_no
 
 --/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
---VISTA PARA OBTENER LOS
+--VISTA PARA OBTENER LOS DATOS REGISTRADOS EN LA TABLA paydetails el mes pasado
+
+CREATE VIEW previous_paydetails AS
+	SELECT previous_date.emp_no, employees.first_name, employees.last_name, previous_date.start_date,
+		paydetails.routing_number, paydetails.account_type, paydetails.bank_name, paydetails.bank_address, paydetails.pay_type_no 
+		FROM paydetails 
+			JOIN (
+				SELECT emp_no, start_date 
+					FROM paydetails 
+						WHERE MONTH(start_date) = MONTH(current_date())-1
+						AND YEAR(start_date) = YEAR(current_date())) as previous_date
+			JOIN employees
+			ON paydetails.emp_no = previous_date.emp_no
+			AND previous_date.emp_no = employees.emp_no
+			AND paydetails.start_date = previous_date.start_date;
+
 
 --/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 --VISTA PARA OBTENER LOS DATOS QUE SE MUESTRAN AL EJECUTAR EL PROGRAMA DE NÓMINA

@@ -65,3 +65,23 @@ BEGIN
 
 END //
 DELIMITER ;
+
+
+
+-- Procedimiento para actualizar los paydetails automáticamente al iniciar el sistema de nómina,
+-- asumiendo que se ingresa al sistema al menos una vez al mes.
+-- Es necesario desactivar safe update para ejecutar este
+
+DELIMITER //
+CREATE PROCEDURE update_current_paydetails
+BEGIN
+	IF((SELECT NOT EXISTS(SELECT 1 FROM current_paydetails))AND (SELECT EXISTS(SELECT 1 FROM previous_paydetails))) THEN
+		CREATE TEMPORARY TABLE IF NOT EXISTS temporary_paydetails AS (SELECT * FROM previous_paydetails);
+		UPDATE temporary_paydetails 
+			SET start_date = DATE_ADD(start_date, INTERVAL +1 MONTH);
+		INSERT INTO paydetails(emp_no,start_date,routing_number,account_type,bank_name,bank_address, pay_type_no)
+			(SELECT emp_no, start_date, routing_number, account_type, bank_name, bank_address, pay_type_no 
+				FROM temporary_paydetails);
+	END IF;
+END //
+DELIMITER;
