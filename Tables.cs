@@ -931,7 +931,7 @@ namespace CrudEmployees
             validateDate = true;
 
             Cursor.Current = Cursors.Arrow;
-            
+            //
         }
 
         private void DeleteRecord_Click(object sender, EventArgs e)
