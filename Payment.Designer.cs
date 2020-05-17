@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment));
             this.paymentTable = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -83,8 +83,8 @@
             this.paymentTable.Name = "paymentTable";
             this.paymentTable.ReadOnly = true;
             this.paymentTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paymentTable.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.paymentTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.paymentTable.Size = new System.Drawing.Size(1350, 375);
             this.paymentTable.TabIndex = 23;
@@ -100,7 +100,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 94F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
             this.tableLayoutPanel1.Controls.Add(this.showFields, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.deptPCombo, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.loadDepartment, 3, 0);
@@ -132,7 +132,7 @@
             this.showFields.Image = global::CrudEmployees.Properties.Resources.plus;
             this.showFields.Location = new System.Drawing.Point(3, 3);
             this.showFields.Name = "showFields";
-            this.showFields.Size = new System.Drawing.Size(75, 75);
+            this.showFields.Size = new System.Drawing.Size(74, 75);
             this.showFields.TabIndex = 6;
             this.showFields.UseVisualStyleBackColor = false;
             this.showFields.Click += new System.EventHandler(this.ShowFields_Click);
@@ -143,7 +143,7 @@
             this.deptPCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.deptPCombo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deptPCombo.FormattingEnabled = true;
-            this.deptPCombo.Location = new System.Drawing.Point(165, 84);
+            this.deptPCombo.Location = new System.Drawing.Point(164, 84);
             this.deptPCombo.Name = "deptPCombo";
             this.deptPCombo.Size = new System.Drawing.Size(588, 28);
             this.deptPCombo.TabIndex = 16;
@@ -157,7 +157,7 @@
             this.loadDepartment.Enabled = false;
             this.loadDepartment.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loadDepartment.Image = global::CrudEmployees.Properties.Resources.refresh;
-            this.loadDepartment.Location = new System.Drawing.Point(759, 3);
+            this.loadDepartment.Location = new System.Drawing.Point(758, 3);
             this.loadDepartment.Name = "loadDepartment";
             this.loadDepartment.Size = new System.Drawing.Size(77, 75);
             this.loadDepartment.TabIndex = 12;
@@ -171,7 +171,7 @@
             this.departmentPLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.departmentPLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.departmentPLabel.ForeColor = System.Drawing.Color.White;
-            this.departmentPLabel.Location = new System.Drawing.Point(165, 48);
+            this.departmentPLabel.Location = new System.Drawing.Point(164, 48);
             this.departmentPLabel.Name = "departmentPLabel";
             this.departmentPLabel.Size = new System.Drawing.Size(588, 33);
             this.departmentPLabel.TabIndex = 15;
@@ -184,7 +184,7 @@
             this.editDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editDetails.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editDetails.Image = global::CrudEmployees.Properties.Resources.edit;
-            this.editDetails.Location = new System.Drawing.Point(84, 3);
+            this.editDetails.Location = new System.Drawing.Point(83, 3);
             this.editDetails.Name = "editDetails";
             this.editDetails.Size = new System.Drawing.Size(75, 75);
             this.editDetails.TabIndex = 5;
@@ -197,9 +197,9 @@
             this.deleteRecord.Dock = System.Windows.Forms.DockStyle.Fill;
             this.deleteRecord.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteRecord.Image = global::CrudEmployees.Properties.Resources.rubbish;
-            this.deleteRecord.Location = new System.Drawing.Point(1258, 3);
+            this.deleteRecord.Location = new System.Drawing.Point(1257, 3);
             this.deleteRecord.Name = "deleteRecord";
-            this.deleteRecord.Size = new System.Drawing.Size(89, 75);
+            this.deleteRecord.Size = new System.Drawing.Size(90, 75);
             this.deleteRecord.TabIndex = 6;
             this.deleteRecord.UseVisualStyleBackColor = false;
             this.deleteRecord.Click += new System.EventHandler(this.DeleteRecord_Click);
@@ -209,7 +209,7 @@
             this.registerPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(255)))), ((int)(((byte)(103)))));
             this.registerPayment.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.registerPayment.Image = global::CrudEmployees.Properties.Resources.registerpayment;
-            this.registerPayment.Location = new System.Drawing.Point(842, 3);
+            this.registerPayment.Location = new System.Drawing.Point(841, 3);
             this.registerPayment.Name = "registerPayment";
             this.registerPayment.Size = new System.Drawing.Size(78, 74);
             this.registerPayment.TabIndex = 17;
@@ -223,7 +223,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 33);
+            this.label1.Size = new System.Drawing.Size(74, 33);
             this.label1.TabIndex = 18;
             this.label1.Text = "Add Details";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -233,7 +233,7 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(84, 81);
+            this.label2.Location = new System.Drawing.Point(83, 81);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 33);
             this.label2.TabIndex = 19;
@@ -245,7 +245,7 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(759, 81);
+            this.label4.Location = new System.Drawing.Point(758, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 33);
             this.label4.TabIndex = 20;
@@ -257,7 +257,7 @@
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(842, 81);
+            this.label8.Location = new System.Drawing.Point(841, 81);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 33);
             this.label8.TabIndex = 21;
@@ -269,9 +269,9 @@
             this.label14.AutoSize = true;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(1258, 81);
+            this.label14.Location = new System.Drawing.Point(1257, 81);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(89, 33);
+            this.label14.Size = new System.Drawing.Size(90, 33);
             this.label14.TabIndex = 22;
             this.label14.Text = "Discharge Employee";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -283,7 +283,7 @@
             this.openCrud.Font = new System.Drawing.Font("Source Serif Pro", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.openCrud.ForeColor = System.Drawing.Color.White;
             this.openCrud.Image = ((System.Drawing.Image)(resources.GetObject("openCrud.Image")));
-            this.openCrud.Location = new System.Drawing.Point(926, 3);
+            this.openCrud.Location = new System.Drawing.Point(925, 3);
             this.openCrud.Name = "openCrud";
             this.openCrud.Size = new System.Drawing.Size(76, 75);
             this.openCrud.TabIndex = 23;
@@ -294,7 +294,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label19.Location = new System.Drawing.Point(926, 81);
+            this.label19.Location = new System.Drawing.Point(925, 81);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(76, 33);
             this.label19.TabIndex = 24;

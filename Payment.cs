@@ -134,7 +134,7 @@ namespace CrudEmployees
                 baPText.Text = ds.Tables[0].Rows[0][7].ToString();
                 int ptIndex = paytypeno.IndexOf(ds.Tables[0].Rows[0][8].ToString());
                 ptPCombo.SelectedIndex = ptPCombo.Items.IndexOf(paytype[ptIndex]);
-
+                //linea 1141
                 //ptPCombo.SelectedIndex = 
                 ptPCombo.SelectedIndex = int.Parse(ds.Tables[0].Rows[0][8].ToString())-2001;
                 paydetailsPanel.Visible = true;
