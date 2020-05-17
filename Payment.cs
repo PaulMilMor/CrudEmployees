@@ -21,9 +21,7 @@ namespace CrudEmployees
         {
             InitializeComponent();
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            searchBar.GotFocus += search_GotFocus;
-            searchBar.LostFocus += search_LostFocus;
-
+            
             c = new Conexion();
 
             c.updatePaydetails();
@@ -150,23 +148,7 @@ namespace CrudEmployees
         }
 
 
-        private void search_GotFocus(object sender, EventArgs e)
-        {
-            if(searchBar.Text == "Search by employee number")
-            {
-                searchBar.Text = "";
-            }
-            searchBar.ForeColor = Color.Black;
-        }
-        private void search_LostFocus(object sender, EventArgs e)
-        {
-            if(searchBar.Text == "")
-            {
-                searchBar.Text = "Search by employee number";
-
-            }
-            searchBar.ForeColor = Color.DarkGray;
-        }
+        
 
         private void numText_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -179,50 +161,8 @@ namespace CrudEmployees
             
         }
 
-        private void Search_Click(object sender, EventArgs e)
-        {
-            string table = "payment";
-            int searched;
-            search.Enabled = false;
-            cancelSearch.Enabled = true;
-            try
-            {
-                searched = int.Parse(searchBar.Text);
+        
 
-            }
-            catch (FormatException)
-            {
-                searched = 0;
-            }
-            ds = new DataSet();
-            ds = c.getData(table);
-            paymentTable.DataSource = ds.Tables[table];
-            paymentTable.Columns[0].HeaderText = "Employee Number";
-            paymentTable.Columns[1].HeaderText = "First Name";
-            paymentTable.Columns[2].HeaderText = "Last Name";
-            paymentTable.Columns[3].HeaderText = "Monthly Salary";
-            paymentTable.Columns[4].HeaderText = "Total Bonus";
-            paymentTable.Columns[5].HeaderText = "Total Deductions";
-            paymentTable.Columns[6].HeaderText = "Net Salary";
-
-
-        }
-
-        private void SearchBar_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.Enter)
-            {
-                Search_Click(this, new EventArgs());
-            }
-        }
-
-        private void CancelSearch_Click(object sender, EventArgs e)
-        {
-
-            this.HidePPanel_Click(this, new EventArgs());
-            searchBar.Text = "Search by employee number";
-
-        }
 
         private void HidePPanel_Click(object sender, EventArgs e)
         {
@@ -281,9 +221,11 @@ namespace CrudEmployees
 
         private void LoadEmployees_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             ds = new DataSet();
             ds = c.getPayroll(deptPCombo.SelectedItem.ToString());
             paymentTable.DataSource = ds.Tables[0];
+            paymentTable.Refresh();
             if(paymentTable.Columns.Count < 7)
             {
                 paymentTable.Columns.Add("Column", "Net Salary");
@@ -291,18 +233,31 @@ namespace CrudEmployees
             }
             for (int i = 0; i < paymentTable.Rows.Count; i++)
             {
-                MessageBox.Show(paymentTable[3,i].Value.ToString());
+                MessageBox.Show(
+                    paymentTable[0, i].Value.ToString() + "\n" +
+                    paymentTable[1, i].Value.ToString() + "\n" +
+                    paymentTable[2, i].Value.ToString() + "\n" +
+                    paymentTable[3, i].Value.ToString() + "\n" 
+                    //paymentTable[4, i].Value.ToString() + "\n" 
+                    //paymentTable[5, i].Value.ToString() + "\n" 
+                    //paymentTable[6, i].Value.ToString() + "\n"
+                    );
                 double salary = double.Parse(paymentTable[3, i].Value.ToString());
                 string tbonus = paymentTable[4, i].Value.ToString();
                 string tdeduct = paymentTable[5, i].Value.ToString();
                 if (string.IsNullOrEmpty(tbonus))
                 {
                     paymentTable[4, i].Value = 0;
-                } else if (string.IsNullOrEmpty(tdeduct))
+                    tbonus = "0";
+
+                }
+                if (string.IsNullOrEmpty(tdeduct))
                 {
                     paymentTable[5, i].Value = 0;
+                    tdeduct = "0";
                 }
                 double doublebonus = double.Parse(tbonus);
+                MessageBox.Show(tdeduct);
                 double doublededuct = double.Parse(tdeduct);
                 paymentTable[6, i].Value = salary + doublebonus - doublededuct;
             }
@@ -312,12 +267,13 @@ namespace CrudEmployees
         {
             if(deptPCombo.SelectedIndex == -1)
             {
-                loadEmployees.Enabled = false;
+                loadDepartment.Enabled = false;
             }
             else
             {
-                loadEmployees.Enabled = true;
+                loadDepartment.Enabled = true;
             }
+            Cursor.Current = Cursors.Arrow;
         }
 
         private void DeleteRecord_Click(object sender, EventArgs e)
@@ -351,6 +307,22 @@ namespace CrudEmployees
                     paymentTable.Refresh();
                 }
             }
+        }
+
+        private void RegisterPayment_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            if(paymentTable.Rows.Count > 0)
+            {
+                for (int i = 0; i < paymentTable.Rows.Count; i++)
+                {
+                    int empno = Convert.ToInt32(paymentTable.Rows[i].Cells[0].Value);
+                    double payamount = Convert.ToDouble(paymentTable.Rows[i].Cells[6].Value);
+                    c.insertPayment(empno, payamount);
+                }
+                MessageBox.Show("Payment registered successfully.");
+            }
+            Cursor.Current = Cursors.Arrow;
         }
     }
 }

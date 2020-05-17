@@ -73,7 +73,7 @@ DELIMITER ;
 -- Es necesario desactivar safe update para ejecutar este
 
 DELIMITER //
-CREATE PROCEDURE update_current_paydetails
+CREATE PROCEDURE update_current_paydetails()
 BEGIN
 	IF((SELECT NOT EXISTS(SELECT 1 FROM current_paydetails))AND (SELECT EXISTS(SELECT 1 FROM previous_paydetails))) THEN
 		CREATE TEMPORARY TABLE IF NOT EXISTS temporary_paydetails AS (SELECT * FROM previous_paydetails);
@@ -84,4 +84,17 @@ BEGIN
 				FROM temporary_paydetails);
 	END IF;
 END //
-DELIMITER;
+DELIMITER ;
+
+--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-- Procedimiento para insertar una fila en payhistory
+
+DELIMITER //
+CREATE PROCEDURE insert_payhistory(IN empno INTEGER, IN payamount INTEGER)
+BEGIN
+	
+	INSERT INTO payhistory(pay_no, emp_no, pay_date, check_number, pay_amount)
+	VALUES(max_pay_no(), empno, current_date(), max_check_number(), payamount);
+
+END //
+DELIMITER ;

@@ -1512,6 +1512,7 @@ namespace CrudEmployees
 
         private void OpenPayment_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             /*new Payment().Show();
             this.Hide();*/
             var Payment = new Payment();

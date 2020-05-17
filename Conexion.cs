@@ -972,6 +972,29 @@ namespace CrudEmployees
             }
         }
 
+        public void insertPayment(int empno, double payamount)
+        {
+            
+            try
+            {
+                if (this.OpenConnection() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = connection;
+                    cmd.CommandText = "insert_payhistory";
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new MySqlParameter("empno", empno));
+                    cmd.Parameters.Add(new MySqlParameter("payamount", payamount));
+                    cmd.ExecuteNonQuery();
+                    
+                }
+                
+            } catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
 
 
     }

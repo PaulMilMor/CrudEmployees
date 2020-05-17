@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.paymentTable = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.showFields = new System.Windows.Forms.Button();
-            this.search = new System.Windows.Forms.Button();
-            this.searchBar = new System.Windows.Forms.TextBox();
+            this.deptPCombo = new System.Windows.Forms.ComboBox();
+            this.loadDepartment = new System.Windows.Forms.Button();
+            this.departmentPLabel = new System.Windows.Forms.Label();
             this.editDetails = new System.Windows.Forms.Button();
             this.deleteRecord = new System.Windows.Forms.Button();
-            this.cancelSearch = new System.Windows.Forms.Button();
+            this.registerPayment = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -62,13 +63,9 @@
             this.ptPCombo = new System.Windows.Forms.ComboBox();
             this.hidePPanel = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.loadEmployees = new System.Windows.Forms.Button();
-            this.deptPCombo = new System.Windows.Forms.ComboBox();
-            this.departmentPLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.paymentTable)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.paydetailsPanel.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // paymentTable
@@ -85,8 +82,8 @@
             this.paymentTable.Name = "paymentTable";
             this.paymentTable.ReadOnly = true;
             this.paymentTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paymentTable.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentTable.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.paymentTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.paymentTable.Size = new System.Drawing.Size(1350, 375);
             this.paymentTable.TabIndex = 23;
@@ -101,13 +98,14 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 226F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
             this.tableLayoutPanel1.Controls.Add(this.showFields, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.search, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.searchBar, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.deptPCombo, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.loadDepartment, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.departmentPLabel, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.editDetails, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.deleteRecord, 7, 0);
-            this.tableLayoutPanel1.Controls.Add(this.cancelSearch, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.registerPayment, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 3, 1);
@@ -132,37 +130,50 @@
             this.showFields.Image = global::CrudEmployees.Properties.Resources.plus;
             this.showFields.Location = new System.Drawing.Point(3, 3);
             this.showFields.Name = "showFields";
-            this.showFields.Size = new System.Drawing.Size(71, 75);
+            this.showFields.Size = new System.Drawing.Size(70, 75);
             this.showFields.TabIndex = 6;
             this.showFields.UseVisualStyleBackColor = false;
             this.showFields.Click += new System.EventHandler(this.ShowFields_Click);
             // 
-            // search
+            // deptPCombo
             // 
-            this.search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
-            this.search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.search.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.search.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search.Location = new System.Drawing.Point(777, 3);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(77, 75);
-            this.search.TabIndex = 12;
-            this.search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.search.UseVisualStyleBackColor = false;
-            this.search.Click += new System.EventHandler(this.Search_Click);
+            this.deptPCombo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deptPCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.deptPCombo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deptPCombo.FormattingEnabled = true;
+            this.deptPCombo.Location = new System.Drawing.Point(155, 84);
+            this.deptPCombo.Name = "deptPCombo";
+            this.deptPCombo.Size = new System.Drawing.Size(613, 28);
+            this.deptPCombo.TabIndex = 16;
+            this.deptPCombo.SelectedIndexChanged += new System.EventHandler(this.DeptPCombo_SelectedIndexChanged);
             // 
-            // searchBar
+            // loadDepartment
             // 
-            this.searchBar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.searchBar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBar.ForeColor = System.Drawing.Color.DarkGray;
-            this.searchBar.Location = new System.Drawing.Point(158, 52);
-            this.searchBar.Name = "searchBar";
-            this.searchBar.Size = new System.Drawing.Size(613, 26);
-            this.searchBar.TabIndex = 16;
-            this.searchBar.Text = "Search by employee number";
-            this.searchBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBar_KeyDown);
-            this.searchBar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numText_KeyPress);
+            this.loadDepartment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
+            this.loadDepartment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.loadDepartment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loadDepartment.Enabled = false;
+            this.loadDepartment.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loadDepartment.Location = new System.Drawing.Point(774, 3);
+            this.loadDepartment.Name = "loadDepartment";
+            this.loadDepartment.Size = new System.Drawing.Size(77, 75);
+            this.loadDepartment.TabIndex = 12;
+            this.loadDepartment.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.loadDepartment.UseVisualStyleBackColor = false;
+            this.loadDepartment.Click += new System.EventHandler(this.LoadEmployees_Click);
+            // 
+            // departmentPLabel
+            // 
+            this.departmentPLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
+            this.departmentPLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.departmentPLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.departmentPLabel.ForeColor = System.Drawing.Color.White;
+            this.departmentPLabel.Location = new System.Drawing.Point(155, 48);
+            this.departmentPLabel.Name = "departmentPLabel";
+            this.departmentPLabel.Size = new System.Drawing.Size(613, 33);
+            this.departmentPLabel.TabIndex = 15;
+            this.departmentPLabel.Text = "Department";
+            this.departmentPLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // editDetails
             // 
@@ -170,9 +181,9 @@
             this.editDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editDetails.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editDetails.Image = global::CrudEmployees.Properties.Resources.configuration;
-            this.editDetails.Location = new System.Drawing.Point(80, 3);
+            this.editDetails.Location = new System.Drawing.Point(79, 3);
             this.editDetails.Name = "editDetails";
-            this.editDetails.Size = new System.Drawing.Size(72, 75);
+            this.editDetails.Size = new System.Drawing.Size(70, 75);
             this.editDetails.TabIndex = 5;
             this.editDetails.UseVisualStyleBackColor = false;
             this.editDetails.Click += new System.EventHandler(this.EditDetails_Click);
@@ -183,24 +194,24 @@
             this.deleteRecord.Dock = System.Windows.Forms.DockStyle.Fill;
             this.deleteRecord.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteRecord.Image = global::CrudEmployees.Properties.Resources.rubbish;
-            this.deleteRecord.Location = new System.Drawing.Point(1252, 3);
+            this.deleteRecord.Location = new System.Drawing.Point(1249, 3);
             this.deleteRecord.Name = "deleteRecord";
-            this.deleteRecord.Size = new System.Drawing.Size(95, 75);
+            this.deleteRecord.Size = new System.Drawing.Size(98, 75);
             this.deleteRecord.TabIndex = 6;
             this.deleteRecord.UseVisualStyleBackColor = false;
             this.deleteRecord.Click += new System.EventHandler(this.DeleteRecord_Click);
             // 
-            // cancelSearch
+            // registerPayment
             // 
-            this.cancelSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.cancelSearch.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelSearch.Image = global::CrudEmployees.Properties.Resources.magnifying_lens_with_handle;
-            this.cancelSearch.Location = new System.Drawing.Point(860, 3);
-            this.cancelSearch.Name = "cancelSearch";
-            this.cancelSearch.Size = new System.Drawing.Size(78, 74);
-            this.cancelSearch.TabIndex = 17;
-            this.cancelSearch.UseVisualStyleBackColor = false;
-            this.cancelSearch.Click += new System.EventHandler(this.CancelSearch_Click);
+            this.registerPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(255)))), ((int)(((byte)(103)))));
+            this.registerPayment.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registerPayment.Image = global::CrudEmployees.Properties.Resources.magnifying_lens_with_handle;
+            this.registerPayment.Location = new System.Drawing.Point(857, 3);
+            this.registerPayment.Name = "registerPayment";
+            this.registerPayment.Size = new System.Drawing.Size(78, 74);
+            this.registerPayment.TabIndex = 17;
+            this.registerPayment.UseVisualStyleBackColor = false;
+            this.registerPayment.Click += new System.EventHandler(this.RegisterPayment_Click);
             // 
             // label1
             // 
@@ -209,7 +220,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 33);
+            this.label1.Size = new System.Drawing.Size(70, 33);
             this.label1.TabIndex = 18;
             this.label1.Text = "Add Details";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -219,9 +230,9 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(80, 81);
+            this.label2.Location = new System.Drawing.Point(79, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 33);
+            this.label2.Size = new System.Drawing.Size(70, 33);
             this.label2.TabIndex = 19;
             this.label2.Text = "Edit Details";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -231,11 +242,11 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(777, 81);
+            this.label4.Location = new System.Drawing.Point(774, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 33);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Search";
+            this.label4.Text = "Load Department";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
@@ -243,11 +254,11 @@
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(860, 81);
+            this.label8.Location = new System.Drawing.Point(857, 81);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 33);
             this.label8.TabIndex = 21;
-            this.label8.Text = "Clear Search";
+            this.label8.Text = "Register Payment";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label14
@@ -255,9 +266,9 @@
             this.label14.AutoSize = true;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(1252, 81);
+            this.label14.Location = new System.Drawing.Point(1249, 81);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(95, 33);
+            this.label14.Size = new System.Drawing.Size(98, 33);
             this.label14.TabIndex = 22;
             this.label14.Text = "Discharge Employee";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -268,7 +279,7 @@
             this.openCrud.Dock = System.Windows.Forms.DockStyle.Fill;
             this.openCrud.Font = new System.Drawing.Font("Source Serif Pro", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.openCrud.ForeColor = System.Drawing.Color.White;
-            this.openCrud.Location = new System.Drawing.Point(944, 3);
+            this.openCrud.Location = new System.Drawing.Point(941, 3);
             this.openCrud.Name = "openCrud";
             this.openCrud.Size = new System.Drawing.Size(76, 75);
             this.openCrud.TabIndex = 23;
@@ -279,7 +290,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label19.Location = new System.Drawing.Point(944, 81);
+            this.label19.Location = new System.Drawing.Point(941, 81);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(76, 33);
             this.label19.TabIndex = 24;
@@ -525,54 +536,12 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 281F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.loadEmployees, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.deptPCombo, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.departmentPLabel, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 315);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1350, 33);
             this.tableLayoutPanel2.TabIndex = 26;
-            // 
-            // loadEmployees
-            // 
-            this.loadEmployees.BackColor = System.Drawing.Color.Transparent;
-            this.loadEmployees.Enabled = false;
-            this.loadEmployees.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loadEmployees.Location = new System.Drawing.Point(623, 3);
-            this.loadEmployees.Name = "loadEmployees";
-            this.loadEmployees.Size = new System.Drawing.Size(260, 27);
-            this.loadEmployees.TabIndex = 17;
-            this.loadEmployees.Text = "Load Employees";
-            this.loadEmployees.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.loadEmployees.UseVisualStyleBackColor = false;
-            this.loadEmployees.Click += new System.EventHandler(this.LoadEmployees_Click);
-            // 
-            // deptPCombo
-            // 
-            this.deptPCombo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deptPCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.deptPCombo.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deptPCombo.FormattingEnabled = true;
-            this.deptPCombo.Location = new System.Drawing.Point(266, 3);
-            this.deptPCombo.Name = "deptPCombo";
-            this.deptPCombo.Size = new System.Drawing.Size(351, 28);
-            this.deptPCombo.TabIndex = 16;
-            this.deptPCombo.SelectedIndexChanged += new System.EventHandler(this.DeptPCombo_SelectedIndexChanged);
-            // 
-            // departmentPLabel
-            // 
-            this.departmentPLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(114)))), ((int)(((byte)(255)))));
-            this.departmentPLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.departmentPLabel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.departmentPLabel.ForeColor = System.Drawing.Color.White;
-            this.departmentPLabel.Location = new System.Drawing.Point(3, 0);
-            this.departmentPLabel.Name = "departmentPLabel";
-            this.departmentPLabel.Size = new System.Drawing.Size(257, 33);
-            this.departmentPLabel.TabIndex = 15;
-            this.departmentPLabel.Text = "Department";
-            this.departmentPLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // Payment
             // 
@@ -592,7 +561,6 @@
             this.tableLayoutPanel1.PerformLayout();
             this.paydetailsPanel.ResumeLayout(false);
             this.paydetailsPanel.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -601,11 +569,9 @@
         private System.Windows.Forms.DataGridView paymentTable;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button showFields;
-        private System.Windows.Forms.Button search;
-        private System.Windows.Forms.TextBox searchBar;
         private System.Windows.Forms.Button editDetails;
         private System.Windows.Forms.Button deleteRecord;
-        private System.Windows.Forms.Button cancelSearch;
+        private System.Windows.Forms.Button registerPayment;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
@@ -633,6 +599,6 @@
         private System.Windows.Forms.ComboBox ptPCombo;
         private System.Windows.Forms.ComboBox deptPCombo;
         private System.Windows.Forms.Label departmentPLabel;
-        private System.Windows.Forms.Button loadEmployees;
+        private System.Windows.Forms.Button loadDepartment;
     }
 }
