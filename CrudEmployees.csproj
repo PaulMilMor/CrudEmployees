@@ -92,22 +92,34 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="magnifying-lens-with-handle.png" />
+    <None Include="Icons\plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="rubbish.png" />
+    <None Include="Icons\edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="configuration.png" />
+    <None Include="Icons\rubbish.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="plus.png" />
+    <None Include="Icons\search.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="plusmini.png" />
+    <None Include="Icons\plusmini.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="toxic.png" />
+    <None Include="Icons\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\payroll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\registerpayment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\crud.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -129,7 +129,7 @@ namespace CrudEmployees
             {
                 Console.WriteLine(deptno);
             }
-            c.getBonus();
+            
         }
         private void setData(string table)
         {

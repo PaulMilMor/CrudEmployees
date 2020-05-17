@@ -98,3 +98,52 @@ BEGIN
 
 END //
 DELIMITER ;
+
+
+--////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-- Procedimiento para obtener el id de un departamento
+
+DELIMITER //
+CREATE PROCEDURE get_dept_no(IN deptname VARCHAR(40))
+BEGIN
+	
+	SELECT dept_no FROM departments WHERE dept_name = deptname;
+
+END //
+DELIMITER ;
+
+--////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-- Procedimiento para obtener el id de un bonus
+
+DELIMITER //
+CREATE PROCEDURE get_bonus_no(IN bonusname VARCHAR(40))
+BEGIN
+	
+	SELECT bonus_type_no FROM bonustype WHERE bonus_description = bonusname;
+
+END //
+DELIMITER ;
+
+--////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-- Procedimiento para obtener el id de una deducción
+
+DELIMITER //
+CREATE PROCEDURE get_deduct_no(IN deductname VARCHAR(40))
+BEGIN
+	
+	SELECT deduct_type_no FROM deducttype WHERE deduct_description = deductname;
+
+END //
+DELIMITER ;
+
+--////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-- Procedimiento para obtener el id de un paytype
+
+DELIMITER //
+CREATE PROCEDURE get_pay_no(IN payname VARCHAR(40))
+BEGIN
+	
+	SELECT pay_type_no FROM paytype WHERE pay_type_description = payname;
+
+END //
+DELIMITER ;

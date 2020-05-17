@@ -863,8 +863,8 @@ namespace CrudEmployees
             else
             {
                 return bonustype;
-            }
 
+            }
 
         }
         public List<String> getDeductType()
@@ -913,6 +913,138 @@ namespace CrudEmployees
             }
 
 
+        }
+        public List<String> getAllids(string table)
+        {
+            List<String> allids = new List<string>();
+            String query = "";
+            string column = "";
+            switch (table)
+            {
+                case "departments":
+                    query = "SELECT DISTINCT dept_no FROM departments ORDER BY dept_no";
+                    column = "dept_no";
+                    break;
+                case "bonustype":
+                    query = "SELECT DISTINCT bonus_type_no FROM bonustype ORDER BY bonus_type_no";
+                    column = "bonus_type_no";
+                    break;
+                case "deducttype":
+                    query = "SELECT DISTINCT deduct_type_no FROM deducttype ORDER BY deduct_type_no";
+                    column = "deduct_type_no";
+                    break;
+                case "paytype":
+                    query = "SELECT DISTINCT pay_type_no FROM paytype ORDER BY pay_type_no";
+                    column = "pay_type_no";
+                    break;
+            }
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    allids.Add(""+dataReader[column]);
+                }
+                dataReader.Close();
+                this.CloseConnection();
+                return allids;
+            }
+            else
+            {
+                return allids;
+            }
+        }
+
+        public List<String> getNames(string table)
+        {
+            List<String> names = new List<string>();
+            String query = "";
+            string column = "";
+            switch (table)
+            {
+                case "departments":
+                    query = "SELECT DISTINCT dept_name FROM departments ORDER BY dept_no";
+                    column = "dept_name";
+                    break;
+                case "bonustype":
+                    query = "SELECT DISTINCT bonus_description FROM bonustype ORDER BY bonus_type_no";
+                    column = "bonus_description";
+                    break;
+                case "deducttype":
+                    query = "SELECT DISTINCT deduct_description FROM deducttype ORDER BY deduct_type_no";
+                    column = "deduct_description";
+                    break;
+                case "paytype":
+                    query = "SELECT DISTINCT pay_type_description FROM paytype ORDER BY pay_type_no";
+                    column = "pay_type_description";
+                    break;
+            }
+                    if (this.OpenConnection() == true)
+                    {
+                        MySqlCommand cmd = new MySqlCommand(query, connection);
+                        MySqlDataReader dataReader = cmd.ExecuteReader();
+                        while (dataReader.Read())
+                        {
+                            names.Add((string)dataReader[column]);
+                        }
+                        dataReader.Close();
+                        this.CloseConnection();
+                        return names;
+                    }
+                    else
+                    {
+                        return names;
+                    }
+            
+        }
+
+        public String getID(string table, string name)
+        {
+            String procedure = "";
+            String parameter = "";
+            String column = "";
+            string id = "";
+            switch (table)
+            {
+                case "departments":
+                    procedure = "get_dept_no";
+                    parameter = "deptname";
+                    column = "dept_no";
+                    break;
+                case "bonustype":
+                    procedure = "get_bonus_no";
+                    parameter = "bonusname";
+                    column = "bonus_type_no";
+                    break;
+                case "deducttype":
+                    procedure = "get_deduct_no";
+                    parameter = "deductname";
+                    column = "deduct_type_no";
+                    break;
+                case "paytype":
+                    procedure = "get_pay_no";
+                    parameter = "payname";
+                    column = "pay_type_no";
+                    break;
+            }
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = procedure;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new MySqlParameter(parameter, name));
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    id = ""+dataReader[column];
+                }
+                dataReader.Close();
+                this.CloseConnection();
+                return id;
+            }
+            return id;
         }
 
         public void getBonus()
