@@ -239,7 +239,7 @@ namespace CrudEmployees
             }
             for (int i = 0; i < paymentTable.Rows.Count; i++)
             {
-               
+                MessageBox.Show(paymentTable[3, i].Value.ToString());
                 double salary = double.Parse(paymentTable[3, i].Value.ToString());
                 string tbonus = paymentTable[4, i].Value.ToString();
                 string tdeduct = paymentTable[5, i].Value.ToString();

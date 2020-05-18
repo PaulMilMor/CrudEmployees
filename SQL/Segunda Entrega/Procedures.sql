@@ -1,38 +1,5 @@
---Procedimiento para obtener los bonus de un empleado específico
---en el mes que se va a pagar
-
-DELIMITER //
-CREATE PROCEDURE get_current_bonus(IN selectedemp INTEGER)
-BEGIN 
-	SELECT 
-		(SELECT bonus_description FROM bonustype WHERE bonustype.bonus_type_no = bonus.bonus_type_no) 
-        AS currentbonus, bonus_amount
-		FROM bonus 
-			WHERE MONTH(bonus_date) = MONTH(current_date()) 
-			AND YEAR(bonus_date) = YEAR(current_date()) 
-			AND emp_no = selectedemp;
-END //
-DELIMITER ;
-
---Procedimiento para obtener las deducciones de un empleado específico
---en el mes que se va a pagar
-
-
-
-DELIMITER //
-CREATE PROCEDURE get_current_deducts(IN selectedemp INTEGER)
-BEGIN 
-	SELECT 
-		(SELECT deduct_description FROM deducttype WHERE deducttype.deduct_type_no = deduction.deduct_type_no) 
-        AS currentdeduct, deduct_amount
-		FROM deduction 
-			WHERE MONTH(deduct_date) = MONTH(current_date()) 
-			AND YEAR(deduct_date) = YEAR(current_date()) 
-			AND emp_no = selectedemp;
-END //
-DELIMITER ;
-
---Procedimiento para obtener los datos que se muestran en la nómina
+#//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#Procedimiento para obtener los datos que se muestran en la nómina
 
 DELIMITER //
 CREATE PROCEDURE get_payroll_details(IN deptno VARCHAR(4))
@@ -67,10 +34,10 @@ END //
 DELIMITER ;
 
 
-
--- Procedimiento para actualizar los paydetails automáticamente al iniciar el sistema de nómina,
--- asumiendo que se ingresa al sistema al menos una vez al mes.
--- Es necesario desactivar safe update para ejecutar este
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Procedimiento para actualizar los paydetails automáticamente al iniciar el sistema de nómina,
+# asumiendo que se ingresa al sistema al menos una vez al mes.
+# Es necesario desactivar safe update para ejecutar este
 
 DELIMITER //
 CREATE PROCEDURE update_current_paydetails()
@@ -86,8 +53,8 @@ BEGIN
 END //
 DELIMITER ;
 
---/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
--- Procedimiento para insertar una fila en payhistory
+#/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Procedimiento para insertar una fila en payhistory
 
 DELIMITER //
 CREATE PROCEDURE insert_payhistory(IN empno INTEGER, IN payamount INTEGER)
@@ -100,8 +67,8 @@ END //
 DELIMITER ;
 
 
---////////////////////////////////////////////////////////////////////////////////////////////////////////////////
--- Procedimiento para obtener el id de un departamento
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Procedimiento para obtener el id de un departamento
 
 DELIMITER //
 CREATE PROCEDURE get_dept_no(IN deptname VARCHAR(40))
@@ -112,8 +79,8 @@ BEGIN
 END //
 DELIMITER ;
 
---////////////////////////////////////////////////////////////////////////////////////////////////////////////////
--- Procedimiento para obtener el id de un bonus
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Procedimiento para obtener el id de un bonus
 
 DELIMITER //
 CREATE PROCEDURE get_bonus_no(IN bonusname VARCHAR(40))
@@ -124,8 +91,8 @@ BEGIN
 END //
 DELIMITER ;
 
---////////////////////////////////////////////////////////////////////////////////////////////////////////////////
--- Procedimiento para obtener el id de una deducción
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Procedimiento para obtener el id de una deducción
 
 DELIMITER //
 CREATE PROCEDURE get_deduct_no(IN deductname VARCHAR(40))
@@ -136,8 +103,8 @@ BEGIN
 END //
 DELIMITER ;
 
---////////////////////////////////////////////////////////////////////////////////////////////////////////////////
--- Procedimiento para obtener el id de un paytype
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+# Procedimiento para obtener el id de un paytype
 
 DELIMITER //
 CREATE PROCEDURE get_pay_no(IN payname VARCHAR(40))

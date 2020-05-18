@@ -721,8 +721,13 @@ namespace CrudEmployees
 
         private void hideFields_Click(object sender, EventArgs e)
         {
+
             int index = tabControl1.SelectedIndex;
-            panels[index].Visible = false;
+            if(index < 9)
+            {
+                panels[index].Visible = false;
+
+            }
             tables[index].Enabled = true;
             switch (index)
             {

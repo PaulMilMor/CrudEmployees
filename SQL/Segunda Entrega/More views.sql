@@ -1,5 +1,5 @@
---////////////////////////////////////////////////////////////////////////////////////////////////////////////////
---VISTA PARA OBTENER LOS ÚLTIMOS DATOS REGISTRADOS EN LA TABLA paydetails
+#////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#VISTA PARA OBTENER LOS ÚLTIMOS DATOS REGISTRADOS EN LA TABLA paydetails
 
 CREATE VIEW current_paydetails AS
 	SELECT previous_date.emp_no, employees.first_name, employees.last_name, previous_date.start_date,
@@ -12,10 +12,10 @@ CREATE VIEW current_paydetails AS
 						AND YEAR(start_date) = YEAR(current_date())) as previous_date
 			JOIN employees
 			ON paydetails.emp_no = previous_date.emp_no
-			AND previous_date.emp_no = employees.emp_no
+			AND previous_date.emp_no = employees.emp_no;
 
---/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
---VISTA PARA OBTENER LOS DATOS REGISTRADOS EN LA TABLA paydetails el mes pasado
+#/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#VISTA PARA OBTENER LOS DATOS REGISTRADOS EN LA TABLA paydetails el mes pasado
 
 CREATE VIEW previous_paydetails AS
 	SELECT previous_date.emp_no, employees.first_name, employees.last_name, previous_date.start_date,
@@ -32,31 +32,18 @@ CREATE VIEW previous_paydetails AS
 			AND paydetails.start_date = previous_date.start_date;
 
 
---/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
---VISTA PARA OBTENER LOS DATOS QUE SE MUESTRAN AL EJECUTAR EL PROGRAMA DE NÓMINA
+#/////////////////////////////////////////////////////////////////
+#Nueva vista para los managers, ya que la anterior era poco efectiva
 
-CREATE VIEW payroll_details AS
-SELECT current_paydetails.emp_no, current_paydetails.first_name, current_paydetails.last_name,
-		(
-		SELECT salary 
-			FROM current_salaries
-				WHERE current_salaries.emp_no = current_paydetails.emp_no
-		) /12 AS salary,
-		(
-		SELECT SUM(bonus_amount) 
-			FROM bonus 
-				WHERE bonus.emp_no = current_paydetails.emp_no
-					AND MONTH(bonus.bonus_date) = MONTH(current_date()) 
-					AND YEAR(bonus.bonus_date) = YEAR(current_date())
-				GROUP BY bonus.emp_no 
-		) AS totalbonus,
-		(
-		SELECT SUM(deduct_amount) 
-			FROM deduction 
-				WHERE deduction.emp_no = current_paydetails.emp_no
-					AND MONTH(deduction.deduct_date) = MONTH(current_date()) 
-					AND YEAR(deduction.deduct_date) = YEAR(current_date())
-				GROUP BY deduction.emp_no 
-
-		) AS totaldeduct
-	FROM current_paydetails WHERE emp_no in (SELECT emp_no FROM current_deptemp WHERE dept_no = 'd003');
+CREATE VIEW current_managers AS
+	SELECT emp_no, (
+					SELECT first_name 
+                    FROM employees
+                    WHERE employees.emp_no = dept_manager.emp_no
+                    ) AS first_name,
+                    ( 
+                    SELECT last_name
+                    FROM employees
+                    WHERE employees.emp_no = dept_manager.emp_no
+                    ) AS last_name, dept_no, from_date, to_date
+				FROM dept_manager;

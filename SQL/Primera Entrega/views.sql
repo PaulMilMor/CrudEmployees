@@ -35,14 +35,15 @@ AND salaries.from_date = latest_date.from_date AND salaries.to_date = latest_dat
 
 
 #//////////////////////////////////////////////////////////////////////////////
+#Esta vista está deprecada vease el archivo SQL/Segunda Entrega/More views.sql para consultar una nueva versión
 
 
-CREATE VIEW current_managers AS
-SELECT dept_manager.emp_no, employees.first_name, employees.last_name, latest_date.dept_no, latest_date.from_date, latest_date.to_date
-FROM dept_manager JOIN (SELECT dept_no, MAX(from_date) AS from_date, MAX(to_date) AS to_date
-FROM dept_manager GROUP BY dept_no) AS latest_date JOIN employees
-ON dept_manager.dept_no = latest_date.dept_no AND dept_manager.emp_no = employees.emp_no
-AND dept_manager.from_date = latest_date.from_date AND dept_manager.to_date = latest_date.to_date;
+#CREATE VIEW current_managers AS
+#SELECT dept_manager.emp_no, employees.first_name, employees.last_name, latest_date.dept_no, latest_date.from_date, latest_date.to_date
+#FROM dept_manager JOIN (SELECT dept_no, MAX(from_date) AS from_date, MAX(to_date) AS to_date
+#FROM dept_manager GROUP BY dept_no) AS latest_date JOIN employees
+#ON dept_manager.dept_no = latest_date.dept_no AND dept_manager.emp_no = employees.emp_no
+#AND dept_manager.from_date = latest_date.from_date AND dept_manager.to_date = latest_date.to_date;
 
 
 
