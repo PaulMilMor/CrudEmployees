@@ -222,6 +222,12 @@ namespace CrudEmployees
         private void LoadEmployees_Click(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.WaitCursor;
+            paymentTable.DataSource = null;
+            if(paymentTable.Columns.Count == 1)
+            {
+                paymentTable.Columns.Remove(paymentTable.Columns[0]);
+                paymentTable.Refresh();
+            }
             ds = new DataSet();
             ds = c.getPayroll(c.getID("departments",deptPCombo.SelectedItem.ToString()));
             paymentTable.DataSource = ds.Tables[0];
@@ -239,7 +245,6 @@ namespace CrudEmployees
             }
             for (int i = 0; i < paymentTable.Rows.Count; i++)
             {
-                MessageBox.Show(paymentTable[3, i].Value.ToString());
                 double salary = double.Parse(paymentTable[3, i].Value.ToString());
                 string tbonus = paymentTable[4, i].Value.ToString();
                 string tdeduct = paymentTable[5, i].Value.ToString();
